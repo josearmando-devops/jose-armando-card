@@ -2,116 +2,217 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>José Armando</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg: #000000;
+  --bg: #000;
   --card: rgba(255,255,255,0.04);
-  --text: #ffffff;
+  --text: #fff;
   --sub: #9ca3af;
 }
-* {margin:0;padding:0;box-sizing:border-box}
-body {
-  font-family: 'Inter', sans-serif;
-  background: radial-gradient(circle at top, #000000, #020617);
-  color: var(--text);
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Inter',sans-serif;
+  background: radial-gradient(circle at top,#000,#020617);
+  color:var(--text);
 }
-.container {max-width: 420px;margin: auto;padding: 16px;}
-.hero {min-height: 75vh;display:flex;align-items:center;justify-content:center;}
-.card {
-  background: var(--card);
-  backdrop-filter: blur(20px);
-  border-radius: 22px;
-  padding: 26px;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+
+.container{max-width:420px;margin:auto;padding:16px}
+
+.hero{min-height:75vh;display:flex;align-items:center;justify-content:center}
+
+.card{
+  background:var(--card);
+  backdrop-filter:blur(20px);
+  border-radius:22px;
+  padding:26px;
+  box-shadow:0 30px 80px rgba(0,0,0,.8);
   text-align:center;
 }
-.profile {
-  width: 80px;height: 80px;border-radius: 50%;margin-bottom: 16px;
-  object-fit: cover;border: 1px solid rgba(255,255,255,0.1);
+
+.profile{
+  width:80px;height:80px;border-radius:50%;
+  margin-bottom:16px;
+  object-fit:cover;
+  border:1px solid rgba(255,255,255,.1);
 }
-h1 {font-size: 26px;font-weight: 600;}
-.subtitle {color: var(--sub);font-size: 14px;margin-top: 4px;}
-.tagline {margin-top: 14px;font-size: 15px;line-height: 1.5;}
-.buttons {margin-top: 20px;display:flex;flex-direction:column;gap:10px;}
-.btn {padding: 13px;border-radius: 12px;font-size: 14px;border:none;cursor:pointer;transition:0.2s;}
-.btn-primary {background: #111827;color: white;border: 1px solid rgba(255,255,255,0.1);}
-.btn-secondary {background: rgba(255,255,255,0.05);color: #d4d4d8;}
-.btn:active {transform: scale(0.97);}
-.section {margin-top: 18px;}
-.list {display:flex;flex-direction:column;gap:8px;}
-.item {background: rgba(255,255,255,0.04);padding:11px;border-radius:10px;font-size:13px;color:var(--sub);}
-.links {display:flex;flex-direction:column;gap:10px;margin-top:16px;}
-.link {text-decoration:none;color:white;padding:13px;border-radius:12px;background: rgba(255,255,255,0.05);text-align:center;font-size:14px;}
-.cta {margin-top:25px;text-align:center;}
-.fade {opacity:0;transform: translateY(15px);transition:0.5s;}
-.fade.show {opacity:1;transform: translateY(0);}
+
+h1{font-size:26px;font-weight:600}
+
+.subtitle{color:var(--sub);font-size:14px;margin-top:4px}
+
+.tagline{margin-top:14px;font-size:15px;line-height:1.5}
+
+.buttons{margin-top:20px;display:flex;flex-direction:column;gap:10px}
+
+.btn{
+  padding:14px;
+  border-radius:12px;
+  font-size:14px;
+  border:none;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.btn-primary{
+  background:#111827;
+  color:white;
+  border:1px solid rgba(255,255,255,.1);
+}
+
+.btn-secondary{
+  background:rgba(255,255,255,.05);
+  color:#d4d4d8;
+}
+
+.btn:active{transform:scale(.97)}
+
+.section{margin-top:18px}
+
+.list{display:flex;flex-direction:column;gap:8px}
+
+.item{
+  background:rgba(255,255,255,.04);
+  padding:11px;
+  border-radius:10px;
+  font-size:13px;
+  color:var(--sub);
+}
+
+.links{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:16px;
+}
+
+.link{
+  text-decoration:none;
+  color:white;
+  padding:14px;
+  border-radius:12px;
+  background:rgba(255,255,255,.05);
+  text-align:center;
+}
+
+.input{
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  border:none;
+  background:rgba(255,255,255,.05);
+  color:white;
+  margin-top:10px;
+}
+
+.fade{
+  opacity:0;
+  transform:translateY(15px);
+  transition:.5s;
+}
+
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
 </style>
 </head>
 
 <body>
 
 <section class="hero">
-  <div class="container">
-    <div class="card fade">
+<div class="container">
+<div class="card fade">
 
-      <img src="https://via.placeholder.com/200" class="profile">
+<img src="https://via.placeholder.com/200" class="profile">
 
-      <h1>José Armando</h1>
-      <div class="subtitle">Supply Chain & Operations Consultant</div>
+<h1>José Armando</h1>
+<div class="subtitle">Supply Chain & Operations Consultant</div>
 
-      <p class="tagline">
-        Reduzco costos operativos y optimizo tu supply chain en semanas, no meses.
-      </p>
+<p class="tagline">
+Descarga mi CV y descubre cómo optimizo operaciones en semanas, no meses.
+</p>
 
-      <div class="buttons">
-        <button class="btn btn-primary" onclick="downloadVCF()">Guardar y hablar conmigo</button>
-        <a href="#" class="btn btn-secondary">Ver CV</a>
-      </div>
+<div class="buttons">
+<a href="cv.pdf" download class="btn btn-primary">Descargar CV</a>
+<a href="cv.pdf" target="_blank" class="btn btn-secondary">Ver CV</a>
+<button class="btn btn-secondary" onclick="sendEmail()">Enviar CV a mi correo</button>
+</div>
 
-    </div>
-  </div>
+</div>
+</div>
 </section>
 
 <section class="container section fade">
-  <div class="list">
-    <div class="item">Optimización de procesos logísticos</div>
-    <div class="item">Reducción de costos operativos</div>
-    <div class="item">Sistemas escalables</div>
-  </div>
+<div class="list">
+<div class="item">Optimización de procesos logísticos</div>
+<div class="item">Reducción de costos operativos</div>
+<div class="item">Sistemas escalables</div>
+</div>
 </section>
 
 <section class="container section fade">
-  <div class="links">
-    <a class="link" href="#">LinkedIn</a>
-    <a class="link" href="https://wa.me/5210000000000?text=Hola%20José,%20quiero%20optimizar%20mi%20operación">WhatsApp</a>
-    <a class="link" href="mailto:correo@ejemplo.com">Email</a>
-  </div>
-</section>
 
-<section class="container cta fade">
-  <h2>Hablemos de tu operación</h2>
-  <br>
-  <a href="https://wa.me/5210000000000?text=Hola%20José,%20quiero%20optimizar%20mi%20operación" class="btn btn-primary">Contactar</a>
+<input id="emailInput" class="input" placeholder="Escribe tu correo para enviarte mi CV">
+
+<div class="buttons">
+<button class="btn btn-primary" onclick="sendCustomEmail()">Enviar CV</button>
+</div>
+
+<div class="links">
+<a class="link" href="https://linkedin.com/in/TU-LINK">LinkedIn</a>
+<a class="link" href="https://wa.me/521XXXXXXXXXX?text=Hola%20José,%20vi%20tu%20perfil%20y%20me%20interesa%20optimizar%20mi%20operación">WhatsApp</a>
+<a class="link" href="mailto:correo@ejemplo.com">Email</a>
+<button class="link" onclick="downloadVCF()">Guardar contacto</button>
+</div>
+
 </section>
 
 <script>
+
 function downloadVCF(){
-const vcf=`BEGIN:VCARD\nVERSION:3.0\nFN:José Armando\nTITLE:Supply Chain & Operations Consultant\nTEL:+5210000000000\nEMAIL:correo@ejemplo.com\nEND:VCARD`;
+const vcf=`BEGIN:VCARD\nVERSION:3.0\nFN:José Armando\nTITLE:Supply Chain & Operations Consultant\nTEL:+521XXXXXXXXXX\nEMAIL:correo@ejemplo.com\nEND:VCARD`;
+
 const blob=new Blob([vcf],{type:'text/vcard'});
 const url=URL.createObjectURL(blob);
+
 const a=document.createElement('a');
-a.href=url;a.download='contacto.vcf';a.click();
+a.href=url;
+a.download='contacto.vcf';
+a.click();
+}
+
+function sendEmail(){
+window.location.href = "mailto:?subject=CV José Armando&body=Te comparto mi CV: https://tusitio.vercel.app/cv.pdf";
+}
+
+function sendCustomEmail(){
+const email = document.getElementById('emailInput').value;
+
+if(!email){
+alert('Ingresa un correo válido');
+return;
+}
+
+window.location.href = `mailto:${email}?subject=CV José Armando&body=Te comparto mi CV: https://tusitio.vercel.app/cv.pdf`;
 }
 
 const obs=new IntersectionObserver(e=>{
-e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('show')})
+e.forEach(x=>{
+if(x.isIntersecting){
+x.target.classList.add('show')
+}
+})
 });
 
 document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+
 </script>
 
 </body>
