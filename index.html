@@ -21,18 +21,8 @@ body{
 font-family:'Inter',sans-serif;
 background:var(--bg);
 color:var(--text);
-overflow-x:hidden;
 }
 
-.bg{
-position:fixed;
-width:100%;
-height:100%;
-z-index:-2;
-background: radial-gradient(circle at 50% 20%, rgba(255,255,255,0.08), transparent 60%);
-}
-
-/* LAYOUT */
 .container{
 max-width:520px;
 margin:auto;
@@ -40,49 +30,39 @@ padding:40px 20px 140px;
 }
 
 /* HERO */
-.hero{margin-bottom:140px;}
-
-.profile{
-width:90px;
-height:90px;
-border-radius:50%;
-margin-bottom:24px;
-border:1px solid var(--line);
-}
+.hero{margin-bottom:120px;}
 
 h1{
-font-size:46px;
+font-size:44px;
 line-height:1.05;
 margin-bottom:20px;
 }
 
 .subtitle{
 color:var(--sub);
-margin-bottom:24px;
+margin-bottom:20px;
 }
 
 .value{
-color:#ccc;
-font-size:17px;
-line-height:1.7;
-margin-bottom:40px;
+color:#cfcfcf;
+line-height:1.6;
+margin-bottom:30px;
 }
 
 /* BUTTONS */
 .btn{
 display:block;
 width:100%;
-padding:16px;
-border-radius:16px;
-margin-bottom:12px;
+padding:15px;
+border-radius:14px;
+margin-bottom:10px;
 text-align:center;
 text-decoration:none;
-transition:.3s;
 }
 
 .btn-primary{
-background:#fff;
-color:#000;
+background:white;
+color:black;
 font-weight:600;
 }
 
@@ -91,106 +71,47 @@ border:1px solid var(--line);
 color:#aaa;
 }
 
-/* STORY */
-.story-wrapper{
-height:350vh;
-}
-
-.story{
-position:sticky;
-top:25vh;
-}
-
-.story-line{
-font-size:22px;
-margin-bottom:28px;
-opacity:0;
-transform:translateY(40px);
-transition:1s;
-}
-
-.story-line.active{
-opacity:1;
-transform:translateY(0);
-}
-
-/* 🎬 CINEMATIC PHOTOS */
-.visual-story{margin-top:160px;}
-
-.photo-block{
-margin-bottom:120px;
-position:relative;
-height:70vh;
-overflow:hidden;
-border-radius:24px;
-}
-
-.photo-block img{
-position:absolute;
-width:100%;
-height:120%;
-object-fit:cover;
-top:-10%;
-left:0;
-filter:brightness(.5);
-transform:scale(1.2);
-transition:1.5s cubic-bezier(.22,1,.36,1);
-}
-
-.photo-block::after{
-content:"";
-position:absolute;
-inset:0;
-background:linear-gradient(to top, rgba(0,0,0,.8), transparent 50%);
-opacity:.8;
-transition:.6s;
-}
-
-.photo-text{
-position:absolute;
-bottom:40px;
-left:24px;
-right:24px;
-font-size:22px;
-line-height:1.4;
-font-weight:500;
-opacity:0;
-transform:translateY(40px);
-transition:1s cubic-bezier(.22,1,.36,1);
-}
-
-.photo-block.active img{
-transform:scale(1);
-filter:brightness(.85);
-}
-
-.photo-block.active::after{
-opacity:.5;
-}
-
-.photo-block.active .photo-text{
-opacity:1;
-transform:translateY(0);
-}
-
-/* cadete más intenso */
-.photo-block:first-child img{
-filter:brightness(.4) contrast(1.2);
-}
-
-/* SECTIONS */
-.section{margin-top:140px;}
+/* SECTION */
+.section{margin-top:120px;}
 
 .section-title{
 font-size:11px;
 letter-spacing:.2em;
 color:var(--sub);
-margin-bottom:24px;
+margin-bottom:20px;
 }
 
+/* APPROACH */
+.approach-block{
+margin-bottom:26px;
+}
+
+.approach-title{
+font-weight:600;
+margin-bottom:6px;
+}
+
+.approach-text{
+color:#aaa;
+font-size:14px;
+line-height:1.5;
+}
+
+/* IMPACT */
+.impact{
+display:flex;
+justify-content:space-between;
+margin-bottom:14px;
+}
+
+.impact strong{
+font-size:18px;
+}
+
+/* EXPERIENCE */
 .engagement{
 border-bottom:1px solid var(--line);
-padding:12px 0;
+padding:10px 0;
 }
 
 /* LOGOS */
@@ -207,7 +128,7 @@ filter:brightness(0) invert(1);
 opacity:.6;
 }
 
-/* 🎓 ACADEMIC */
+/* ACADEMIC */
 .academic-flex{
 display:flex;
 flex-wrap:wrap;
@@ -222,116 +143,138 @@ filter:brightness(0) invert(1);
 opacity:.4;
 }
 
-/* INPUT */
+/* PHOTOS */
+.photo-block{
+margin-bottom:100px;
+height:60vh;
+overflow:hidden;
+border-radius:20px;
+position:relative;
+}
+
+.photo-block img{
+width:100%;
+height:100%;
+object-fit:cover;
+filter:brightness(.7);
+}
+
+.photo-text{
+position:absolute;
+bottom:20px;
+left:20px;
+right:20px;
+font-size:20px;
+}
+
+/* CONTACT */
 input{
 width:100%;
 padding:14px;
-border-radius:14px;
+border-radius:12px;
 border:1px solid #222;
 background:#0b0b0c;
 color:white;
-margin-bottom:12px;
-}
-
-/* CV MODAL */
-#cvModal{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:black;
-display:none;
-z-index:999;
-}
-
-.cv-header{
-display:flex;
-justify-content:space-between;
-padding:16px;
-}
-
-.cv-frame{
-width:100%;
-height:calc(100% - 60px);
-border:none;
+margin-bottom:10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg"></div>
-
 <div class="container">
 
+<!-- HERO -->
 <section class="hero">
-<img src="profile.PNG" class="profile">
-
-<h1>Optimizo operaciones complejas</h1>
+<h1>Optimizo operaciones complejas y elimino ineficiencia estructural</h1>
 
 <div class="subtitle">
 José Armando — Supply Chain & Operations Consultant
 </div>
 
 <p class="value">
-Elimino fricción estructural y convierto operaciones en sistemas eficientes.
+Intervengo operaciones con enfoque sistémico para reducir costo, mejorar eficiencia y escalar sin fricción.
 </p>
 
-<a href="https://wa.me/525566773248" class="btn btn-primary" target="_blank">
+<a href="https://wa.me/525566773248" target="_blank" class="btn btn-primary">
 Evaluar mi operación
 </a>
 
-<button onclick="openCV()" class="btn btn-secondary">
-Ver CV
-</button>
+<button class="btn btn-secondary" onclick="openCV()">Ver CV</button>
 </section>
 
-<!-- STORY -->
-<section class="story-wrapper">
-<div class="story">
-<div class="story-line">Las empresas no pierden dinero por estrategia.</div>
-<div class="story-line">Lo pierden en fricción operativa invisible.</div>
-<div class="story-line">Procesos que nadie cuestiona.</div>
-<div class="story-line">Sistemas que crecieron sin control.</div>
-<div class="story-line">No es esfuerzo.</div>
-<div class="story-line">Es sistema.</div>
+<!-- APPROACH -->
+<section class="section">
+<div class="section-title">APPROACH</div>
+
+<div class="approach-block">
+<div class="approach-title">Diagnóstico estructural</div>
+<div class="approach-text">Identificación de cuellos de botella y fuentes de ineficiencia sistémica.</div>
 </div>
+
+<div class="approach-block">
+<div class="approach-title">Optimización dirigida</div>
+<div class="approach-text">Priorización de iniciativas con mayor impacto en costo y velocidad.</div>
+</div>
+
+<div class="approach-block">
+<div class="approach-title">Implementación controlada</div>
+<div class="approach-text">Ejecución con adopción operativa y sostenibilidad.</div>
+</div>
+
 </section>
 
-<!-- 🎬 VISUAL STORY -->
-<section class="section visual-story">
+<!-- IMPACT -->
+<section class="section">
+<div class="section-title">IMPACT</div>
+
+<div class="impact">
+<span>Reducción de costos</span>
+<strong>hasta 30%</strong>
+</div>
+
+<div class="impact">
+<span>Mejora en eficiencia</span>
+<strong>+25%</strong>
+</div>
+
+<div class="impact">
+<span>Velocidad operativa</span>
+<strong>+40%</strong>
+</div>
+
+</section>
+
+<!-- PHOTOS -->
+<section class="section">
 
 <div class="section-title">FORMATION & EXECUTION</div>
 
 <div class="photo-block">
 <img src="images/cadetenavegando.jpg">
 <div class="photo-text">
-Disciplina operativa bajo presión.<br>
-<span style="color:#aaa;font-size:16px;">
-Formación que define ejecución real.
-</span>
+Disciplina, estructura y ejecución bajo presión.
 </div>
 </div>
 
 <div class="photo-block">
 <img src="images/tecprom.jpg">
 <div class="photo-text">
-Formación en ingeniería con enfoque en operaciones.
+Formación en ingeniería aplicada a operaciones.
 </div>
 </div>
 
 <div class="photo-block">
 <img src="images/johndeere.jpg">
 <div class="photo-text">
-Exposición directa a operaciones industriales.
+Experiencia directa en industria.
 </div>
 </div>
 
 <div class="photo-block">
 <img src="images/arcaecuador.JPG">
 <div class="photo-text">
-Implementación en entorno real con impacto operativo.
+Implementación real en entornos complejos.
 </div>
 </div>
 
@@ -339,6 +282,7 @@ Implementación en entorno real con impacto operativo.
 
 <!-- EXPERIENCE -->
 <section class="section">
+
 <div class="section-title">SELECTED EXPERIENCE</div>
 
 <div class="engagement">Arca Continental LATAM</div>
@@ -354,10 +298,12 @@ Implementación en entorno real con impacto operativo.
 <img src="logos/colgas.svg">
 <img src="logos/gruposid.svg">
 </div>
+
 </section>
 
-<!-- 🎓 ACADEMIC -->
+<!-- ACADEMIC -->
 <section class="section">
+
 <div class="section-title">ACADEMIC FORMATION</div>
 
 <div class="academic-flex">
@@ -366,6 +312,7 @@ Implementación en entorno real con impacto operativo.
 <img src="logos/uvm.svg">
 <img src="logos/stjohns.svg">
 </div>
+
 </section>
 
 <!-- CONTACT -->
@@ -373,11 +320,11 @@ Implementación en entorno real con impacto operativo.
 
 <div class="section-title">CONTACTO</div>
 
-<a href="https://www.linkedin.com/in/josearmandolara" class="btn btn-secondary" target="_blank">
+<a href="https://www.linkedin.com/in/josearmandolara" target="_blank" class="btn btn-secondary">
 LinkedIn
 </a>
 
-<a href="https://wa.me/525566773248" class="btn btn-secondary" target="_blank">
+<a href="https://wa.me/525566773248" target="_blank" class="btn btn-secondary">
 WhatsApp
 </a>
 
@@ -391,49 +338,11 @@ Enviar CV
 
 </div>
 
-<!-- CV -->
-<div id="cvModal">
-<div class="cv-header">
-<span>CV — José Armando</span>
-<button onclick="closeCV()">✕</button>
-</div>
-<iframe src="cv.pdf#view=FitH" class="cv-frame"></iframe>
-</div>
-
 <script>
-// STORY
-const lines=document.querySelectorAll('.story-line');
-window.addEventListener('scroll',()=>{
-let index=Math.floor(window.scrollY/300);
-lines.forEach((l,i)=>l.classList.toggle('active', i===index));
-});
-
-// 🎬 CINEMATIC SCROLL
-const photos=document.querySelectorAll('.photo-block');
-
-window.addEventListener('scroll',()=>{
-photos.forEach(photo=>{
-const rect=photo.getBoundingClientRect();
-
-if(rect.top < window.innerHeight * 0.75){
-photo.classList.add('active');
-}
-
-const speed = rect.top * 0.15;
-photo.querySelector("img").style.transform =
-`scale(1.1) translateY(${speed}px)`;
-});
-});
-
-// CV
 function openCV(){
-document.getElementById('cvModal').style.display='block';
-}
-function closeCV(){
-document.getElementById('cvModal').style.display='none';
+window.open("cv.pdf","_blank");
 }
 
-// EMAIL
 function sendCV(){
 const email=document.getElementById('emailInput').value;
 if(!email){alert("Ingresa tu correo");return;}
