@@ -24,7 +24,23 @@ color:var(--text);
 overflow-x:hidden;
 }
 
-/* CONTAINER */
+/* fondo dinámico */
+body::before{
+content:"";
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:radial-gradient(circle at 50% 20%, rgba(255,255,255,0.06), transparent 60%);
+opacity:0;
+transition:1.5s;
+z-index:-1;
+}
+
+body.bg-active::before{
+opacity:1;
+}
+
+/* container */
 .container{
 max-width:520px;
 margin:auto;
@@ -32,11 +48,8 @@ padding:40px 20px 140px;
 }
 
 /* HERO */
-.hero{
-margin-bottom:160px;
-}
+.hero{margin-bottom:160px;}
 
-/* 🔥 FOTO PRO */
 .profile{
 width:140px;
 height:140px;
@@ -53,11 +66,9 @@ box-shadow:
 opacity:0;
 transform:scale(1.1) translateY(20px);
 filter:blur(10px);
-
 animation:fadeInHero 1.2s ease forwards;
 }
 
-/* 🎬 ANIMACIÓN HERO */
 @keyframes fadeInHero{
 to{
 opacity:1;
@@ -66,35 +77,28 @@ filter:blur(0);
 }
 }
 
-/* TITULO */
 h1{
 font-size:46px;
 line-height:1.05;
 margin-bottom:20px;
-
 opacity:0;
 transform:translateY(20px);
-animation:fadeUp 1s ease forwards;
-animation-delay:.3s;
+animation:fadeUp 1s ease forwards .3s;
 }
 
 .subtitle{
 color:var(--sub);
 margin-bottom:20px;
-
 opacity:0;
-animation:fadeUp 1s ease forwards;
-animation-delay:.5s;
+animation:fadeUp 1s ease forwards .5s;
 }
 
 .value{
 color:#cfcfcf;
 line-height:1.6;
 margin-bottom:30px;
-
 opacity:0;
-animation:fadeUp 1s ease forwards;
-animation-delay:.7s;
+animation:fadeUp 1s ease forwards .7s;
 }
 
 @keyframes fadeUp{
@@ -144,7 +148,7 @@ opacity:1;
 transform:translateY(0);
 }
 
-/* 🎬 CINEMATIC PHOTOS */
+/* 🎬 PHOTOS */
 .photo-block{
 margin-bottom:120px;
 position:relative;
@@ -179,7 +183,6 @@ bottom:40px;
 left:24px;
 right:24px;
 font-size:24px;
-line-height:1.4;
 opacity:0;
 transform:translateY(40px);
 transition:1s;
@@ -195,13 +198,22 @@ opacity:1;
 transform:translateY(0);
 }
 
-/* cadete boost */
 .photo-block:first-child img{
 filter:brightness(.35) contrast(1.3);
 }
 
-/* SECTIONS */
-.section{margin-top:140px;}
+/* 🎬 SECTIONS (KEYNOTE) */
+.section{
+margin-top:140px;
+opacity:0;
+transform:translateY(60px) scale(.98);
+transition:1.2s cubic-bezier(.22,1,.36,1);
+}
+
+.section.active{
+opacity:1;
+transform:translateY(0) scale(1);
+}
 
 .section-title{
 font-size:11px;
@@ -210,7 +222,14 @@ color:var(--sub);
 margin-bottom:24px;
 }
 
-/* LOGOS */
+/* divider */
+.fade-divider{
+height:120px;
+background:linear-gradient(to bottom, transparent, #000 40%, transparent);
+opacity:.6;
+}
+
+/* logos */
 .logos{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -224,7 +243,7 @@ filter:brightness(0) invert(1);
 opacity:.6;
 }
 
-/* ACADEMIC */
+/* academic */
 .academic-flex{
 display:flex;
 flex-wrap:wrap;
@@ -239,7 +258,7 @@ filter:brightness(0) invert(1);
 opacity:.4;
 }
 
-/* INPUT */
+/* input */
 input{
 width:100%;
 padding:14px;
@@ -250,7 +269,7 @@ color:white;
 margin-bottom:10px;
 }
 
-/* CV MODAL */
+/* CV */
 #cvModal{
 position:fixed;
 top:0;
@@ -280,7 +299,6 @@ border:none;
 
 <div class="container">
 
-<!-- HERO -->
 <section class="hero">
 
 <img src="profile.PNG" class="profile">
@@ -305,7 +323,6 @@ Ver CV
 
 </section>
 
-<!-- STORY -->
 <section class="story-wrapper">
 <div class="story">
 <div class="story-line">Las empresas no pierden dinero por estrategia.</div>
@@ -317,7 +334,8 @@ Ver CV
 </div>
 </section>
 
-<!-- 🎬 PHOTOS -->
+<div class="fade-divider"></div>
+
 <section class="section">
 
 <div class="section-title">FORMATION & EXECUTION</div>
@@ -349,7 +367,8 @@ Formación que define ejecución real.
 
 </section>
 
-<!-- EXPERIENCE -->
+<div class="fade-divider"></div>
+
 <section class="section">
 
 <div class="section-title">SELECTED EXPERIENCE</div>
@@ -365,7 +384,23 @@ Formación que define ejecución real.
 
 </section>
 
-<!-- CONTACT -->
+<div class="fade-divider"></div>
+
+<section class="section">
+
+<div class="section-title">ACADEMIC FORMATION</div>
+
+<div class="academic-flex">
+<img src="logos/tec.svg">
+<img src="logos/henm.svg">
+<img src="logos/uvm.svg">
+<img src="logos/stjohns.svg">
+</div>
+
+</section>
+
+<div class="fade-divider"></div>
+
 <section class="section">
 
 <div class="section-title">CONTACTO</div>
@@ -382,7 +417,6 @@ Formación que define ejecución real.
 
 </div>
 
-<!-- CV -->
 <div id="cvModal">
 <div class="cv-header">
 <span>CV — José Armando</span>
@@ -399,7 +433,7 @@ let index=Math.floor(window.scrollY/300);
 lines.forEach((l,i)=>l.classList.toggle('active', i===index));
 });
 
-// CINEMATIC
+// PHOTOS
 const photos=document.querySelectorAll('.photo-block');
 
 window.addEventListener('scroll',()=>{
@@ -413,6 +447,25 @@ photo.classList.add('active');
 const speed = rect.top * 0.15;
 photo.querySelector("img").style.transform =
 `scale(1.1) translateY(${speed}px)`;
+});
+});
+
+// SECTIONS
+const sections=document.querySelectorAll('.section');
+
+window.addEventListener('scroll',()=>{
+sections.forEach(sec=>{
+const rect=sec.getBoundingClientRect();
+
+if(rect.top < window.innerHeight * 0.8){
+sec.classList.add('active');
+}
+
+if(rect.top < window.innerHeight * 0.5 && rect.bottom > 0){
+document.body.classList.add('bg-active');
+}else{
+document.body.classList.remove('bg-active');
+}
 });
 });
 
