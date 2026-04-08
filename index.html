@@ -114,39 +114,58 @@ opacity:1;
 transform:translateY(0);
 }
 
-/* 📸 VISUAL STORY */
+/* 🎬 CINEMATIC PHOTOS */
 .visual-story{margin-top:160px;}
 
 .photo-block{
-margin-bottom:80px;
+margin-bottom:120px;
 position:relative;
+height:70vh;
 overflow:hidden;
-border-radius:20px;
+border-radius:24px;
 }
 
 .photo-block img{
+position:absolute;
 width:100%;
-border-radius:20px;
-filter:brightness(.7);
-transform:scale(1.05);
-transition:1.2s;
+height:120%;
+object-fit:cover;
+top:-10%;
+left:0;
+filter:brightness(.5);
+transform:scale(1.2);
+transition:1.5s cubic-bezier(.22,1,.36,1);
+}
+
+.photo-block::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(to top, rgba(0,0,0,.8), transparent 50%);
+opacity:.8;
+transition:.6s;
 }
 
 .photo-text{
 position:absolute;
-bottom:20px;
-left:20px;
-right:20px;
-font-size:18px;
-color:white;
+bottom:40px;
+left:24px;
+right:24px;
+font-size:22px;
+line-height:1.4;
+font-weight:500;
 opacity:0;
-transform:translateY(20px);
-transition:.8s;
+transform:translateY(40px);
+transition:1s cubic-bezier(.22,1,.36,1);
 }
 
 .photo-block.active img{
 transform:scale(1);
-filter:brightness(.9);
+filter:brightness(.85);
+}
+
+.photo-block.active::after{
+opacity:.5;
 }
 
 .photo-block.active .photo-text{
@@ -154,9 +173,9 @@ opacity:1;
 transform:translateY(0);
 }
 
-/* cadete boost */
+/* cadete más intenso */
 .photo-block:first-child img{
-filter:brightness(.6) contrast(1.1);
+filter:brightness(.4) contrast(1.2);
 }
 
 /* SECTIONS */
@@ -188,7 +207,7 @@ filter:brightness(0) invert(1);
 opacity:.6;
 }
 
-/* ACADEMIC */
+/* 🎓 ACADEMIC */
 .academic-flex{
 display:flex;
 flex-wrap:wrap;
@@ -280,7 +299,7 @@ Ver CV
 </div>
 </section>
 
-<!-- 📸 VISUAL STORY -->
+<!-- 🎬 VISUAL STORY -->
 <section class="section visual-story">
 
 <div class="section-title">FORMATION & EXECUTION</div>
@@ -288,7 +307,10 @@ Ver CV
 <div class="photo-block">
 <img src="images/cadetenavegando.jpg">
 <div class="photo-text">
-Disciplina, estructura y ejecución bajo presión.
+Disciplina operativa bajo presión.<br>
+<span style="color:#aaa;font-size:16px;">
+Formación que define ejecución real.
+</span>
 </div>
 </div>
 
@@ -379,22 +401,31 @@ Enviar CV
 </div>
 
 <script>
+// STORY
 const lines=document.querySelectorAll('.story-line');
 window.addEventListener('scroll',()=>{
 let index=Math.floor(window.scrollY/300);
 lines.forEach((l,i)=>l.classList.toggle('active', i===index));
 });
 
+// 🎬 CINEMATIC SCROLL
 const photos=document.querySelectorAll('.photo-block');
+
 window.addEventListener('scroll',()=>{
-photos.forEach(p=>{
-const rect=p.getBoundingClientRect();
-if(rect.top < window.innerHeight * 0.8){
-p.classList.add('active');
+photos.forEach(photo=>{
+const rect=photo.getBoundingClientRect();
+
+if(rect.top < window.innerHeight * 0.75){
+photo.classList.add('active');
 }
+
+const speed = rect.top * 0.15;
+photo.querySelector("img").style.transform =
+`scale(1.1) translateY(${speed}px)`;
 });
 });
 
+// CV
 function openCV(){
 document.getElementById('cvModal').style.display='block';
 }
@@ -402,6 +433,7 @@ function closeCV(){
 document.getElementById('cvModal').style.display='none';
 }
 
+// EMAIL
 function sendCV(){
 const email=document.getElementById('emailInput').value;
 if(!email){alert("Ingresa tu correo");return;}
