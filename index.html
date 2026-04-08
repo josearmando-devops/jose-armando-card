@@ -21,22 +21,18 @@ body{
   font-family:'Inter',sans-serif;
   background:var(--bg);
   color:var(--text);
+  overflow-x:hidden;
 }
 
 .container{
   max-width:520px;
   margin:auto;
-  padding:40px 20px 80px;
+  padding:40px 20px 100px;
 }
 
-/* HERO GLASS */
+/* HERO */
 .hero{
-  background: rgba(255,255,255,0.02);
-  border-radius:20px;
-  padding:28px;
-  backdrop-filter: blur(20px);
-  border:1px solid rgba(255,255,255,0.05);
-  margin-bottom:60px;
+  margin-bottom:80px;
 }
 
 .profile{
@@ -48,33 +44,36 @@ body{
 }
 
 h1{
-  font-size:36px;
+  font-size:38px;
   line-height:1.1;
-  letter-spacing:-1.2px;
-  margin-bottom:16px;
+  letter-spacing:-1.3px;
+  margin-bottom:20px;
 }
 
-.subtitle{
-  font-size:13px;
-  color:var(--sub);
-  margin-bottom:24px;
+/* STORY TEXT */
+.story{
+  font-size:18px;
+  line-height:1.8;
+  color:#cfcfcf;
+  margin-bottom:40px;
+  opacity:0;
+  transform:translateY(20px);
+  transition:1s;
 }
 
-.value{
-  font-size:16px;
-  line-height:1.7;
-  color:#d1d1d6;
-  margin-bottom:28px;
+.story.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
-/* BOTONES */
+/* CTA */
 .btn{
   display:block;
   width:100%;
-  padding:15px;
+  padding:16px;
   border-radius:12px;
   text-align:center;
-  font-size:14px;
+  font-size:15px;
   margin-bottom:12px;
   text-decoration:none;
   transition:.3s;
@@ -84,12 +83,7 @@ h1{
   background: linear-gradient(135deg,#ffffff,#d4d4d8);
   color:#000;
   font-weight:600;
-  box-shadow:0 10px 30px rgba(255,255,255,0.08);
-}
-
-.btn-primary:hover{
-  transform:translateY(-2px);
-  box-shadow:0 20px 40px rgba(255,255,255,0.12);
+  box-shadow:0 10px 30px rgba(255,255,255,0.1);
 }
 
 .btn-secondary{
@@ -97,12 +91,12 @@ h1{
   color:var(--sub);
 }
 
-/* SECTIONS */
+/* SECTION */
 .section{
-  margin-top:60px;
+  margin-top:100px;
   opacity:0;
-  transform:translateY(20px);
-  transition:0.8s;
+  transform:translateY(30px);
+  transition:1s;
 }
 
 .section.show{
@@ -118,60 +112,36 @@ h1{
 }
 
 /* APPROACH */
-.approach-step{
-  border-left:1px solid var(--line);
-  padding-left:14px;
-  margin-bottom:18px;
+.step{
+  margin-bottom:20px;
 }
 
 /* EXPERIENCE */
 .engagement{
   border-bottom:1px solid var(--line);
-  padding:10px 0;
+  padding:12px 0;
 }
 
 /* LOGOS */
-.logos-marquee{
-  overflow:hidden;
-  margin-top:20px;
+.logos{
+  margin-top:30px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
 }
 
-.logos-track{
-  display:flex;
-  gap:40px;
-  animation:scroll 25s linear infinite;
-}
-
-.logos-track img{
-  height:26px;
+.logos img{
+  width:100%;
   opacity:.7;
-  filter: brightness(0) invert(1);
+  filter:brightness(0) invert(1);
   transition:.3s;
 }
 
-.logos-track img:hover{
+.logos img:hover{
   opacity:1;
-  transform:scale(1.08);
 }
 
-@keyframes scroll{
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
-}
-
-/* CONTACT */
-.link{
-  display:block;
-  border:1px solid var(--line);
-  padding:14px;
-  border-radius:12px;
-  margin-bottom:10px;
-  text-align:center;
-  text-decoration:none;
-  color:var(--text);
-}
-
-/* MODAL CV */
+/* MODAL */
 #cvModal{
   position:fixed;
   top:0;
@@ -212,17 +182,24 @@ Optimizo operaciones complejas<br>
 y elimino ineficiencia estructural
 </h1>
 
-<div class="subtitle">
-José Armando — Supply Chain & Operations Consultant
-</div>
+<p class="story">
+Las empresas no pierden dinero por estrategia.  
+Lo pierden en fricción operativa invisible.
+</p>
 
-<p class="value">
-Intervengo operaciones con enfoque sistémico para reducir costos, mejorar eficiencia y escalar sin fricción.
+<p class="story">
+Procesos que nadie cuestiona.  
+Decisiones que se repiten.  
+Sistemas que crecieron sin control.
+</p>
+
+<p class="story">
+No es un problema de esfuerzo.  
+Es un problema de sistema.
 </p>
 
 <a href="https://wa.me/525566773248?text=Hola%20José%20Armando,%20quiero%20evaluar%20mi%20operación"
-class="btn btn-primary"
-target="_blank">
+class="btn btn-primary" target="_blank">
 Evaluar mi operación
 </a>
 
@@ -240,19 +217,19 @@ Descargar CV
 <section class="section">
 <div class="section-title">APPROACH</div>
 
-<div class="approach-step">
+<div class="step">
 <h3>Diagnóstico estructural</h3>
-<p>Identificación de cuellos de botella y fuentes de ineficiencia sistémica.</p>
+<p>Identifico dónde se pierde valor, aunque no sea evidente.</p>
 </div>
 
-<div class="approach-step">
+<div class="step">
 <h3>Optimización dirigida</h3>
-<p>Priorización de iniciativas con mayor impacto en costo y velocidad.</p>
+<p>Priorizo lo que realmente impacta costo y velocidad.</p>
 </div>
 
-<div class="approach-step">
+<div class="step">
 <h3>Implementación controlada</h3>
-<p>Ejecución con adopción operativa y sostenibilidad.</p>
+<p>Ejecuto sin fricción operativa.</p>
 </div>
 
 </section>
@@ -266,40 +243,26 @@ Descargar CV
 <div class="engagement">Grupo SID</div>
 <div class="engagement">Colgas Colombia</div>
 
-</section>
-
-<!-- LOGOS -->
-<section class="section">
-<div class="logos-marquee">
-<div class="logos-track">
-
+<div class="logos">
 <img src="logos/pepsico.svg">
 <img src="logos/arca.svg">
 <img src="logos/johndeere.svg">
 <img src="logos/topo.svg">
 <img src="logos/colgas.svg">
 <img src="logos/gruposid.svg">
-
-<img src="logos/pepsico.svg">
-<img src="logos/arca.svg">
-<img src="logos/johndeere.svg">
-<img src="logos/topo.svg">
-<img src="logos/colgas.svg">
-<img src="logos/gruposid.svg">
-
 </div>
-</div>
+
 </section>
 
 <!-- CONTACT -->
 <section class="section">
 <div class="section-title">CONTACTO</div>
 
-<a class="link" href="https://www.linkedin.com/in/josearmandolara" target="_blank">
+<a class="btn btn-secondary" href="https://www.linkedin.com/in/josearmandolara" target="_blank">
 LinkedIn
 </a>
 
-<a class="link" href="https://wa.me/525566773248?text=Hola%20José%20Armando" target="_blank">
+<a class="btn btn-secondary" href="https://wa.me/525566773248?text=Hola%20José%20Armando" target="_blank">
 WhatsApp
 </a>
 
@@ -317,21 +280,26 @@ Guardar contacto
 <div>CV — José Armando</div>
 <button onclick="closeCV()">Cerrar</button>
 </div>
-
 <iframe src="cv.pdf#view=FitH" class="cv-frame"></iframe>
 </div>
 
 <script>
+// STORY REVEAL
+const stories=document.querySelectorAll('.story');
 const sections=document.querySelectorAll('.section');
-const observer=new IntersectionObserver(entries=>{
+
+const obs=new IntersectionObserver(entries=>{
 entries.forEach(e=>{
 if(e.isIntersecting){
 e.target.classList.add('show');
 }
 });
-});
-sections.forEach(s=>observer.observe(s));
+},{threshold:0.3});
 
+stories.forEach(s=>obs.observe(s));
+sections.forEach(s=>obs.observe(s));
+
+// CV
 function openCV(){
 document.getElementById('cvModal').style.display='block';
 document.body.style.overflow='hidden';
@@ -342,6 +310,7 @@ document.getElementById('cvModal').style.display='none';
 document.body.style.overflow='auto';
 }
 
+// VCF
 function downloadVCF(){
 const vcf=`BEGIN:VCARD
 VERSION:3.0
