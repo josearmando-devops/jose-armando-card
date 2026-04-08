@@ -24,14 +24,26 @@ body{
   overflow-x:hidden;
 }
 
-/* ===== LAYOUT ===== */
+/* 🌫️ FONDO DINÁMICO */
+.bg-glow{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:-1;
+  background: radial-gradient(circle at 50% 20%, rgba(255,255,255,0.08), transparent 60%);
+  transition:0.4s;
+}
+
 .container{
   max-width:520px;
   margin:auto;
   padding:40px 20px 120px;
 }
 
-/* ===== HERO (impacto real) ===== */
+/* HERO */
 .hero{
   margin-bottom:120px;
 }
@@ -64,7 +76,7 @@ h1{
   margin-bottom:40px;
 }
 
-/* ===== BOTONES ===== */
+/* BOTONES */
 .btn{
   display:block;
   width:100%;
@@ -82,11 +94,28 @@ h1{
   color:#000;
   font-weight:600;
   box-shadow:0 10px 30px rgba(255,255,255,0.1);
+  position:relative;
+  overflow:hidden;
+}
+
+.btn-primary::after{
+  content:'';
+  position:absolute;
+  width:200%;
+  height:200%;
+  top:-50%;
+  left:-50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2), transparent 60%);
+  opacity:0;
+  transition:.4s;
+}
+
+.btn-primary:hover::after{
+  opacity:1;
 }
 
 .btn-primary:hover{
   transform:translateY(-2px);
-  box-shadow:0 20px 40px rgba(255,255,255,0.15);
 }
 
 .btn-secondary{
@@ -94,7 +123,7 @@ h1{
   color:var(--sub);
 }
 
-/* ===== STORY APPLE (STICKY) ===== */
+/* STORY APPLE */
 .story-wrapper{
   height:300vh;
   position:relative;
@@ -111,16 +140,18 @@ h1{
   color:#cfcfcf;
   margin-bottom:30px;
   opacity:0;
-  transform:translateY(20px);
-  transition:.6s;
+  transform:translateY(30px) scale(0.98);
+  filter:blur(6px);
+  transition:0.8s cubic-bezier(.22,1,.36,1);
 }
 
 .story-block.active{
   opacity:1;
-  transform:translateY(0);
+  transform:translateY(0) scale(1);
+  filter:blur(0);
 }
 
-/* ===== SECTIONS ===== */
+/* SECTIONS */
 .section{
   margin-top:120px;
 }
@@ -132,7 +163,7 @@ h1{
   margin-bottom:24px;
 }
 
-/* ===== APPROACH ===== */
+/* APPROACH */
 .step{
   margin-bottom:20px;
 }
@@ -141,13 +172,13 @@ h1{
   color:#bcbcc2;
 }
 
-/* ===== EXPERIENCE ===== */
+/* EXPERIENCE */
 .engagement{
   border-bottom:1px solid var(--line);
   padding:12px 0;
 }
 
-/* ===== LOGOS ===== */
+/* LOGOS */
 .logos{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -167,7 +198,7 @@ h1{
   transform:scale(1.05);
 }
 
-/* ===== CONTACT ===== */
+/* CONTACT */
 .link{
   display:block;
   border:1px solid var(--line);
@@ -179,7 +210,7 @@ h1{
   color:var(--text);
 }
 
-/* ===== MODAL ===== */
+/* MODAL */
 #cvModal{
   position:fixed;
   top:0;
@@ -207,6 +238,8 @@ h1{
 </head>
 
 <body>
+
+<div class="bg-glow"></div>
 
 <div class="container">
 
@@ -239,9 +272,8 @@ Ver CV
 
 </section>
 
-<!-- STORY APPLE -->
+<!-- STORY -->
 <section class="story-wrapper">
-
 <div class="story-sticky">
 
 <div class="story-block">Las empresas no pierden dinero por estrategia.</div>
@@ -252,7 +284,6 @@ Ver CV
 <div class="story-block">Es sistema.</div>
 
 </div>
-
 </section>
 
 <!-- APPROACH -->
@@ -326,7 +357,7 @@ Guardar contacto
 </div>
 
 <script>
-// STORY SCROLL CONTROL
+// STORY SCROLL
 const blocks=document.querySelectorAll('.story-block');
 
 window.addEventListener('scroll',()=>{
@@ -334,6 +365,18 @@ let index=Math.floor(window.scrollY / 300);
 blocks.forEach((b,i)=>{
 b.classList.toggle('active', i===index);
 });
+});
+
+// GLOW DINÁMICO
+window.addEventListener('scroll',()=>{
+const glow=document.querySelector('.bg-glow');
+const scroll=window.scrollY;
+const intensity=Math.min(scroll/600,1);
+
+glow.style.background = `
+radial-gradient(circle at 50% ${20 + intensity*40}%,
+rgba(255,255,255,${0.05 + intensity*0.1}),
+transparent 60%)`;
 });
 
 // MODAL
