@@ -24,14 +24,12 @@ color:var(--text);
 overflow-x:hidden;
 }
 
-/* BACKGROUND */
 .bg{
 position:fixed;
 width:100%;
 height:100%;
 z-index:-2;
 background: radial-gradient(circle at 50% 20%, rgba(255,255,255,0.08), transparent 60%);
-transition:.4s;
 }
 
 /* LAYOUT */
@@ -42,9 +40,7 @@ padding:40px 20px 140px;
 }
 
 /* HERO */
-.hero{
-margin-bottom:140px;
-}
+.hero{margin-bottom:140px;}
 
 .profile{
 width:90px;
@@ -57,7 +53,6 @@ border:1px solid var(--line);
 h1{
 font-size:46px;
 line-height:1.05;
-letter-spacing:-1.8px;
 margin-bottom:20px;
 }
 
@@ -99,7 +94,6 @@ color:#aaa;
 /* STORY */
 .story-wrapper{
 height:350vh;
-position:relative;
 }
 
 .story{
@@ -111,21 +105,17 @@ top:25vh;
 font-size:22px;
 margin-bottom:28px;
 opacity:0;
-transform:translateY(40px) scale(.95);
-filter:blur(10px);
+transform:translateY(40px);
 transition:1s;
 }
 
 .story-line.active{
 opacity:1;
-transform:translateY(0) scale(1);
-filter:blur(0);
+transform:translateY(0);
 }
 
 /* 📸 VISUAL STORY */
-.visual-story{
-margin-top:160px;
-}
+.visual-story{margin-top:160px;}
 
 .photo-block{
 margin-bottom:80px;
@@ -136,7 +126,6 @@ border-radius:20px;
 
 .photo-block img{
 width:100%;
-display:block;
 border-radius:20px;
 filter:brightness(.7);
 transform:scale(1.05);
@@ -149,7 +138,6 @@ bottom:20px;
 left:20px;
 right:20px;
 font-size:18px;
-line-height:1.5;
 color:white;
 opacity:0;
 transform:translateY(20px);
@@ -166,15 +154,13 @@ opacity:1;
 transform:translateY(0);
 }
 
-/* 🔥 cadete boost */
+/* cadete boost */
 .photo-block:first-child img{
 filter:brightness(.6) contrast(1.1);
 }
 
 /* SECTIONS */
-.section{
-margin-top:140px;
-}
+.section{margin-top:140px;}
 
 .section-title{
 font-size:11px;
@@ -183,7 +169,6 @@ color:var(--sub);
 margin-bottom:24px;
 }
 
-/* EXPERIENCE */
 .engagement{
 border-bottom:1px solid var(--line);
 padding:12px 0;
@@ -201,10 +186,9 @@ margin-top:30px;
 width:100%;
 filter:brightness(0) invert(1);
 opacity:.6;
-transition:.4s;
 }
 
-/* 🎓 ACADEMIC */
+/* ACADEMIC */
 .academic-flex{
 display:flex;
 flex-wrap:wrap;
@@ -237,7 +221,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.95);
+background:black;
 display:none;
 z-index:999;
 }
@@ -246,16 +230,6 @@ z-index:999;
 display:flex;
 justify-content:space-between;
 padding:16px;
-border-bottom:1px solid rgba(255,255,255,0.1);
-}
-
-.cv-header button{
-background:#222;
-border:none;
-color:white;
-border-radius:10px;
-width:36px;
-height:36px;
 }
 
 .cv-frame{
@@ -312,28 +286,28 @@ Ver CV
 <div class="section-title">FORMATION & EXECUTION</div>
 
 <div class="photo-block">
-<img src="cadetenavegando.jpg">
+<img src="images/cadetenavegando.jpg">
 <div class="photo-text">
 Disciplina, estructura y ejecución bajo presión.
 </div>
 </div>
 
 <div class="photo-block">
-<img src="tecprom.jpg">
+<img src="images/tecprom.jpg">
 <div class="photo-text">
 Formación en ingeniería con enfoque en operaciones.
 </div>
 </div>
 
 <div class="photo-block">
-<img src="johndeere.jpg">
+<img src="images/johndeere.jpg">
 <div class="photo-text">
 Exposición directa a operaciones industriales.
 </div>
 </div>
 
 <div class="photo-block">
-<img src="arcaecuador.JPG">
+<img src="images/arcaecuador.JPG">
 <div class="photo-text">
 Implementación en entorno real con impacto operativo.
 </div>
@@ -358,7 +332,6 @@ Implementación en entorno real con impacto operativo.
 <img src="logos/colgas.svg">
 <img src="logos/gruposid.svg">
 </div>
-
 </section>
 
 <!-- 🎓 ACADEMIC -->
@@ -371,7 +344,6 @@ Implementación en entorno real con impacto operativo.
 <img src="logos/uvm.svg">
 <img src="logos/stjohns.svg">
 </div>
-
 </section>
 
 <!-- CONTACT -->
@@ -397,7 +369,7 @@ Enviar CV
 
 </div>
 
-<!-- CV MODAL -->
+<!-- CV -->
 <div id="cvModal">
 <div class="cv-header">
 <span>CV — José Armando</span>
@@ -407,14 +379,12 @@ Enviar CV
 </div>
 
 <script>
-// STORY
 const lines=document.querySelectorAll('.story-line');
 window.addEventListener('scroll',()=>{
 let index=Math.floor(window.scrollY/300);
 lines.forEach((l,i)=>l.classList.toggle('active', i===index));
 });
 
-// PHOTOS
 const photos=document.querySelectorAll('.photo-block');
 window.addEventListener('scroll',()=>{
 photos.forEach(p=>{
@@ -425,7 +395,6 @@ p.classList.add('active');
 });
 });
 
-// CV
 function openCV(){
 document.getElementById('cvModal').style.display='block';
 }
@@ -433,7 +402,6 @@ function closeCV(){
 document.getElementById('cvModal').style.display='none';
 }
 
-// EMAIL
 function sendCV(){
 const email=document.getElementById('emailInput').value;
 if(!email){alert("Ingresa tu correo");return;}
