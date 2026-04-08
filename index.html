@@ -199,12 +199,54 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,.7);
-backdrop-filter:blur(15px);
+background:rgba(0,0,0,0.7);
+backdrop-filter: blur(15px);
 display:none;
 justify-content:center;
 align-items:center;
 z-index:999;
+}
+
+.cv-container{
+width:100%;
+height:100%;
+background:#020617;
+border-radius:20px 20px 0 0;
+overflow:hidden;
+position:relative;
+animation:slideUp .3s ease;
+}
+
+/* animación tipo iOS */
+@keyframes slideUp{
+from{transform:translateY(100%)}
+to{transform:translateY(0)}
+}
+
+.cv-scroll{
+width:100%;
+height:100%;
+overflow-y:auto;
+-webkit-overflow-scrolling: touch;
+}
+
+.cv-frame{
+width:100%;
+height:100%;
+border:none;
+}
+
+/* botón */
+.close-btn{
+position:absolute;
+top:12px;
+right:16px;
+background:rgba(255,255,255,.1);
+border:none;
+color:white;
+padding:8px 10px;
+border-radius:10px;
+z-index:10;
 }
 
 .cv-container{
@@ -296,7 +338,7 @@ Optimizo operaciones, reduzco costos y convierto tu supply chain en una ventaja 
 <div class="links">
 <a class="link" href="https://www.linkedin.com/in/josearmandolara" target="_blank">LinkedIn</a>
 
-<a class="link" href="https://wa.me/525566773248?text=Hola%20José,%20vi%20tu%20perfil%20y%20me%20interesa%20optimizar%20mi%20operación">
+<a class="link" href="https://wa.me/525566773248?text=Hola%20José%20Armando,%20vi%20tu%20perfil%20y%20me%20interesa%20optimizar%20mi%20operación">
 Hablar por WhatsApp
 </a>
 
@@ -316,10 +358,15 @@ Hablemos de tu operación
 
 <!-- MODAL -->
 <div id="cvModal">
-<div class="cv-container">
-<button class="close-btn" onclick="closeCV()">Cerrar</button>
-<iframe src="cv.pdf" class="cv-frame"></iframe>
-</div>
+  <div class="cv-container">
+
+    <button class="close-btn" onclick="closeCV()">Cerrar</button>
+
+    <div class="cv-scroll">
+      <iframe src="cv.pdf#view=FitH" class="cv-frame"></iframe>
+    </div>
+
+  </div>
 </div>
 
 <script>
