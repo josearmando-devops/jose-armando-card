@@ -21,6 +21,7 @@ body{
 font-family:'Inter',sans-serif;
 background:var(--bg);
 color:var(--text);
+overflow-x:hidden;
 }
 
 .container{
@@ -31,6 +32,15 @@ padding:40px 20px 140px;
 
 /* HERO */
 .hero{margin-bottom:120px;}
+
+.profile{
+width:90px;
+height:90px;
+border-radius:50%;
+margin-bottom:20px;
+border:1px solid var(--line);
+object-fit:cover;
+}
 
 h1{
 font-size:44px;
@@ -58,6 +68,7 @@ border-radius:14px;
 margin-bottom:10px;
 text-align:center;
 text-decoration:none;
+transition:.3s;
 }
 
 .btn-primary{
@@ -71,7 +82,59 @@ border:1px solid var(--line);
 color:#aaa;
 }
 
-/* SECTION */
+/* 🎬 CINEMATIC PHOTOS */
+.photo-block{
+margin-bottom:120px;
+position:relative;
+height:70vh;
+overflow:hidden;
+border-radius:24px;
+}
+
+.photo-block img{
+position:absolute;
+width:100%;
+height:120%;
+object-fit:cover;
+top:-10%;
+left:0;
+filter:brightness(.5);
+transform:scale(1.2);
+transition:1.5s cubic-bezier(.22,1,.36,1);
+}
+
+.photo-block::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(to top, rgba(0,0,0,.8), transparent 50%);
+opacity:.8;
+transition:.6s;
+}
+
+.photo-text{
+position:absolute;
+bottom:40px;
+left:24px;
+right:24px;
+font-size:22px;
+line-height:1.4;
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.photo-block.active img{
+transform:scale(1);
+filter:brightness(.85);
+}
+
+.photo-block.active .photo-text{
+opacity:1;
+transform:translateY(0);
+}
+
+/* SECTIONS */
 .section{margin-top:120px;}
 
 .section-title{
@@ -82,36 +145,20 @@ margin-bottom:20px;
 }
 
 /* APPROACH */
-.approach-block{
-margin-bottom:26px;
-}
+.approach-block{margin-bottom:26px;}
 
-.approach-title{
-font-weight:600;
-margin-bottom:6px;
-}
+.approach-title{font-weight:600;}
 
 .approach-text{
 color:#aaa;
 font-size:14px;
-line-height:1.5;
 }
 
 /* IMPACT */
 .impact{
 display:flex;
 justify-content:space-between;
-margin-bottom:14px;
-}
-
-.impact strong{
-font-size:18px;
-}
-
-/* EXPERIENCE */
-.engagement{
-border-bottom:1px solid var(--line);
-padding:10px 0;
+margin-bottom:12px;
 }
 
 /* LOGOS */
@@ -143,39 +190,28 @@ filter:brightness(0) invert(1);
 opacity:.4;
 }
 
-/* PHOTOS */
-.photo-block{
-margin-bottom:100px;
-height:60vh;
-overflow:hidden;
-border-radius:20px;
-position:relative;
-}
-
-.photo-block img{
+/* CV MODAL */
+#cvModal{
+position:fixed;
+top:0;
+left:0;
 width:100%;
 height:100%;
-object-fit:cover;
-filter:brightness(.7);
+background:black;
+display:none;
+z-index:999;
 }
 
-.photo-text{
-position:absolute;
-bottom:20px;
-left:20px;
-right:20px;
-font-size:20px;
+.cv-header{
+display:flex;
+justify-content:space-between;
+padding:16px;
 }
 
-/* CONTACT */
-input{
+.cv-frame{
 width:100%;
-padding:14px;
-border-radius:12px;
-border:1px solid #222;
-background:#0b0b0c;
-color:white;
-margin-bottom:10px;
+height:calc(100% - 60px);
+border:none;
 }
 </style>
 </head>
@@ -186,6 +222,9 @@ margin-bottom:10px;
 
 <!-- HERO -->
 <section class="hero">
+
+<img src="profile.PNG" class="profile">
+
 <h1>Optimizo operaciones complejas y elimino ineficiencia estructural</h1>
 
 <div class="subtitle">
@@ -200,52 +239,13 @@ Intervengo operaciones con enfoque sistémico para reducir costo, mejorar eficie
 Evaluar mi operación
 </a>
 
-<button class="btn btn-secondary" onclick="openCV()">Ver CV</button>
-</section>
-
-<!-- APPROACH -->
-<section class="section">
-<div class="section-title">APPROACH</div>
-
-<div class="approach-block">
-<div class="approach-title">Diagnóstico estructural</div>
-<div class="approach-text">Identificación de cuellos de botella y fuentes de ineficiencia sistémica.</div>
-</div>
-
-<div class="approach-block">
-<div class="approach-title">Optimización dirigida</div>
-<div class="approach-text">Priorización de iniciativas con mayor impacto en costo y velocidad.</div>
-</div>
-
-<div class="approach-block">
-<div class="approach-title">Implementación controlada</div>
-<div class="approach-text">Ejecución con adopción operativa y sostenibilidad.</div>
-</div>
+<button onclick="openCV()" class="btn btn-secondary">
+Ver CV
+</button>
 
 </section>
 
-<!-- IMPACT -->
-<section class="section">
-<div class="section-title">IMPACT</div>
-
-<div class="impact">
-<span>Reducción de costos</span>
-<strong>hasta 30%</strong>
-</div>
-
-<div class="impact">
-<span>Mejora en eficiencia</span>
-<strong>+25%</strong>
-</div>
-
-<div class="impact">
-<span>Velocidad operativa</span>
-<strong>+40%</strong>
-</div>
-
-</section>
-
-<!-- PHOTOS -->
+<!-- 🎬 PHOTOS -->
 <section class="section">
 
 <div class="section-title">FORMATION & EXECUTION</div>
@@ -253,7 +253,10 @@ Evaluar mi operación
 <div class="photo-block">
 <img src="images/cadetenavegando.jpg">
 <div class="photo-text">
-Disciplina, estructura y ejecución bajo presión.
+Disciplina operativa bajo presión.<br>
+<span style="color:#aaa;font-size:16px;">
+Formación que define ejecución real.
+</span>
 </div>
 </div>
 
@@ -280,15 +283,32 @@ Implementación real en entornos complejos.
 
 </section>
 
+<!-- APPROACH -->
+<section class="section">
+
+<div class="section-title">APPROACH</div>
+
+<div class="approach-block">
+<div class="approach-title">Diagnóstico estructural</div>
+<div class="approach-text">Identificación de cuellos de botella.</div>
+</div>
+
+<div class="approach-block">
+<div class="approach-title">Optimización dirigida</div>
+<div class="approach-text">Priorización por impacto.</div>
+</div>
+
+<div class="approach-block">
+<div class="approach-title">Implementación controlada</div>
+<div class="approach-text">Adopción operativa sostenible.</div>
+</div>
+
+</section>
+
 <!-- EXPERIENCE -->
 <section class="section">
 
 <div class="section-title">SELECTED EXPERIENCE</div>
-
-<div class="engagement">Arca Continental LATAM</div>
-<div class="engagement">PepsiCo México</div>
-<div class="engagement">Grupo SID</div>
-<div class="engagement">Colgas Colombia</div>
 
 <div class="logos">
 <img src="logos/pepsico.svg">
@@ -297,20 +317,6 @@ Implementación real en entornos complejos.
 <img src="logos/topo.svg">
 <img src="logos/colgas.svg">
 <img src="logos/gruposid.svg">
-</div>
-
-</section>
-
-<!-- ACADEMIC -->
-<section class="section">
-
-<div class="section-title">ACADEMIC FORMATION</div>
-
-<div class="academic-flex">
-<img src="logos/tec.svg">
-<img src="logos/henm.svg">
-<img src="logos/uvm.svg">
-<img src="logos/stjohns.svg">
 </div>
 
 </section>
@@ -328,25 +334,42 @@ LinkedIn
 WhatsApp
 </a>
 
-<input id="emailInput" type="email" placeholder="tu@email.com">
-
-<button class="btn btn-primary" onclick="sendCV()">
-Enviar CV
-</button>
-
 </section>
 
 </div>
 
+<!-- CV -->
+<div id="cvModal">
+<div class="cv-header">
+<span>CV — José Armando</span>
+<button onclick="closeCV()">✕</button>
+</div>
+<iframe src="cv.pdf" class="cv-frame"></iframe>
+</div>
+
 <script>
-function openCV(){
-window.open("cv.pdf","_blank");
+const photos=document.querySelectorAll('.photo-block');
+
+window.addEventListener('scroll',()=>{
+photos.forEach(photo=>{
+const rect=photo.getBoundingClientRect();
+
+if(rect.top < window.innerHeight * 0.75){
+photo.classList.add('active');
 }
 
-function sendCV(){
-const email=document.getElementById('emailInput').value;
-if(!email){alert("Ingresa tu correo");return;}
-window.location.href=`mailto:${email}?subject=CV José Armando&body=${window.location.origin}/cv.pdf`;
+const speed = rect.top * 0.15;
+photo.querySelector("img").style.transform =
+`scale(1.1) translateY(${speed}px)`;
+});
+});
+
+function openCV(){
+document.getElementById('cvModal').style.display='block';
+}
+
+function closeCV(){
+document.getElementById('cvModal').style.display='none';
 }
 </script>
 
