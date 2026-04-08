@@ -24,7 +24,7 @@ color:var(--text);
 overflow-x:hidden;
 }
 
-/* 🌫️ BACKGROUND */
+/* BACKGROUND */
 .bg{
 position:fixed;
 width:100%;
@@ -127,7 +127,7 @@ transform:translateY(0) scale(1);
 filter:blur(0);
 }
 
-/* EXPERIENCE */
+/* SECTIONS */
 .section{
 margin-top:140px;
 }
@@ -139,6 +139,7 @@ color:var(--sub);
 margin-bottom:24px;
 }
 
+/* EXPERIENCE */
 .engagement{
 border-bottom:1px solid var(--line);
 padding:12px 0;
@@ -164,6 +165,17 @@ opacity:1;
 transform:scale(1.1);
 }
 
+/* ACADEMIC (más sutil) */
+.logos.academic img{
+opacity:.4;
+transform:scale(.95);
+}
+
+.logos.academic img:hover{
+opacity:.7;
+transform:scale(1);
+}
+
 /* INPUT */
 input{
 width:100%;
@@ -175,7 +187,7 @@ color:white;
 margin-bottom:12px;
 }
 
-/* 🎬 CV MODAL PRO */
+/* CV MODAL */
 #cvModal{
 position:fixed;
 top:0;
@@ -286,6 +298,19 @@ Ver CV
 
 </section>
 
+<!-- 🎓 ACADEMIC -->
+<section class="section">
+<div class="section-title">ACADEMIC FORMATION</div>
+
+<div class="logos academic">
+<img src="logos/stjohns.svg">
+<img src="logos/uvm.svg">
+<img src="logos/henm.svg">
+<img src="logos/tec.svg">
+</div>
+
+</section>
+
 <!-- CONTACT -->
 <section class="section">
 
@@ -309,7 +334,7 @@ Enviar CV
 
 </div>
 
-<!-- 🎬 MODAL PRO -->
+<!-- MODAL -->
 <div id="cvModal">
 
 <div class="cv-header">
