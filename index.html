@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>José Armando</title>
 
@@ -9,10 +9,11 @@
 
 <style>
 :root{
---bg:#0a0a0a;
---text:#fff;
---sub:#a1a1aa;
---line:#1f1f1f;
+--bg:#050505;
+--text:#f5f5f5;
+--sub:#8a8a8f;
+--line:#141414;
+--accent:#ffffff;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
@@ -21,41 +22,54 @@ body{
 font-family:'Inter',sans-serif;
 background:var(--bg);
 color:var(--text);
+-webkit-font-smoothing:antialiased;
+overflow-x:hidden;
 }
 
+/* CONTAINER */
 .container{
 max-width:460px;
 margin:auto;
-padding:24px;
+padding:40px 20px 80px;
 }
 
 /* HERO */
-.profile{
-width:64px;
-height:64px;
-border-radius:50%;
-margin-bottom:16px;
-border:1px solid var(--line);
+.hero{
+margin-bottom:60px;
 }
 
 h1{
-font-size:28px;
-margin-bottom:12px;
-}
-
-.subtitle{
-color:var(--sub);
+font-size:34px;
+line-height:1.1;
+font-weight:600;
+letter-spacing:-1px;
 margin-bottom:16px;
 }
 
+.subtitle{
+font-size:13px;
+color:var(--sub);
+margin-bottom:24px;
+}
+
+.value{
+font-size:16px;
+line-height:1.7;
+color:#d1d1d6;
+margin-bottom:30px;
+}
+
+/* CTA */
 .btn{
 display:block;
 width:100%;
-padding:14px;
+padding:16px;
 border-radius:10px;
 text-align:center;
+font-size:14px;
 text-decoration:none;
-margin-bottom:10px;
+margin-bottom:12px;
+transition:.25s;
 }
 
 .btn-primary{
@@ -71,48 +85,79 @@ color:var(--sub);
 
 /* SECTION */
 .section{
-margin-top:40px;
+margin-top:60px;
+opacity:0;
+transform:translateY(20px);
+transition:.8s;
 }
 
-.title{
+.section.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.section-title{
+font-size:11px;
+letter-spacing:.2em;
+color:var(--sub);
+margin-bottom:20px;
+}
+
+/* EDITORIAL IMAGE */
+.editorial{
+margin-bottom:20px;
+border-radius:14px;
+overflow:hidden;
+}
+
+.editorial img{
+width:100%;
+height:220px;
+object-fit:cover;
+filter:brightness(.85);
+}
+
+.caption{
 font-size:12px;
 color:var(--sub);
-margin-bottom:12px;
+margin-top:6px;
 }
 
-/* GALLERY */
-.gallery{
-display:flex;
-gap:10px;
-overflow-x:auto;
+/* LOGOS GRID */
+.logos{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
 }
 
-.gallery img{
-width:140px;
-height:180px;
-object-fit:cover;
-border-radius:10px;
-}
-
-/* CARDS */
-.card{
+.logo{
 border:1px solid var(--line);
 border-radius:10px;
-padding:12px;
-margin-bottom:8px;
-font-size:13px;
+padding:14px;
+text-align:center;
+font-size:12px;
+color:#cfcfcf;
 }
 
-/* LINKS */
+/* RESULTS */
+.card{
+border:1px solid var(--line);
+border-radius:12px;
+padding:16px;
+margin-bottom:10px;
+font-size:14px;
+}
+
+/* CONTACT */
 .link{
 display:block;
 border:1px solid var(--line);
-padding:12px;
+padding:14px;
 border-radius:10px;
-margin-bottom:8px;
+margin-bottom:10px;
 text-align:center;
 text-decoration:none;
-color:#fff;
+color:var(--text);
 }
 
 /* MODAL */
@@ -128,7 +173,7 @@ z-index:999;
 }
 
 .cv-header{
-padding:12px;
+padding:14px;
 border-bottom:1px solid var(--line);
 display:flex;
 justify-content:space-between;
@@ -147,17 +192,24 @@ border:none;
 <div class="container">
 
 <!-- HERO -->
-<img src="profile.PNG" class="profile">
+<div class="hero">
 
-<h1>Optimizo operaciones y reduzco costos</h1>
+<h1>
+Optimizo operaciones complejas<br>
+y elimino ineficiencia estructural
+</h1>
 
 <div class="subtitle">
 José Armando — Supply Chain & Operations Consultant
 </div>
 
+<p class="value">
+Trabajo con empresas que buscan eficiencia real, reducción de costos y ejecución sin fricción.
+</p>
+
 <a href="https://wa.me/525566773248?text=Hola%20José%20Armando,%20quiero%20evaluar%20mi%20operación"
 class="btn btn-primary"
-target="_blank">
+target="_blank" rel="noopener noreferrer">
 Evaluar mi operación
 </a>
 
@@ -165,66 +217,67 @@ Evaluar mi operación
 Ver CV
 </button>
 
-<!-- GET TO KNOW ME -->
-<div class="section">
-<div class="title">GET TO KNOW ME</div>
+</div>
 
-<div class="gallery">
-<img src="foto1.jpg">
+<!-- EDITORIAL STORY -->
+<div class="section">
+<div class="section-title">TRAYECTORIA</div>
+
+<div class="editorial">
 <img src="tec.jpg">
+<div class="caption">Tecnológico de Monterrey</div>
+</div>
+
+<div class="editorial">
 <img src="johndeere.jpg">
+<div class="caption">John Deere</div>
+</div>
+
+<div class="editorial">
 <img src="arca.jpg">
-<img src="cliente.jpg">
+<div class="caption">Arca Continental</div>
 </div>
 
 </div>
 
-<!-- EXPERIENCIA -->
+<!-- EXPERIENCE LOGOS -->
 <div class="section">
-<div class="title">EXPERIENCIA</div>
+<div class="section-title">EXPERIENCIA</div>
 
-<div class="card">Grupo SID / Induveca</div>
-<div class="card">PepsiCo México</div>
-<div class="card">Colgas Colombia</div>
-<div class="card">Arca Continental (Corporativo, México, Ecuador, Argentina)</div>
-<div class="card">Topo Chico</div>
-<div class="card">Embotelladora Colima</div>
-<div class="card">Cervecería de la Costa</div>
-
+<div class="logos">
+<div class="logo">PepsiCo</div>
+<div class="logo">Grupo SID</div>
+<div class="logo">Colgas</div>
+<div class="logo">Topo Chico</div>
+<div class="logo">Arca Continental</div>
+<div class="logo">Cervecería Costa</div>
 </div>
-
-<!-- PROYECTOS -->
-<div class="section">
-<div class="title">PROYECTOS</div>
-
-<div class="card">John Deere</div>
-<div class="card">Doctour</div>
-<div class="card">Rancho Santa Cecilia</div>
-<div class="card">Patronato La Huasteca</div>
-<div class="card">Cáritas Monterrey</div>
-<div class="card">Parque Chipinque</div>
 
 </div>
 
 <!-- RESULTADOS -->
 <div class="section">
-<div class="title">RESULTADOS</div>
+<div class="section-title">RESULTADOS</div>
 
 <div class="card">↓ 30% costos operativos</div>
 <div class="card">Optimización end-to-end</div>
-<div class="card">Sistemas escalables</div>
+<div class="card">Escalabilidad operativa</div>
 
 </div>
 
-<!-- CONTACTO -->
+<!-- CONTACT -->
 <div class="section">
-<div class="title">CONTACTO</div>
+<div class="section-title">CONTACTO</div>
 
-<a class="link" href="https://www.linkedin.com/in/josearmandolara" target="_blank">
+<a class="link"
+href="https://www.linkedin.com/in/josearmandolara"
+target="_blank" rel="noopener noreferrer">
 LinkedIn
 </a>
 
-<a class="link" href="https://wa.me/525566773248?text=Hola%20José%20Armando" target="_blank">
+<a class="link"
+href="https://wa.me/525566773248?text=Hola%20José%20Armando"
+target="_blank" rel="noopener noreferrer">
 WhatsApp
 </a>
 
@@ -238,15 +291,30 @@ Guardar contacto
 
 <!-- MODAL -->
 <div id="cvModal">
+
 <div class="cv-header">
 <div>CV — José Armando</div>
 <button onclick="closeCV()">Cerrar</button>
 </div>
 
 <iframe src="cv.pdf#view=FitH" class="cv-frame"></iframe>
+
 </div>
 
 <script>
+
+// scroll editorial animation
+const sections=document.querySelectorAll('.section');
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){
+e.target.classList.add('show');
+}
+});
+});
+sections.forEach(s=>observer.observe(s));
+
+// modal
 function openCV(){
 document.getElementById('cvModal').style.display='block';
 }
@@ -255,6 +323,7 @@ function closeCV(){
 document.getElementById('cvModal').style.display='none';
 }
 
+// vcf
 function downloadVCF(){
 const vcf=`BEGIN:VCARD
 VERSION:3.0
@@ -269,6 +338,7 @@ a.href=url;
 a.download='contacto.vcf';
 a.click();
 }
+
 </script>
 
 </body>
