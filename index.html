@@ -30,7 +30,6 @@ margin:auto;
 padding:28px 20px;
 }
 
-/* HERO */
 .profile{
 width:64px;
 height:64px;
@@ -58,7 +57,6 @@ line-height:1.6;
 margin-bottom:20px;
 }
 
-/* MICRO CASE */
 .micro-case{
 border:1px solid var(--line);
 border-radius:12px;
@@ -68,7 +66,6 @@ margin-bottom:20px;
 background:#0f0f0f;
 }
 
-/* BOTONES */
 .btn{
 display:block;
 width:100%;
@@ -90,9 +87,9 @@ font-weight:600;
 .btn-secondary{
 border:1px solid var(--line);
 color:var(--sub);
+background:none;
 }
 
-/* FILTRO */
 .filter{
 font-size:12px;
 color:#6b7280;
@@ -100,7 +97,6 @@ text-align:center;
 margin-top:6px;
 }
 
-/* SECCIONES */
 .section{
 margin-top:36px;
 }
@@ -120,7 +116,6 @@ margin-bottom:10px;
 font-size:14px;
 }
 
-/* LINKS */
 .link{
 display:block;
 border:1px solid var(--line);
@@ -132,7 +127,6 @@ color:var(--text);
 text-align:center;
 }
 
-/* MODAL CV */
 #cvModal{
 position:fixed;
 top:0;
@@ -163,12 +157,9 @@ border:none;
 
 <div class="container">
 
-<!-- HERO -->
 <img src="profile.PNG" class="profile">
 
-<h1>
-Optimizo operaciones y reduzco costos estructurales
-</h1>
+<h1>Optimizo operaciones y reduzco costos estructurales</h1>
 
 <div class="subtitle">
 José Armando — Supply Chain & Operations Consultant
@@ -178,16 +169,18 @@ José Armando — Supply Chain & Operations Consultant
 Intervengo operaciones complejas para mejorar eficiencia, eliminar desperdicio y escalar sin fricción.
 </p>
 
-<!-- MICRO CASE -->
 <div class="micro-case">
 Reducí 27% los costos logísticos de una operación en 3 meses sin aumentar headcount.
 </div>
 
-<!-- CTA -->
-<a href="https://wa.me/525566773248?text=Hola%20José%20Armando,%20quiero%20evaluar%20mi%20operación" class="btn btn-primary">
+<!-- CTA PRINCIPAL -->
+<a href="https://wa.me/525566773248?text=Hola%20José%20Armando,%20quiero%20evaluar%20mi%20operación"
+class="btn btn-primary"
+target="_blank" rel="noopener noreferrer">
 Evaluar mi operación
 </a>
 
+<!-- CV INTERNO -->
 <button onclick="openCV()" class="btn btn-secondary">
 Ver CV
 </button>
@@ -220,11 +213,15 @@ Solo trabajo con empresas que buscan optimización real, no parches.
 <div class="section">
 <div class="section-title">CONTACTO</div>
 
-<a class="link" href="https://www.linkedin.com/in/josearmandolara" target="_blank">
+<a class="link"
+href="https://www.linkedin.com/in/josearmandolara"
+target="_blank" rel="noopener noreferrer">
 LinkedIn
 </a>
 
-<a class="link" href="mailto:tuemail@correo.com">
+<a class="link"
+href="mailto:tuemail@correo.com"
+target="_blank" rel="noopener noreferrer">
 Email
 </a>
 
