@@ -24,6 +24,7 @@ body{
 }
 
 .container{max-width:420px;margin:auto;padding:16px}
+
 .hero{min-height:75vh;display:flex;align-items:center;justify-content:center}
 
 .card{
@@ -33,23 +34,17 @@ body{
   padding:26px;
   box-shadow:0 30px 80px rgba(0,0,0,.8);
   text-align:center;
-  animation:fadeUp .6s ease;
-}
-
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1;transform:translateY(0)}
 }
 
 .profile{
   width:80px;height:80px;border-radius:50%;
   margin-bottom:16px;
   object-fit:cover;
-  border:1px solid rgba(255,255,255,.1);
 }
 
 h1{font-size:26px;font-weight:600}
 .subtitle{color:var(--sub);font-size:14px;margin-top:4px}
+
 .tagline{margin-top:14px;font-size:15px;line-height:1.5}
 
 .buttons{margin-top:20px;display:flex;flex-direction:column;gap:10px}
@@ -60,7 +55,6 @@ h1{font-size:26px;font-weight:600}
   font-size:14px;
   border:none;
   cursor:pointer;
-  transition:.2s;
 }
 
 .btn-primary{
@@ -74,11 +68,21 @@ h1{font-size:26px;font-weight:600}
   color:#d4d4d8;
 }
 
-.btn:active{transform:scale(.96)}
+.section{margin-top:25px}
 
-.section{margin-top:18px}
+.title{font-size:16px;margin-bottom:10px}
 
-.links{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.list{display:flex;flex-direction:column;gap:8px}
+
+.item{
+  background:rgba(255,255,255,.04);
+  padding:12px;
+  border-radius:10px;
+  font-size:13px;
+  color:var(--sub);
+}
+
+.links{display:flex;flex-direction:column;gap:10px}
 
 .link{
   text-decoration:none;
@@ -89,7 +93,7 @@ h1{font-size:26px;font-weight:600}
   text-align:center;
 }
 
-/* MODAL PRO */
+/* MODAL */
 #cvModal{
 position:fixed;
 top:0;
@@ -102,12 +106,6 @@ display:none;
 justify-content:center;
 align-items:center;
 z-index:999;
-animation:fadeIn .25s ease;
-}
-
-@keyframes fadeIn{
-from{opacity:0}
-to{opacity:1}
 }
 
 .cv-container{
@@ -117,14 +115,7 @@ height:85%;
 background:rgba(20,20,20,0.95);
 border-radius:20px;
 overflow:hidden;
-box-shadow:0 30px 80px rgba(0,0,0,0.8);
 position:relative;
-animation:scaleIn .25s ease;
-}
-
-@keyframes scaleIn{
-from{transform:scale(.9);opacity:0}
-to{transform:scale(1);opacity:1}
 }
 
 .cv-frame{
@@ -137,13 +128,11 @@ border:none;
 position:absolute;
 top:10px;
 right:10px;
-z-index:10;
-background:rgba(255,255,255,0.1);
-backdrop-filter: blur(10px);
+background:#111827;
 color:white;
 border:none;
-padding:8px 10px;
-border-radius:10px;
+padding:8px;
+border-radius:8px;
 }
 
 </style>
@@ -151,6 +140,7 @@ border-radius:10px;
 
 <body>
 
+<!-- HERO -->
 <section class="hero">
 <div class="container">
 <div class="card">
@@ -161,27 +151,72 @@ border-radius:10px;
 <div class="subtitle">Supply Chain & Operations Consultant</div>
 
 <p class="tagline">
-Optimizo operaciones y reduzco costos en semanas, no meses.
+Optimizo operaciones y reduzco costos sin frenar tu crecimiento.
 </p>
 
 <div class="buttons">
 <a href="cv.pdf" download class="btn btn-primary">Descargar CV</a>
-<button class="btn btn-secondary" onclick="openCV()">Ver CV</button>
+<button class="btn btn-secondary" onclick="openCV()">Ver experiencia</button>
 </div>
 
 </div>
 </div>
 </section>
 
+<!-- RESULTADOS -->
 <section class="container section">
+<div class="title">Resultados</div>
+<div class="list">
+<div class="item">Reducción de costos operativos hasta 30%</div>
+<div class="item">Optimización logística end-to-end</div>
+<div class="item">Implementación de sistemas escalables</div>
+</div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="container section">
+<div class="title">Servicios</div>
+<div class="list">
+<div class="item">Diagnóstico y auditoría de operaciones</div>
+<div class="item">Optimización de supply chain</div>
+<div class="item">Implementación de procesos y sistemas</div>
+</div>
+</section>
+
+<!-- CV HUB -->
+<section class="container section">
+<div class="title">Mi experiencia</div>
+
+<div class="buttons">
+<a href="cv.pdf" download class="btn btn-primary">Descargar CV</a>
+<button class="btn btn-secondary" onclick="openCV()">Ver CV</button>
+<a href="mailto:?subject=CV José Armando&body=Te comparto mi CV: https://jose-armando-card.vercel.app/cv.pdf" class="btn btn-secondary">
+Enviar CV por correo
+</a>
+</div>
+
+</section>
+
+<!-- CONTACTO -->
+<section class="container section">
+<div class="title">Contacto</div>
 <div class="links">
 <a class="link" href="https://linkedin.com/in/TU-LINK">LinkedIn</a>
-<a class="link" href="https://wa.me/521XXXXXXXXXX?text=Hola%20José,%20quiero%20optimizar%20mi%20operación">WhatsApp</a>
-<button class="link" onclick="downloadVCF()">Guardar contacto</button>
+<a class="link" href="https://wa.me/521XXXXXXXXXX?text=Hola%20José,%20vi%20tu%20perfil%20y%20quiero%20optimizar%20mi%20operación">WhatsApp</a>
+<button class="link" onclick="downloadVCF()">Guardar y hablar conmigo</button>
 </div>
 </section>
 
-<!-- MODAL CV -->
+<!-- CTA FINAL -->
+<section class="container section">
+<div class="buttons">
+<a href="https://wa.me/521XXXXXXXXXX?text=Hola%20José,%20quiero%20optimizar%20mi%20operación" class="btn btn-primary">
+Hablemos de tu operación
+</a>
+</div>
+</section>
+
+<!-- MODAL -->
 <div id="cvModal">
   <div class="cv-container">
     <button class="close-btn" onclick="closeCV()">Cerrar</button>
@@ -191,42 +226,16 @@ Optimizo operaciones y reduzco costos en semanas, no meses.
 
 <script>
 
-// abrir modal
 function openCV(){
-  document.getElementById('cvModal').style.display='flex';
-  document.body.style.overflow='hidden';
-  trackCV();
+document.getElementById('cvModal').style.display='flex';
+document.body.style.overflow='hidden';
 }
 
-// cerrar modal
 function closeCV(){
-  document.getElementById('cvModal').style.display='none';
-  document.body.style.overflow='auto';
+document.getElementById('cvModal').style.display='none';
+document.body.style.overflow='auto';
 }
 
-// swipe cerrar
-let touchStartX=0;
-
-document.addEventListener('touchstart', e=>{
-  touchStartX=e.touches[0].clientX;
-});
-
-document.addEventListener('touchmove', e=>{
-  let diff=touchStartX - e.touches[0].clientX;
-  if(diff>80){
-    closeCV();
-  }
-});
-
-// tracking simple
-function trackCV(){
-  let count=localStorage.getItem('cvViews')||0;
-  count++;
-  localStorage.setItem('cvViews',count);
-  console.log('CV abierto:',count);
-}
-
-// vcf
 function downloadVCF(){
 const vcf=`BEGIN:VCARD
 VERSION:3.0
