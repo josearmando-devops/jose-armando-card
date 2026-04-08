@@ -44,7 +44,6 @@ padding:40px 20px 140px;
 /* HERO */
 .hero{
 margin-bottom:140px;
-transform:translateY(var(--heroOffset,0px));
 }
 
 .profile{
@@ -92,10 +91,6 @@ color:#000;
 font-weight:600;
 }
 
-.btn-primary:hover{
-transform:translateY(-2px);
-}
-
 .btn-secondary{
 border:1px solid var(--line);
 color:#aaa;
@@ -118,13 +113,62 @@ margin-bottom:28px;
 opacity:0;
 transform:translateY(40px) scale(.95);
 filter:blur(10px);
-transition:1s cubic-bezier(.22,1,.36,1);
+transition:1s;
 }
 
 .story-line.active{
 opacity:1;
 transform:translateY(0) scale(1);
 filter:blur(0);
+}
+
+/* 📸 VISUAL STORY */
+.visual-story{
+margin-top:160px;
+}
+
+.photo-block{
+margin-bottom:80px;
+position:relative;
+overflow:hidden;
+border-radius:20px;
+}
+
+.photo-block img{
+width:100%;
+display:block;
+border-radius:20px;
+filter:brightness(.7);
+transform:scale(1.05);
+transition:1.2s;
+}
+
+.photo-text{
+position:absolute;
+bottom:20px;
+left:20px;
+right:20px;
+font-size:18px;
+line-height:1.5;
+color:white;
+opacity:0;
+transform:translateY(20px);
+transition:.8s;
+}
+
+.photo-block.active img{
+transform:scale(1);
+filter:brightness(.9);
+}
+
+.photo-block.active .photo-text{
+opacity:1;
+transform:translateY(0);
+}
+
+/* 🔥 cadete boost */
+.photo-block:first-child img{
+filter:brightness(.6) contrast(1.1);
 }
 
 /* SECTIONS */
@@ -145,7 +189,7 @@ border-bottom:1px solid var(--line);
 padding:12px 0;
 }
 
-/* LOGOS EMPRESAS */
+/* LOGOS */
 .logos{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -160,12 +204,7 @@ opacity:.6;
 transition:.4s;
 }
 
-.logos img:hover{
-opacity:1;
-transform:scale(1.1);
-}
-
-/* 🎓 ACADEMIC FLEX (PERFECT ALIGNMENT) */
+/* 🎓 ACADEMIC */
 .academic-flex{
 display:flex;
 flex-wrap:wrap;
@@ -178,12 +217,6 @@ margin-top:30px;
 width:90px;
 filter:brightness(0) invert(1);
 opacity:.4;
-transition:.3s;
-}
-
-.academic-flex img:hover{
-opacity:.7;
-transform:scale(1.05);
 }
 
 /* INPUT */
@@ -205,26 +238,21 @@ left:0;
 width:100%;
 height:100%;
 background:rgba(0,0,0,0.95);
-backdrop-filter:blur(10px);
 display:none;
 z-index:999;
-animation:fadeIn .3s ease;
 }
 
 .cv-header{
 display:flex;
 justify-content:space-between;
-align-items:center;
 padding:16px;
 border-bottom:1px solid rgba(255,255,255,0.1);
-font-size:14px;
 }
 
 .cv-header button{
-background:rgba(255,255,255,0.1);
+background:#222;
 border:none;
 color:white;
-font-size:18px;
 border-radius:10px;
 width:36px;
 height:36px;
@@ -235,11 +263,6 @@ width:100%;
 height:calc(100% - 60px);
 border:none;
 }
-
-@keyframes fadeIn{
-from{opacity:0}
-to{opacity:1}
-}
 </style>
 </head>
 
@@ -249,9 +272,7 @@ to{opacity:1}
 
 <div class="container">
 
-<!-- HERO -->
 <section class="hero">
-
 <img src="profile.PNG" class="profile">
 
 <h1>Optimizo operaciones complejas</h1>
@@ -271,21 +292,53 @@ Evaluar mi operación
 <button onclick="openCV()" class="btn btn-secondary">
 Ver CV
 </button>
-
 </section>
 
 <!-- STORY -->
 <section class="story-wrapper">
 <div class="story">
-
 <div class="story-line">Las empresas no pierden dinero por estrategia.</div>
 <div class="story-line">Lo pierden en fricción operativa invisible.</div>
 <div class="story-line">Procesos que nadie cuestiona.</div>
 <div class="story-line">Sistemas que crecieron sin control.</div>
 <div class="story-line">No es esfuerzo.</div>
 <div class="story-line">Es sistema.</div>
-
 </div>
+</section>
+
+<!-- 📸 VISUAL STORY -->
+<section class="section visual-story">
+
+<div class="section-title">FORMATION & EXECUTION</div>
+
+<div class="photo-block">
+<img src="cadetenavegando.jpg">
+<div class="photo-text">
+Disciplina, estructura y ejecución bajo presión.
+</div>
+</div>
+
+<div class="photo-block">
+<img src="tecprom.heic">
+<div class="photo-text">
+Formación en ingeniería con enfoque en operaciones.
+</div>
+</div>
+
+<div class="photo-block">
+<img src="johndeere.jpg">
+<div class="photo-text">
+Exposición directa a operaciones industriales.
+</div>
+</div>
+
+<div class="photo-block">
+<img src="arcaecuador.JPG">
+<div class="photo-text">
+Implementación en entorno real con impacto operativo.
+</div>
+</div>
+
 </section>
 
 <!-- EXPERIENCE -->
@@ -344,52 +397,41 @@ Enviar CV
 
 </div>
 
-<!-- MODAL -->
+<!-- CV MODAL -->
 <div id="cvModal">
-
 <div class="cv-header">
 <span>CV — José Armando</span>
 <button onclick="closeCV()">✕</button>
 </div>
-
 <iframe src="cv.pdf#view=FitH" class="cv-frame"></iframe>
-
 </div>
 
 <script>
 // STORY
 const lines=document.querySelectorAll('.story-line');
-
 window.addEventListener('scroll',()=>{
 let index=Math.floor(window.scrollY/300);
-lines.forEach((l,i)=>{
-l.classList.toggle('active', i===index);
+lines.forEach((l,i)=>l.classList.toggle('active', i===index));
 });
 
-// PARALLAX
-document.querySelector('.hero').style.setProperty('--heroOffset', window.scrollY * -0.15 + 'px');
-
-// BG
-const bg=document.querySelector('.bg');
-const intensity=Math.min(window.scrollY/600,1);
-bg.style.background=`radial-gradient(circle at 50% ${20+intensity*40}%, rgba(255,255,255,${0.05+intensity*0.1}), transparent 60%)`;
+// PHOTOS
+const photos=document.querySelectorAll('.photo-block');
+window.addEventListener('scroll',()=>{
+photos.forEach(p=>{
+const rect=p.getBoundingClientRect();
+if(rect.top < window.innerHeight * 0.8){
+p.classList.add('active');
+}
+});
 });
 
-// MODAL
+// CV
 function openCV(){
 document.getElementById('cvModal').style.display='block';
-document.body.style.overflow='hidden';
 }
-
 function closeCV(){
 document.getElementById('cvModal').style.display='none';
-document.body.style.overflow='auto';
 }
-
-// CLOSE TAP
-document.getElementById('cvModal').addEventListener('click',function(e){
-if(e.target.id==='cvModal'){closeCV();}
-});
 
 // EMAIL
 function sendCV(){
