@@ -4,15 +4,14 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>José Armando</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg: #000;
-  --card: rgba(255,255,255,0.04);
-  --text: #fff;
-  --sub: #9ca3af;
+  --bg:#000;
+  --card:rgba(255,255,255,0.04);
+  --text:#fff;
+  --sub:#9ca3af;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
@@ -24,7 +23,6 @@ body{
 }
 
 .container{max-width:420px;margin:auto;padding:16px}
-
 .hero{min-height:75vh;display:flex;align-items:center;justify-content:center}
 
 .card{
@@ -34,6 +32,12 @@ body{
   padding:26px;
   box-shadow:0 30px 80px rgba(0,0,0,.8);
   text-align:center;
+  animation:fadeUp .6s ease;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
 }
 
 .profile{
@@ -44,9 +48,7 @@ body{
 }
 
 h1{font-size:26px;font-weight:600}
-
 .subtitle{color:var(--sub);font-size:14px;margin-top:4px}
-
 .tagline{margin-top:14px;font-size:15px;line-height:1.5}
 
 .buttons{margin-top:20px;display:flex;flex-direction:column;gap:10px}
@@ -71,26 +73,11 @@ h1{font-size:26px;font-weight:600}
   color:#d4d4d8;
 }
 
-.btn:active{transform:scale(.97)}
+.btn:active{transform:scale(.96)}
 
 .section{margin-top:18px}
 
-.list{display:flex;flex-direction:column;gap:8px}
-
-.item{
-  background:rgba(255,255,255,.04);
-  padding:11px;
-  border-radius:10px;
-  font-size:13px;
-  color:var(--sub);
-}
-
-.links{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  margin-top:16px;
-}
+.links{display:flex;flex-direction:column;gap:10px;margin-top:16px}
 
 .link{
   text-decoration:none;
@@ -101,26 +88,51 @@ h1{font-size:26px;font-weight:600}
   text-align:center;
 }
 
-.input{
-  width:100%;
-  padding:14px;
-  border-radius:12px;
-  border:none;
-  background:rgba(255,255,255,.05);
-  color:white;
-  margin-top:10px;
+/* MODAL */
+#cvModal{
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,.95);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:999;
+animation:fadeIn .3s ease;
 }
 
-.fade{
-  opacity:0;
-  transform:translateY(15px);
-  transition:.5s;
+@keyframes fadeIn{
+from{opacity:0}
+to{opacity:1}
 }
 
-.fade.show{
-  opacity:1;
-  transform:translateY(0);
+.cv-container{
+width:100%;
+height:100%;
+overflow:hidden;
+position:relative;
 }
+
+.cv-frame{
+width:100%;
+height:100%;
+border:none;
+transform-origin:center;
+transition:transform .2s ease;
+}
+
+.close-btn{
+position:absolute;
+top:15px;
+right:15px;
+z-index:10;
+background:#111827;
+color:white;
+border:none;
+padding:10px;
+border-radius:10px;
+}
+
 </style>
 </head>
 
@@ -128,90 +140,96 @@ h1{font-size:26px;font-weight:600}
 
 <section class="hero">
 <div class="container">
-<div class="card fade">
+<div class="card">
 
 <img src="profile.PNG" class="profile">
-  
+
 <h1>José Armando</h1>
 <div class="subtitle">Supply Chain & Operations Consultant</div>
 
 <p class="tagline">
-Descarga mi CV y descubre cómo optimizo operaciones en semanas, no meses.
+Descarga mi CV y descubre cómo optimizo operaciones en semanas.
 </p>
 
 <div class="buttons">
 <a href="cv.pdf" download class="btn btn-primary">Descargar CV</a>
-<a href="cv.pdf" target="_blank" class="btn btn-secondary">Ver CV</a>
-<button class="btn btn-secondary" onclick="sendEmail()">Enviar CV a mi correo</button>
+<button class="btn btn-secondary" onclick="openCV()">Ver CV</button>
 </div>
 
 </div>
 </div>
 </section>
 
-<section class="container section fade">
-<div class="list">
-<div class="item">Optimización de procesos logísticos</div>
-<div class="item">Reducción de costos operativos</div>
-<div class="item">Sistemas escalables</div>
-</div>
-</section>
-
-<section class="container section fade">
-
-<input id="emailInput" class="input" placeholder="Escribe tu correo para enviarte mi CV">
-
-<div class="buttons">
-<button class="btn btn-primary" onclick="sendCustomEmail()">Enviar CV</button>
-</div>
-
+<section class="container section">
 <div class="links">
 <a class="link" href="https://linkedin.com/in/TU-LINK">LinkedIn</a>
-<a class="link" href="https://wa.me/521XXXXXXXXXX?text=Hola%20José,%20vi%20tu%20perfil%20y%20me%20interesa%20optimizar%20mi%20operación">WhatsApp</a>
-<a class="link" href="mailto:correo@ejemplo.com">Email</a>
+<a class="link" href="https://wa.me/521XXXXXXXXXX">WhatsApp</a>
 <button class="link" onclick="downloadVCF()">Guardar contacto</button>
 </div>
-
 </section>
+
+<!-- MODAL CV -->
+<div id="cvModal">
+  <div class="cv-container">
+    <button class="close-btn" onclick="closeCV()">Cerrar</button>
+    <iframe id="cvFrame" src="cv.pdf" class="cv-frame"></iframe>
+  </div>
+</div>
 
 <script>
 
-function downloadVCF(){
-const vcf=`BEGIN:VCARD\nVERSION:3.0\nFN:José Armando\nTITLE:Supply Chain & Operations Consultant\nTEL:+521XXXXXXXXXX\nEMAIL:correo@ejemplo.com\nEND:VCARD`;
+let scale = 1;
+let startX = 0;
 
-const blob=new Blob([vcf],{type:'text/vcard'});
-const url=URL.createObjectURL(blob);
-
-const a=document.createElement('a');
-a.href=url;
-a.download='contacto.vcf';
-a.click();
+function openCV(){
+  document.getElementById('cvModal').style.display='flex';
+  trackCV();
 }
 
-function sendEmail(){
-window.location.href = "mailto:?subject=CV José Armando&body=Te comparto mi CV: https://tusitio.vercel.app/cv.pdf";
+function closeCV(){
+  document.getElementById('cvModal').style.display='none';
 }
 
-function sendCustomEmail(){
-const email = document.getElementById('emailInput').value;
-
-if(!email){
-alert('Ingresa un correo válido');
-return;
-}
-
-window.location.href = `mailto:${email}?subject=CV José Armando&body=Te comparto mi CV: https://tusitio.vercel.app/cv.pdf`;
-}
-
-const obs=new IntersectionObserver(e=>{
-e.forEach(x=>{
-if(x.isIntersecting){
-x.target.classList.add('show')
-}
-})
+// ZOOM con scroll (desktop)
+document.addEventListener('wheel', (e)=>{
+  if(document.getElementById('cvModal').style.display==='flex'){
+    scale += e.deltaY * -0.001;
+    scale = Math.min(Math.max(.8, scale), 2);
+    document.getElementById('cvFrame').style.transform = `scale(${scale})`;
+  }
 });
 
-document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+// SWIPE móvil
+let touchStartX=0;
+
+document.addEventListener('touchstart', e=>{
+  touchStartX = e.touches[0].clientX;
+});
+
+document.addEventListener('touchmove', e=>{
+  let touchX = e.touches[0].clientX;
+  let diff = touchStartX - touchX;
+
+  if(diff > 50){
+    closeCV(); // swipe izquierda cierra
+  }
+});
+
+// TRACKING simple
+function trackCV(){
+  let count = localStorage.getItem('cvViews') || 0;
+  count++;
+  localStorage.setItem('cvViews', count);
+  console.log('CV visto:', count);
+}
+
+function downloadVCF(){
+const vcf=`BEGIN:VCARD\nVERSION:3.0\nFN:José Armando\nTITLE:Consultant\nTEL:+521XXXXXXXXXX\nEMAIL:correo@ejemplo.com\nEND:VCARD`;
+const blob=new Blob([vcf],{type:'text/vcard'});
+const url=URL.createObjectURL(blob);
+const a=document.createElement('a');
+a.href=url;a.download='contacto.vcf';a.click();
+}
 
 </script>
 
