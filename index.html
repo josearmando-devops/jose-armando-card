@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>José Armando</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -88,17 +89,20 @@ h1{font-size:26px;font-weight:600}
   text-align:center;
 }
 
-/* MODAL */
+/* MODAL PRO */
 #cvModal{
 position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-background:rgba(0,0,0,.95);
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+backdrop-filter: blur(12px);
 display:none;
 justify-content:center;
 align-items:center;
 z-index:999;
-animation:fadeIn .3s ease;
+animation:fadeIn .25s ease;
 }
 
 @keyframes fadeIn{
@@ -107,29 +111,38 @@ to{opacity:1}
 }
 
 .cv-container{
-width:100%;
-height:100%;
+width:92%;
+max-width:420px;
+height:85%;
+background:rgba(20,20,20,0.95);
+border-radius:20px;
 overflow:hidden;
+box-shadow:0 30px 80px rgba(0,0,0,0.8);
 position:relative;
+animation:scaleIn .25s ease;
+}
+
+@keyframes scaleIn{
+from{transform:scale(.9);opacity:0}
+to{transform:scale(1);opacity:1}
 }
 
 .cv-frame{
 width:100%;
 height:100%;
 border:none;
-transform-origin:center;
-transition:transform .2s ease;
 }
 
 .close-btn{
 position:absolute;
-top:15px;
-right:15px;
+top:10px;
+right:10px;
 z-index:10;
-background:#111827;
+background:rgba(255,255,255,0.1);
+backdrop-filter: blur(10px);
 color:white;
 border:none;
-padding:10px;
+padding:8px 10px;
 border-radius:10px;
 }
 
@@ -148,7 +161,7 @@ border-radius:10px;
 <div class="subtitle">Supply Chain & Operations Consultant</div>
 
 <p class="tagline">
-Descarga mi CV y descubre cómo optimizo operaciones en semanas.
+Optimizo operaciones y reduzco costos en semanas, no meses.
 </p>
 
 <div class="buttons">
@@ -163,7 +176,7 @@ Descarga mi CV y descubre cómo optimizo operaciones en semanas.
 <section class="container section">
 <div class="links">
 <a class="link" href="https://linkedin.com/in/TU-LINK">LinkedIn</a>
-<a class="link" href="https://wa.me/521XXXXXXXXXX">WhatsApp</a>
+<a class="link" href="https://wa.me/521XXXXXXXXXX?text=Hola%20José,%20quiero%20optimizar%20mi%20operación">WhatsApp</a>
 <button class="link" onclick="downloadVCF()">Guardar contacto</button>
 </div>
 </section>
@@ -172,63 +185,63 @@ Descarga mi CV y descubre cómo optimizo operaciones en semanas.
 <div id="cvModal">
   <div class="cv-container">
     <button class="close-btn" onclick="closeCV()">Cerrar</button>
-    <iframe id="cvFrame" src="cv.pdf" class="cv-frame"></iframe>
+    <iframe src="cv.pdf" class="cv-frame"></iframe>
   </div>
 </div>
 
 <script>
 
-let scale = 1;
-let startX = 0;
-
+// abrir modal
 function openCV(){
   document.getElementById('cvModal').style.display='flex';
+  document.body.style.overflow='hidden';
   trackCV();
 }
 
+// cerrar modal
 function closeCV(){
   document.getElementById('cvModal').style.display='none';
+  document.body.style.overflow='auto';
 }
 
-// ZOOM con scroll (desktop)
-document.addEventListener('wheel', (e)=>{
-  if(document.getElementById('cvModal').style.display==='flex'){
-    scale += e.deltaY * -0.001;
-    scale = Math.min(Math.max(.8, scale), 2);
-    document.getElementById('cvFrame').style.transform = `scale(${scale})`;
-  }
-});
-
-// SWIPE móvil
+// swipe cerrar
 let touchStartX=0;
 
 document.addEventListener('touchstart', e=>{
-  touchStartX = e.touches[0].clientX;
+  touchStartX=e.touches[0].clientX;
 });
 
 document.addEventListener('touchmove', e=>{
-  let touchX = e.touches[0].clientX;
-  let diff = touchStartX - touchX;
-
-  if(diff > 50){
-    closeCV(); // swipe izquierda cierra
+  let diff=touchStartX - e.touches[0].clientX;
+  if(diff>80){
+    closeCV();
   }
 });
 
-// TRACKING simple
+// tracking simple
 function trackCV(){
-  let count = localStorage.getItem('cvViews') || 0;
+  let count=localStorage.getItem('cvViews')||0;
   count++;
-  localStorage.setItem('cvViews', count);
-  console.log('CV visto:', count);
+  localStorage.setItem('cvViews',count);
+  console.log('CV abierto:',count);
 }
 
+// vcf
 function downloadVCF(){
-const vcf=`BEGIN:VCARD\nVERSION:3.0\nFN:José Armando\nTITLE:Consultant\nTEL:+521XXXXXXXXXX\nEMAIL:correo@ejemplo.com\nEND:VCARD`;
+const vcf=`BEGIN:VCARD
+VERSION:3.0
+FN:José Armando
+TITLE:Supply Chain & Operations Consultant
+TEL:+521XXXXXXXXXX
+EMAIL:correo@ejemplo.com
+END:VCARD`;
+
 const blob=new Blob([vcf],{type:'text/vcard'});
 const url=URL.createObjectURL(blob);
 const a=document.createElement('a');
-a.href=url;a.download='contacto.vcf';a.click();
+a.href=url;
+a.download='contacto.vcf';
+a.click();
 }
 
 </script>
