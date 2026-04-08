@@ -26,21 +26,20 @@ body{
   overflow-x:hidden;
 }
 
-/* ===== LAYOUT (reporte ejecutivo) ===== */
 .container{
   max-width:520px;
   margin:auto;
   padding:48px 20px 80px;
 }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero{
   margin-bottom:72px;
 }
 
 h1{
-  font-size:36px;
-  line-height:1.08;
+  font-size:34px;
+  line-height:1.1;
   font-weight:600;
   letter-spacing:-1px;
   margin-bottom:18px;
@@ -59,11 +58,21 @@ h1{
   margin-bottom:34px;
 }
 
-/* CTA */
+/* FOTO */
+.profile{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:20px;
+  border:1px solid var(--line);
+}
+
+/* BOTONES */
 .btn{
   display:block;
   width:100%;
-  padding:16px;
+  padding:15px;
   border-radius:10px;
   text-align:center;
   font-size:14px;
@@ -84,7 +93,11 @@ h1{
   background:transparent;
 }
 
-/* ===== SECTIONS (editorial + reveal) ===== */
+.btn:hover{
+  transform:translateY(-1px);
+}
+
+/* SECTIONS */
 .section{
   margin-top:72px;
   opacity:0;
@@ -104,16 +117,11 @@ h1{
   margin-bottom:22px;
 }
 
-/* ===== APPROACH (cómo piensas) ===== */
-.approach{
-  display:flex;
-  flex-direction:column;
-  gap:18px;
-}
-
+/* APPROACH */
 .approach-step{
   border-left:1px solid var(--line);
   padding-left:14px;
+  margin-bottom:18px;
 }
 
 .approach-step h3{
@@ -124,10 +132,9 @@ h1{
 .approach-step p{
   font-size:13px;
   color:#bcbcc2;
-  line-height:1.6;
 }
 
-/* ===== ENGAGEMENTS ===== */
+/* ENGAGEMENT */
 .engagement{
   font-size:14px;
   padding-bottom:10px;
@@ -135,7 +142,7 @@ h1{
   color:#d1d1d6;
 }
 
-/* ===== LOGOS MARQUEE ===== */
+/* LOGOS */
 .logos-marquee{
   overflow:hidden;
   margin-top:20px;
@@ -166,13 +173,7 @@ h1{
   to{transform:translateX(-50%)}
 }
 
-/* ===== PARALLAX DEPTH (Apple feel) ===== */
-.parallax{
-  transform:translateY(var(--offset,0px));
-  transition:transform .2s linear;
-}
-
-/* ===== CONTACT ===== */
+/* CONTACT */
 .link{
   display:block;
   border:1px solid var(--line);
@@ -184,7 +185,7 @@ h1{
   color:var(--text);
 }
 
-/* ===== MODAL CV ===== */
+/* CV MODAL */
 #cvModal{
   position:fixed;
   top:0;
@@ -216,7 +217,9 @@ h1{
 <div class="container">
 
 <!-- HERO -->
-<section class="hero parallax" data-speed="0.15">
+<section class="hero">
+
+<img src="profile.PNG" class="profile">
 
 <h1>
 Optimizo operaciones complejas<br>
@@ -228,12 +231,12 @@ José Armando — Supply Chain & Operations Consultant
 </div>
 
 <p class="value">
-Intervengo operaciones con enfoque sistémico para mejorar eficiencia, reducir costos y escalar con control.
+Intervengo operaciones con enfoque sistémico para reducir costos, mejorar eficiencia y escalar sin fricción.
 </p>
 
 <a href="https://wa.me/525566773248?text=Hola%20José%20Armando,%20quiero%20evaluar%20mi%20operación"
 class="btn btn-primary"
-target="_blank" rel="noopener noreferrer">
+target="_blank">
 Evaluar mi operación
 </a>
 
@@ -241,41 +244,41 @@ Evaluar mi operación
 Ver CV
 </button>
 
+<a href="cv.pdf" class="btn btn-secondary" download>
+Descargar CV
+</a>
+
 </section>
 
 <!-- APPROACH -->
 <section class="section">
 <div class="section-title">APPROACH</div>
 
-<div class="approach">
-
 <div class="approach-step">
 <h3>Diagnóstico estructural</h3>
-<p>Identifico cuellos de botella y fuentes de ineficiencia con enfoque sistémico.</p>
+<p>Identificación de cuellos de botella y fuentes de ineficiencia sistémica.</p>
 </div>
 
 <div class="approach-step">
 <h3>Optimización dirigida</h3>
-<p>Priorizo iniciativas con mayor impacto en costo, velocidad y escalabilidad.</p>
+<p>Priorización de iniciativas con mayor impacto en costo y velocidad.</p>
 </div>
 
 <div class="approach-step">
 <h3>Implementación controlada</h3>
-<p>Ejecuto cambios asegurando adopción operativa y sostenibilidad.</p>
-</div>
-
+<p>Ejecución con adopción operativa y sostenibilidad.</p>
 </div>
 
 </section>
 
 <!-- ENGAGEMENTS -->
 <section class="section">
-<div class="section-title">SELECTED ENGAGEMENTS</div>
+<div class="section-title">SELECTED EXPERIENCE</div>
 
-<div class="engagement">Optimización logística — Arca Continental LATAM</div>
-<div class="engagement">Reducción de costos — PepsiCo México</div>
-<div class="engagement">Estandarización operativa — Grupo SID</div>
-<div class="engagement">Diseño de operación — Colgas Colombia</div>
+<div class="engagement">Arca Continental LATAM</div>
+<div class="engagement">PepsiCo México</div>
+<div class="engagement">Grupo SID</div>
+<div class="engagement">Colgas Colombia</div>
 
 </section>
 
@@ -308,13 +311,13 @@ Ver CV
 
 <a class="link"
 href="https://www.linkedin.com/in/josearmandolara"
-target="_blank" rel="noopener noreferrer">
+target="_blank">
 LinkedIn
 </a>
 
 <a class="link"
 href="https://wa.me/525566773248?text=Hola%20José%20Armando"
-target="_blank" rel="noopener noreferrer">
+target="_blank">
 WhatsApp
 </a>
 
@@ -337,7 +340,7 @@ Guardar contacto
 </div>
 
 <script>
-// ===== SCROLL REVEAL =====
+// ANIMACIONES SCROLL
 const sections=document.querySelectorAll('.section');
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(e=>{
@@ -348,16 +351,7 @@ e.target.classList.add('show');
 },{threshold:.15});
 sections.forEach(s=>observer.observe(s));
 
-// ===== PARALLAX DEPTH =====
-window.addEventListener('scroll',()=>{
-const scrollY=window.scrollY;
-document.querySelectorAll('.parallax').forEach(el=>{
-const speed=el.dataset.speed || 0.1;
-el.style.setProperty('--offset', `${scrollY * speed}px`);
-});
-});
-
-// ===== MODAL =====
+// CV MODAL
 function openCV(){
 document.getElementById('cvModal').style.display='block';
 document.body.style.overflow='hidden';
@@ -367,13 +361,14 @@ document.getElementById('cvModal').style.display='none';
 document.body.style.overflow='auto';
 }
 
-// ===== VCF =====
+// VCF
 function downloadVCF(){
 const vcf=`BEGIN:VCARD
 VERSION:3.0
 FN:José Armando
 TEL:+525566773248
 END:VCARD`;
+
 const blob=new Blob([vcf],{type:'text/vcard'});
 const url=URL.createObjectURL(blob);
 const a=document.createElement('a');
