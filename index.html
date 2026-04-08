@@ -24,7 +24,6 @@ body{
 }
 
 .container{max-width:420px;margin:auto;padding:16px}
-
 .hero{min-height:75vh;display:flex;align-items:center;justify-content:center}
 
 .card{
@@ -44,7 +43,6 @@ body{
 
 h1{font-size:26px;font-weight:600}
 .subtitle{color:var(--sub);font-size:14px;margin-top:4px}
-
 .tagline{margin-top:14px;font-size:15px;line-height:1.5}
 
 .buttons{margin-top:20px;display:flex;flex-direction:column;gap:10px}
@@ -55,6 +53,7 @@ h1{font-size:26px;font-weight:600}
   font-size:14px;
   border:none;
   cursor:pointer;
+  transition:.2s;
 }
 
 .btn-primary{
@@ -68,21 +67,34 @@ h1{font-size:26px;font-weight:600}
   color:#d4d4d8;
 }
 
-.section{margin-top:25px}
+.btn:active{transform:scale(.96)}
 
-.title{font-size:16px;margin-bottom:10px}
+.section{margin-top:28px}
 
-.list{display:flex;flex-direction:column;gap:8px}
+.title{
+  font-size:14px;
+  color:var(--sub);
+  margin-bottom:10px;
+}
+
+.list{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
 
 .item{
   background:rgba(255,255,255,.04);
   padding:12px;
   border-radius:10px;
   font-size:13px;
-  color:var(--sub);
 }
 
-.links{display:flex;flex-direction:column;gap:10px}
+.links{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
 
 .link{
   text-decoration:none;
@@ -183,28 +195,22 @@ Optimizo operaciones y reduzco costos sin frenar tu crecimiento.
 </div>
 </section>
 
-<!-- CV HUB -->
-<section class="container section">
-<div class="title">Mi experiencia</div>
-
-<div class="buttons">
-<a href="cv.pdf" download class="btn btn-primary">Descargar CV</a>
-<button class="btn btn-secondary" onclick="openCV()">Ver CV</button>
-<a href="mailto:?subject=CV José Armando&body=Te comparto mi CV: https://jose-armando-card.vercel.app/cv.pdf" class="btn btn-secondary">
-Enviar CV por correo
-</a>
-</div>
-
-</section>
-
 <!-- CONTACTO -->
 <section class="container section">
 <div class="title">Contacto</div>
+
 <div class="links">
 <a class="link" href="https://linkedin.com/in/TU-LINK">LinkedIn</a>
-<a class="link" href="https://wa.me/521XXXXXXXXXX?text=Hola%20José,%20vi%20tu%20perfil%20y%20quiero%20optimizar%20mi%20operación">WhatsApp</a>
-<button class="link" onclick="downloadVCF()">Guardar y hablar conmigo</button>
+
+<a class="link" href="https://wa.me/521XXXXXXXXXX?text=Hola%20José,%20vi%20tu%20perfil%20y%20quiero%20optimizar%20mi%20operación">
+WhatsApp
+</a>
+
+<button class="link" onclick="downloadVCF()">
+Guardar contacto
+</button>
 </div>
+
 </section>
 
 <!-- CTA FINAL -->
@@ -225,7 +231,6 @@ Hablemos de tu operación
 </div>
 
 <script>
-
 function openCV(){
 document.getElementById('cvModal').style.display='flex';
 document.body.style.overflow='hidden';
@@ -252,7 +257,6 @@ a.href=url;
 a.download='contacto.vcf';
 a.click();
 }
-
 </script>
 
 </body>
