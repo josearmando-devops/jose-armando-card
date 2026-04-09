@@ -3,12 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>José Armando</title>
 
 <style>
-
-/* BASE */
 body{
 margin:0;
 background:#000;
@@ -17,9 +14,22 @@ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
 overflow-x:hidden;
 }
 
+/* fondo dinámico */
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:radial-gradient(circle at 50% 20%, rgba(255,255,255,0.06), transparent 60%);
+opacity:0;
+transition:1.5s;
+z-index:-1;
+}
+body.bg-active::before{opacity:1}
+
 /* HERO */
 .hero{
-padding:100px 20px 60px;
+padding:100px 20px;
 max-width:900px;
 margin:auto;
 }
@@ -28,27 +38,38 @@ margin:auto;
 width:140px;
 height:140px;
 border-radius:50%;
-object-fit:cover;
 margin-bottom:30px;
-border:2px solid #222;
+object-fit:cover;
+animation:fadeIn 1.2s ease forwards;
 }
 
 h1{
 font-size:48px;
-line-height:1.05;
 margin-bottom:20px;
-letter-spacing:-1px;
+opacity:0;
+animation:fadeUp 1s forwards .3s;
 }
 
 .subtitle{
 color:#888;
-margin-bottom:20px;
+opacity:0;
+animation:fadeUp 1s forwards .5s;
 }
 
 .desc{
 color:#aaa;
-line-height:1.6;
-margin-bottom:40px;
+margin:20px 0 40px;
+opacity:0;
+animation:fadeUp 1s forwards .7s;
+}
+
+@keyframes fadeIn{
+to{opacity:1;transform:scale(1)}
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
 }
 
 /* BUTTONS */
@@ -59,57 +80,85 @@ border-radius:999px;
 border:none;
 margin-bottom:12px;
 font-weight:600;
-font-size:16px;
 cursor:pointer;
-transition:.3s;
 }
 
-.btn:hover{transform:scale(1.02)}
+.primary{background:#fff;color:#000;}
+.secondary{background:#111;color:#fff;border:1px solid #333;}
 
-.primary{
-background:#fff;
-color:#000;
+/* STORY */
+.story-wrapper{height:300vh;}
+.story{position:sticky;top:30vh;}
+
+.story-line{
+font-size:24px;
+margin-bottom:25px;
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+.story-line.active{
+opacity:1;
+transform:translateY(0);
 }
 
-.secondary{
-background:#111;
-color:#fff;
-border:1px solid #333;
-}
-
-/* INPUT */
-input{
-width:100%;
-padding:14px;
-border-radius:10px;
-border:1px solid #333;
-background:#111;
-color:#fff;
-margin-bottom:10px;
-}
-
-/* SECTION */
+/* SECTIONS */
 .section{
-padding:80px 20px;
+padding:100px 20px;
 max-width:900px;
 margin:auto;
+opacity:0;
+transform:translateY(60px);
+transition:1s;
+}
+.section.active{
+opacity:1;
+transform:translateY(0);
 }
 
 .title{
-letter-spacing:3px;
 font-size:12px;
+letter-spacing:2px;
 color:#777;
 margin-bottom:30px;
 }
 
-/* APPROACH */
-.approach{
-border-left:1px solid #222;
-padding-left:20px;
+/* PHOTOS */
+.photo-block{
+height:70vh;
+margin-bottom:120px;
+position:relative;
+overflow:hidden;
+border-radius:20px;
 }
 
-.approach div{
-margin-bottom:20px;
+.photo-block img{
+width:100%;
+height:120%;
+object-fit:cover;
+filter:brightness(.5);
+transform:scale(1.2);
+transition:1.5s;
+}
+
+.photo-block.active img{
+transform:scale(1);
+filter:brightness(.85);
+}
+
+.photo-text{
+position:absolute;
+bottom:30px;
+left:20px;
+right:20px;
+font-size:24px;
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+.photo-block.active .photo-text{
+opacity:1;
+transform:translateY(0);
 }
 
 /* LOGOS */
@@ -118,164 +167,87 @@ display:flex;
 flex-wrap:wrap;
 gap:30px;
 justify-content:center;
-opacity:.7;
+opacity:.6;
 }
-
 .logos img{
 height:28px;
-filter:grayscale(100%);
+filter:invert(1);
 }
 
-/* PHOTOS */
-.photo-block{
-margin-bottom:60px;
-opacity:0;
-transform:translateY(40px);
-transition:1s;
-}
-
-.photo-block.visible{
-opacity:1;
-transform:translateY(0);
-}
-
-.photo-block img{
-width:100%;
-border-radius:20px;
-}
-
-.photo-block:first-child img{
-filter:brightness(.6) contrast(1.1);
-}
-
-.photo-text{
-margin-top:15px;
-font-size:22px;
-}
-
-/* CV VIEWER */
-#cvViewer{
+/* CV */
+#cvModal{
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
+top:0;left:0;
+width:100%;height:100%;
 background:#000;
 display:none;
 z-index:999;
 }
-
-#cvViewer iframe{
-width:100%;
-height:100%;
-border:none;
-}
-
+.cv-frame{width:100%;height:100%;border:none;}
 .closeBtn{
 position:absolute;
 top:20px;
 right:20px;
-color:#fff;
-font-size:18px;
+font-size:20px;
 cursor:pointer;
-z-index:1000;
 }
 
+/* INPUT */
+input{
+width:100%;
+padding:14px;
+background:#111;
+border:1px solid #333;
+color:#fff;
+border-radius:10px;
+margin-bottom:10px;
+}
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <div class="hero">
-
 <img src="profile.PNG" class="profile">
 
-<h1>
-Optimizo operaciones complejas y elimino ineficiencia estructural
-</h1>
+<h1>Optimizo operaciones complejas y elimino ineficiencia estructural</h1>
 
-<div class="subtitle">
-José Armando — Supply Chain & Operations Consultant
-</div>
+<div class="subtitle">José Armando — Supply Chain & Operations Consultant</div>
 
 <div class="desc">
 Intervengo operaciones con enfoque sistémico para reducir costo, mejorar eficiencia y escalar sin fricción.
 </div>
 
+<a href="https://wa.me/525566773248" target="_blank">
 <button class="btn primary">Evaluar mi operación</button>
-
-<button class="btn secondary" onclick="openCV()">Ver CV</button>
-
-<a href="cv.pdf" target="_blank">
-<button class="btn secondary">Descargar CV</button>
 </a>
 
+<button onclick="openCV()" class="btn secondary">Ver CV</button>
 </div>
+
+<!-- STORY -->
+<section class="story-wrapper">
+<div class="story">
+<div class="story-line">Las empresas no pierden dinero por estrategia.</div>
+<div class="story-line">Lo pierden en fricción operativa invisible.</div>
+<div class="story-line">Procesos que nadie cuestiona.</div>
+<div class="story-line">Sistemas que crecieron sin control.</div>
+<div class="story-line">No es esfuerzo.</div>
+<div class="story-line">Es sistema.</div>
+</div>
+</section>
 
 <!-- EMAIL -->
-<div class="section">
-
+<section class="section">
 <div class="title">RECIBIR CV</div>
 
-<input type="email" id="emailInput" placeholder="Tu correo">
+<input id="emailInput" type="email" placeholder="Tu correo">
 
-<button id="sendBtn" class="btn primary" onclick="sendCV()">
-Enviar CV
-</button>
+<button id="sendBtn" class="btn primary" onclick="sendCV()">Enviar CV</button>
+</section>
 
-</div>
-
-<!-- APPROACH -->
-<div class="section">
-<div class="title">APPROACH</div>
-
-<div class="approach">
-<div>
-<strong>Diagnóstico estructural</strong><br>
-<span style="color:#aaa;">Identificación de cuellos de botella e ineficiencia sistémica.</span>
-</div>
-
-<div>
-<strong>Optimización dirigida</strong><br>
-<span style="color:#aaa;">Priorización de impacto en costo y velocidad.</span>
-</div>
-
-<div>
-<strong>Implementación controlada</strong><br>
-<span style="color:#aaa;">Ejecución con adopción real.</span>
-</div>
-</div>
-
-</div>
-
-<!-- EXPERIENCE -->
-<div class="section">
-<div class="title">SELECTED EXPERIENCE</div>
-
-<div class="logos">
-<img src="logos/arca.svg">
-<img src="logos/pepsico.svg">
-<img src="logos/gruposid.svg">
-<img src="logos/colgas.svg">
-<img src="logos/johndeere.svg">
-<img src="logos/topo.svg">
-</div>
-
-<br>
-
-<div class="logos">
-<img src="logos/tec.svg">
-<img src="logos/henm.svg">
-<img src="logos/uvm.svg">
-<img src="logos/stjohns.svg">
-</div>
-
-</div>
-
-<!-- STORY PHOTOS -->
-<div class="section">
-
+<!-- PHOTOS -->
+<section class="section">
 <div class="title">FORMATION & EXECUTION</div>
 
 <div class="photo-block">
@@ -288,73 +260,78 @@ Formación que define ejecución real.
 </div>
 </div>
 
-<div class="photo-block"><img src="images/cadetedesfile.jpg"></div>
-<div class="photo-block"><img src="images/cadetejuradebandera.jpg"></div>
-<div class="photo-block"><img src="images/arcaecuador.JPG"></div>
-<div class="photo-block"><img src="images/johndeere.jpg"></div>
-<div class="photo-block"><img src="images/arcacapacitando.jpg"></div>
 <div class="photo-block"><img src="images/tecprom.jpg"></div>
+<div class="photo-block"><img src="images/johndeere.jpg"></div>
+<div class="photo-block"><img src="images/arcaecuador.JPG"></div>
 
+</section>
+
+<!-- LOGOS -->
+<section class="section">
+<div class="title">EXPERIENCE</div>
+<div class="logos">
+<img src="logos/arca.svg">
+<img src="logos/pepsico.svg">
+<img src="logos/johndeere.svg">
+<img src="logos/topo.svg">
+</div>
+</section>
+
+<!-- CV -->
+<div id="cvModal">
+<div class="closeBtn" onclick="closeCV()">✕</div>
+<iframe src="cv.pdf" class="cv-frame"></iframe>
 </div>
 
-<!-- CV VIEWER -->
-<div id="cvViewer">
-<div class="closeBtn" onclick="closeCV()">Cerrar</div>
-<iframe src="cv.pdf"></iframe>
-</div>
-
-<!-- EMAILJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <script>
 emailjs.init("pUb0_7CFnALYGNLke");
 
+// story
+const lines=document.querySelectorAll('.story-line');
+window.addEventListener('scroll',()=>{
+let i=Math.floor(window.scrollY/300);
+lines.forEach((l,idx)=>l.classList.toggle('active',idx===i));
+});
+
+// sections
+const sections=document.querySelectorAll('.section');
+window.addEventListener('scroll',()=>{
+sections.forEach(s=>{
+const r=s.getBoundingClientRect();
+if(r.top<window.innerHeight*0.8)s.classList.add('active');
+});
+});
+
+// photos
+const photos=document.querySelectorAll('.photo-block');
+window.addEventListener('scroll',()=>{
+photos.forEach(p=>{
+const r=p.getBoundingClientRect();
+if(r.top<window.innerHeight*0.75)p.classList.add('active');
+});
+});
+
+// CV
+function openCV(){
+document.getElementById('cvModal').style.display='block';
+document.body.style.overflow='hidden';
+}
+function closeCV(){
+document.getElementById('cvModal').style.display='none';
+document.body.style.overflow='auto';
+}
+
+// EMAIL
 function sendCV(){
-const email = document.getElementById("emailInput").value;
-const btn = document.getElementById("sendBtn");
+const email=document.getElementById("emailInput").value;
+if(!email)return alert("Ingresa tu correo");
 
-if(!email){
-alert("Ingresa tu correo");
-return;
+emailjs.send("service_gabf62x","template_0u8kkfn",{to_email:email})
+.then(()=>alert("CV enviado 🚀"))
+.catch(()=>alert("Error"));
 }
-
-btn.innerText="Enviando...";
-btn.style.opacity="0.6";
-
-emailjs.send("service_gabf62x","template_0u8kkfn",{
-to_email: email
-})
-.then(()=>{
-btn.innerText="Enviado 🚀";
-btn.style.background="#1f7a1f";
-
-setTimeout(()=>{
-btn.innerText="Enviar CV";
-btn.style.opacity="1";
-btn.style.background="";
-},2000);
-})
-.catch(()=>{
-btn.innerText="Error";
-btn.style.background="red";
-});
-}
-
-/* CV */
-function openCV(){document.getElementById("cvViewer").style.display="block";}
-function closeCV(){document.getElementById("cvViewer").style.display="none";}
-
-/* SCROLL */
-const blocks=document.querySelectorAll(".photo-block");
-
-window.addEventListener("scroll",()=>{
-blocks.forEach(b=>{
-const rect=b.getBoundingClientRect();
-if(rect.top<window.innerHeight-50){
-b.classList.add("visible");
-}
-});
-});
 </script>
 
 </body>
