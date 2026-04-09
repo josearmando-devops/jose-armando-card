@@ -1,49 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>José Armando</title>
+
+<style>
+
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
+background:#000;
+color:#fff;
+}
+
+/* HERO */
+.hero{
+padding:80px 20px;
+max-width:900px;
+margin:auto;
+}
+
+.profile{
+width:90px;
+height:90px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:20px;
+}
+
+h1{
+font-size:42px;
+line-height:1.1;
+margin-bottom:20px;
+}
+
+.subtitle{
+color:#888;
+margin-bottom:20px;
+}
+
+.desc{
+color:#aaa;
+line-height:1.6;
+margin-bottom:30px;
+}
+
+/* BUTTONS */
+.btn{
+width:100%;
+padding:16px;
+border-radius:999px;
+border:none;
+margin-bottom:12px;
+font-weight:600;
+font-size:16px;
+cursor:pointer;
+}
+
+.primary{
+background:#fff;
+color:#000;
+}
+
+.secondary{
+background:#111;
+color:#fff;
+border:1px solid #333;
+}
+
+/* EMAIL */
+input{
+width:100%;
+padding:14px;
+border-radius:10px;
+border:1px solid #333;
+background:#111;
+color:#fff;
+margin-bottom:10px;
+}
+
+/* SECTIONS */
+.section{
+padding:60px 20px;
+max-width:900px;
+margin:auto;
+}
+
+.title{
+letter-spacing:3px;
+font-size:12px;
+color:#777;
+margin-bottom:20px;
+}
+
+/* PHOTOS */
+.photo-block{
+margin-bottom:40px;
+}
+
+.photo-block img{
+width:100%;
+border-radius:16px;
+}
+
+.photo-block:first-child img{
+filter:brightness(.6) contrast(1.1);
+}
+
+.photo-text{
+margin-top:10px;
+font-size:22px;
+}
+
+/* LOGOS */
+.logos{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+justify-content:center;
+opacity:.7;
+}
+
+.logos img{
+height:30px;
+}
+
+/* CV VIEWER */
+#cvViewer{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#000;
+display:none;
+z-index:999;
+}
+
+#cvViewer iframe{
+width:100%;
+height:100%;
+border:none;
+}
+
+.closeBtn{
+position:absolute;
+top:20px;
+right:20px;
+color:#fff;
+font-size:18px;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+
+<img src="profile.PNG" class="profile">
+
+<h1>
+Optimizo operaciones complejas y elimino ineficiencia estructural
+</h1>
+
+<div class="subtitle">
+José Armando — Supply Chain & Operations Consultant
+</div>
+
+<div class="desc">
+Intervengo operaciones con enfoque sistémico para reducir costo, mejorar eficiencia y escalar sin fricción.
+</div>
+
+<button class="btn primary">Evaluar mi operación</button>
+
+<button class="btn secondary" onclick="openCV()">Ver CV</button>
+
+<a href="cv.pdf" target="_blank">
+<button class="btn secondary">Descargar CV</button>
+</a>
+
+</div>
+
+<!-- EMAIL -->
+<div class="section">
+
+<div class="title">RECIBIR CV</div>
+
+<input type="email" id="emailInput" placeholder="Tu correo">
+
+<button id="sendBtn" class="btn primary" onclick="sendCV()">
+Enviar CV
+</button>
+
+</div>
+
+<!-- PHOTOS -->
+<div class="section">
+
+<div class="title">FORMATION & EXECUTION</div>
+
+<div class="photo-block">
+<img src="images/cadetenavegando.jpg">
+<div class="photo-text">
+Disciplina operativa bajo presión.<br>
+<span style="color:#aaa;font-size:16px;">
+Formación que define ejecución real.
+</span>
+</div>
+</div>
+
+<div class="photo-block">
+<img src="images/cadetedesfile.jpg">
+</div>
+
+<div class="photo-block">
+<img src="images/cadetejuradebandera.jpg">
+</div>
+
+<div class="photo-block">
+<img src="images/arcaecuador.JPG">
+</div>
+
+<div class="photo-block">
+<img src="images/johndeere.jpg">
+</div>
+
+<div class="photo-block">
+<img src="images/arcacapacitando.jpg">
+</div>
+
+<div class="photo-block">
+<img src="images/tecprom.jpg">
+</div>
+
+</div>
+
+<!-- LOGOS -->
+<div class="section">
+
+<div class="title">EXPERIENCE</div>
+
+<div class="logos">
+<img src="logos/arca.svg">
+<img src="logos/pepsico.svg">
+<img src="logos/gruposid.svg">
+<img src="logos/colgas.svg">
+<img src="logos/johndeere.svg">
+<img src="logos/topo.svg">
+</div>
+
+</div>
+
+<!-- CV VIEWER -->
+<div id="cvViewer">
+<div class="closeBtn" onclick="closeCV()">Cerrar</div>
+<iframe src="cv.pdf"></iframe>
+</div>
+
+<!-- EMAIL JS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <script>
-(function(){
 emailjs.init("pUb0_7CFnALYGNLke");
-})();
-</script>
 
-<script>
 function sendCV(){
 
 const email = document.getElementById("emailInput").value;
+const btn = document.getElementById("sendBtn");
 
 if(!email){
 alert("Ingresa tu correo");
 return;
 }
 
-const btn = document.getElementById("sendBtn");
-
-// estado cargando
-btn.innerText = "Enviando...";
-btn.style.opacity = "0.6";
+btn.innerText="Enviando...";
+btn.style.opacity="0.6";
 
 emailjs.send("service_gabf62x","template_0u8kkfn",{
 to_email: email
 })
-.then(function(){
+.then(()=>{
+btn.innerText="Enviado 🚀";
+btn.style.background="#1f7a1f";
 
-btn.innerText = "Enviado 🚀";
-btn.style.background = "#1f7a1f";
-
-// feedback UX premium
 setTimeout(()=>{
-btn.innerText = "Enviar CV";
-btn.style.opacity = "1";
-btn.style.background = "";
+btn.innerText="Enviar CV";
+btn.style.opacity="1";
+btn.style.background="";
 },2000);
 
 })
-.catch(function(error){
-
-btn.innerText = "Error";
-btn.style.background = "red";
-console.log(error);
-
+.catch(()=>{
+btn.innerText="Error";
+btn.style.background="red";
 });
 }
+
+function openCV(){
+document.getElementById("cvViewer").style.display="block";
+}
+
+function closeCV(){
+document.getElementById("cvViewer").style.display="none";
+}
 </script>
+
+</body>
+</html>
