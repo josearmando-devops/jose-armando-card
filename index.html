@@ -7,32 +7,36 @@
 
 <style>
 
+/* BASE */
 body{
 margin:0;
 font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
 background:#000;
 color:#fff;
+overflow-x:hidden;
 }
 
 /* HERO */
 .hero{
-padding:80px 20px;
+padding:100px 20px 60px;
 max-width:900px;
 margin:auto;
 }
 
 .profile{
-width:90px;
-height:90px;
+width:120px;
+height:120px;
 border-radius:50%;
 object-fit:cover;
-margin-bottom:20px;
+margin-bottom:30px;
+border:2px solid #222;
 }
 
 h1{
-font-size:42px;
-line-height:1.1;
+font-size:48px;
+line-height:1.05;
 margin-bottom:20px;
+letter-spacing:-1px;
 }
 
 .subtitle{
@@ -43,7 +47,7 @@ margin-bottom:20px;
 .desc{
 color:#aaa;
 line-height:1.6;
-margin-bottom:30px;
+margin-bottom:40px;
 }
 
 /* BUTTONS */
@@ -56,6 +60,11 @@ margin-bottom:12px;
 font-weight:600;
 font-size:16px;
 cursor:pointer;
+transition:.3s;
+}
+
+.btn:hover{
+transform:scale(1.02);
 }
 
 .primary{
@@ -80,9 +89,9 @@ color:#fff;
 margin-bottom:10px;
 }
 
-/* SECTIONS */
+/* SECTION */
 .section{
-padding:60px 20px;
+padding:80px 20px;
 max-width:900px;
 margin:auto;
 }
@@ -91,17 +100,25 @@ margin:auto;
 letter-spacing:3px;
 font-size:12px;
 color:#777;
-margin-bottom:20px;
+margin-bottom:30px;
 }
 
 /* PHOTOS */
 .photo-block{
-margin-bottom:40px;
+margin-bottom:60px;
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.photo-block.visible{
+opacity:1;
+transform:translateY(0);
 }
 
 .photo-block img{
 width:100%;
-border-radius:16px;
+border-radius:20px;
 }
 
 .photo-block:first-child img{
@@ -109,7 +126,7 @@ filter:brightness(.6) contrast(1.1);
 }
 
 .photo-text{
-margin-top:10px;
+margin-top:15px;
 font-size:22px;
 }
 
@@ -117,13 +134,14 @@ font-size:22px;
 .logos{
 display:flex;
 flex-wrap:wrap;
-gap:20px;
+gap:30px;
 justify-content:center;
 opacity:.7;
 }
 
 .logos img{
-height:30px;
+height:28px;
+filter:grayscale(100%);
 }
 
 /* CV VIEWER */
@@ -151,6 +169,7 @@ right:20px;
 color:#fff;
 font-size:18px;
 cursor:pointer;
+z-index:1000;
 }
 
 </style>
@@ -198,7 +217,7 @@ Enviar CV
 
 </div>
 
-<!-- PHOTOS -->
+<!-- STORY PHOTOS -->
 <div class="section">
 
 <div class="title">FORMATION & EXECUTION</div>
@@ -261,7 +280,7 @@ Formación que define ejecución real.
 <iframe src="cv.pdf"></iframe>
 </div>
 
-<!-- EMAIL JS -->
+<!-- EMAILJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <script>
@@ -300,6 +319,7 @@ btn.style.background="red";
 });
 }
 
+/* CV */
 function openCV(){
 document.getElementById("cvViewer").style.display="block";
 }
@@ -307,6 +327,18 @@ document.getElementById("cvViewer").style.display="block";
 function closeCV(){
 document.getElementById("cvViewer").style.display="none";
 }
+
+/* SCROLL ANIMATION */
+const blocks = document.querySelectorAll(".photo-block");
+
+window.addEventListener("scroll", ()=>{
+blocks.forEach(b=>{
+const rect = b.getBoundingClientRect();
+if(rect.top < window.innerHeight - 50){
+b.classList.add("visible");
+}
+});
+});
 </script>
 
 </body>
