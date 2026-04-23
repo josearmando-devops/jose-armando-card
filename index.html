@@ -5,536 +5,566 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>José Armando — Operaciones de Alto Impacto</title>
 
-  <!-- ─── SEO & Social Sharing ─── -->
+  <!-- ═══════ [#1] META TAGS + OPEN GRAPH COMPLETO ═══════ -->
   <meta name="description" content="Intervengo operaciones complejas en LATAM con enfoque sistémico. Resultados medibles, no promesas.">
+  <meta name="author" content="José Armando Lara Navarro">
+  <meta name="keywords" content="Supply Chain, Operations, Consultor LATAM, Ingeniería Industrial, Demand Planning, Procesos, Consumo Masivo, Operaciones">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#050505">
+
+  <!-- Open Graph (LinkedIn, WhatsApp, Facebook) -->
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="José Armando Lara">
   <meta property="og:title" content="José Armando — Operaciones de Alto Impacto">
   <meta property="og:description" content="Intervengo operaciones complejas en LATAM con enfoque sistémico. Resultados medibles, no promesas.">
-  <meta property="og:image" content="https://jose-armando-card.vercel.app/profile.PNG">
+  <meta property="og:image" content="https://jose-armando-card.vercel.app/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="José Armando Lara — Opero donde la ineficiencia cuesta millones">
   <meta property="og:url" content="https://jose-armando-card.vercel.app/">
-  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta property="profile:first_name" content="José Armando">
+  <meta property="profile:last_name" content="Lara Navarro">
+
+  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="José Armando — Operaciones de Alto Impacto">
   <meta name="twitter:description" content="Intervengo operaciones complejas en LATAM con enfoque sistémico.">
-  <meta name="twitter:image" content="https://jose-armando-card.vercel.app/profile.PNG">
+  <meta name="twitter:image" content="https://jose-armando-card.vercel.app/og-image.jpg">
 
+  <!-- Canonical + favicon -->
+  <link rel="canonical" href="https://jose-armando-card.vercel.app/">
+  <link rel="icon" type="image/png" href="/favicon.png?v=1">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- ═══════ [#8] PRECONNECT GOOGLE FONTS ═══════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+  <link rel="preload" as="image" href="/profile.PNG">
+  <link rel="preload" as="image" href="/images/cadetenavegando.jpg">
+  <link rel="preload" as="image" href="/images/tecprom.jpg">
+
+  <!-- ═══════ [#2] SCHEMA.ORG JSON-LD (Person) ═══════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "José Armando Lara Navarro",
+    "givenName": "José Armando",
+    "familyName": "Lara Navarro",
+    "jobTitle": "Supply Chain & Operations Consultant",
+    "description": "Intervengo operaciones complejas en LATAM con enfoque sistémico. Resultados medibles, no promesas.",
+    "url": "https://jose-armando-card.vercel.app/",
+    "image": "https://jose-armando-card.vercel.app/profile.PNG",
+    "sameAs": [
+      "https://www.linkedin.com/in/josearmandolara"
+    ],
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Tecnológico de Monterrey" },
+      { "@type": "CollegeOrUniversity", "name": "Heroica Escuela Naval Militar" },
+      { "@type": "CollegeOrUniversity", "name": "Universidad del Valle de México" },
+      { "@type": "CollegeOrUniversity", "name": "St. John's University" }
+    ],
+    "knowsAbout": [
+      "Supply Chain Management",
+      "Operations Management",
+      "Industrial Engineering",
+      "Demand Planning",
+      "Process Optimization",
+      "LATAM Operations"
+    ],
+    "knowsLanguage": ["es", "en"],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Independent Consultant"
+    }
+  }
+  </script>
+
   <style>
     :root{
-      --bg:#050505;
-      --text:#f0f0ee;
-      --sub:#6b6b70;
-      --sub2:#9a9a9f;
-      --line:#181818;
-      --accent:#e8e8e0;
-      --gold:#c9a96e;
+      --bg:#050505; --text:#f0f0ee; --sub:#6b6b70;
+      --sub2:#9a9a9f; --line:#181818; --accent:#e8e8e0; --gold:#c9a96e;
+      --error:#d96a6a;
     }
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{
-      font-family:'DM Sans',sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      overflow-x:hidden;
-    }
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+
+    /* Focus visible accesible */
+    :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px;}
+
     body::before{
-      content:"";
-      position:fixed;
-      top:0;left:0;
-      width:100%;height:100%;
-      background:radial-gradient(ellipse at 50% 0%, rgba(201,169,110,0.04), transparent 55%);
-      opacity:0;
-      transition:2s;
-      z-index:-1;
-      pointer-events:none;
+      content:"";position:fixed;top:0;left:0;width:100%;height:100%;
+      background:radial-gradient(ellipse at 50% 0%,rgba(201,169,110,.04),transparent 55%);
+      opacity:0;transition:2s;z-index:-1;pointer-events:none;
     }
     body.bg-active::before{opacity:1}
     body::after{
-      content:"";
-      position:fixed;
-      top:0;left:0;
-      width:100%;height:100%;
+      content:"";position:fixed;top:0;left:0;width:100%;height:100%;
       background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-      opacity:1;
-      z-index:-1;
-      pointer-events:none;
+      opacity:1;z-index:-1;pointer-events:none;
     }
-    .container{
-      max-width:540px;
-      margin:auto;
-      padding:60px 24px 160px;
-    }
+    .container{max-width:540px;margin:auto;padding:60px 24px 160px;}
+
+    /* ─── HERO ─── */
     .hero{margin-bottom:140px;}
-    .profile{
-      width:72px;
-      height:72px;
-      border-radius:50%;
-      margin-bottom:36px;
-      border:1px solid #222;
-      display:block;
+    .profile{width:72px;height:72px;border-radius:50%;margin-bottom:24px;border:1px solid #222;display:block;}
+    .hero-name{
+      font-family:'Syne',sans-serif;font-size:24px;font-weight:800;
+      color:var(--text);letter-spacing:-.4px;line-height:1.15;margin-bottom:8px;
+    }
+    .hero-role{
+      font-size:11px;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;
+      opacity:.75;margin-bottom:36px;
     }
     .hero-label{
-      font-size:11px;
-      letter-spacing:.22em;
-      color:var(--sub);
-      margin-bottom:20px;
-      text-transform:uppercase;
+      font-size:11px;letter-spacing:.22em;color:var(--gold);margin-bottom:24px;
+      text-transform:uppercase;display:none;
+      background:rgba(201,169,110,.06);border:1px solid rgba(201,169,110,.15);
+      padding:7px 14px;border-radius:20px;width:fit-content;
     }
-    h1{
-      font-family:'Syne',sans-serif;
-      font-size:48px;
-      font-weight:800;
-      line-height:1.0;
-      letter-spacing:-1.8px;
-      margin-bottom:32px;
-      color:var(--text);
+    h1{font-family:'Syne',sans-serif;font-size:48px;font-weight:800;line-height:1.0;letter-spacing:-1.8px;margin-bottom:32px;color:var(--text);}
+    .subtitle{font-size:15px;color:var(--sub2);margin-bottom:36px;line-height:1.7;max-width:380px;}
+    .micro-tension{
+      font-size:14px;color:var(--sub);font-style:italic;
+      margin-bottom:16px;letter-spacing:.02em;
     }
-    .subtitle{
-      font-size:15px;
-      color:var(--sub2);
-      margin-bottom:48px;
-      line-height:1.7;
-      max-width:380px;
-    }
+
+    /* ─── BOTONES ─── */
     .btn{
-      display:block;
-      width:100%;
-      padding:17px 20px;
-      border-radius:12px;
-      text-align:center;
-      font-size:15px;
-      font-family:'DM Sans',sans-serif;
-      font-weight:500;
-      margin-bottom:10px;
-      text-decoration:none;
-      transition:.25s;
-      cursor:pointer;
-      border:none;
+      display:block;width:100%;padding:17px 20px;border-radius:12px;text-align:center;
+      font-size:15px;font-family:'DM Sans',sans-serif;font-weight:500;margin-bottom:10px;
+      text-decoration:none;transition:.25s;cursor:pointer;border:none;
     }
-    .btn-primary{
-      background:var(--gold);
-      color:#0a0800;
-      font-weight:600;
-      letter-spacing:.01em;
-    }
+    .btn-primary{background:var(--gold);color:#0a0800;font-weight:600;letter-spacing:.01em;}
     .btn-primary:hover{background:#d4b57a;transform:translateY(-1px);}
-    .btn-secondary{
-      border:1px solid var(--line);
-      background:transparent;
-      color:var(--sub2);
-    }
+    .btn-primary:active{transform:scale(.97);box-shadow:0 0 28px rgba(201,169,110,.3);transition:.1s;}
+    .btn-secondary{border:1px solid var(--line);background:transparent;color:var(--sub2);}
     .btn-secondary:hover{border-color:#333;color:var(--text);}
-    .microcopy{
-      font-size:12px;
-      color:var(--sub);
-      text-align:center;
-      margin-top:12px;
-      letter-spacing:.03em;
-    }
+    .microcopy{font-size:12px;color:var(--sub);text-align:center;margin-top:12px;letter-spacing:.03em;}
     .microcopy span{color:var(--sub2);}
+
+    /* ─── STICKY CTA ─── */
     .sticky-cta{
-      position:fixed;
-      bottom:0;
-      left:0;
-      width:100%;
-      padding:16px 24px 24px;
-      background:linear-gradient(to top, rgba(5,5,5,1) 60%, transparent);
-      z-index:100;
-      transform:translateY(100%);
-      transition:.4s cubic-bezier(.25,.8,.25,1);
+      position:fixed;bottom:0;left:0;width:100%;padding:16px 24px 24px;
+      background:linear-gradient(to top,rgba(5,5,5,1) 60%,transparent);
+      z-index:100;transform:translateY(100%);transition:.4s cubic-bezier(.25,.8,.25,1);
     }
     .sticky-cta.visible{transform:translateY(0);}
-    .sticky-inner{
-      max-width:540px;
-      margin:auto;
-      display:flex;
-      gap:10px;
-    }
+    .sticky-inner{max-width:540px;margin:auto;display:flex;gap:10px;}
     .sticky-inner .btn{margin:0;flex:1;}
     .sticky-inner .btn-primary{flex:1.6;}
-    .story-wrapper{height:320vh;margin-bottom:60px;}
+
+    /* ─── STORY ─── */
+    .story-wrapper{height:340vh;margin-bottom:60px;}
     .story-sticky{
-      position:sticky;
-      top:0;
-      height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      padding:0 0 40px;
+      position:sticky;top:0;height:100vh;display:flex;
+      flex-direction:column;justify-content:center;padding:0 0 40px;
     }
     .story-block{
-      font-family:'Syne',sans-serif;
-      font-size:26px;
-      font-weight:600;
-      line-height:1.4;
-      color:#2a2a2a;
-      margin-bottom:4px;
-      transition:.5s ease;
-      min-height:40px;
-      display:flex;
-      align-items:center;
+      font-family:'Syne',sans-serif;font-size:26px;font-weight:600;
+      line-height:1.4;color:#2a2a2a;margin-bottom:4px;transition:.5s ease;
+      min-height:40px;display:flex;align-items:center;
     }
     .story-block.active{color:#d4d4ce;}
     .story-block.past{color:#1a1a1a;}
-    .story-pause{height:60px;display:block;}
+    .story-pause{height:80px;display:block;}
     .story-break{
-      font-family:'Syne',sans-serif;
-      font-size:32px;
-      font-weight:800;
-      color:var(--gold);
-      opacity:0;
-      transform:translateY(10px);
-      transition:.8s ease;
-      letter-spacing:-0.5px;
-      margin-top:20px;
+      font-family:'Syne',sans-serif;font-size:42px;font-weight:800;
+      color:var(--gold);opacity:0;transform:translateY(16px);
+      transition:1s ease;letter-spacing:-1.5px;margin-top:40px;line-height:1.1;
     }
     .story-break.active{opacity:1;transform:translateY(0);}
+
+    /* ─── POSITIONING ─── */
     .positioning{
-      margin:80px 0 120px;
-      padding:40px 0;
-      border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
-      opacity:0;
-      transform:translateY(30px);
-      transition:.8s ease;
+      margin:80px 0 120px;padding:40px 0;
+      border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+      opacity:0;transform:translateY(30px);transition:.8s ease;
     }
     .positioning.active{opacity:1;transform:translateY(0);}
     .pos-statement{
-      font-family:'Syne',sans-serif;
-      font-size:20px;
-      font-weight:700;
-      line-height:1.5;
-      color:var(--text);
-      margin-bottom:20px;
+      font-family:'Syne',sans-serif;font-size:22px;font-weight:700;
+      line-height:1.45;color:var(--text);margin-bottom:20px;letter-spacing:-.3px;
     }
     .pos-exclusivity{
-      font-size:13px;
-      color:var(--sub);
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      margin-top:16px;
-      padding-top:16px;
-      border-top:1px solid #111;
+      font-size:13px;color:var(--sub);letter-spacing:.06em;text-transform:uppercase;
+      margin-top:16px;padding-top:16px;border-top:1px solid #111;
     }
-    .section{
-      margin-top:120px;
-      opacity:0;
-      transform:translateY(40px);
-      transition:1s ease;
-    }
+
+    /* ─── SECTION ─── */
+    .section{margin-top:120px;opacity:0;transform:translateY(40px);transition:1s ease;}
     .section.active{opacity:1;transform:translateY(0);}
-    .section-title{
-      font-size:10px;
-      letter-spacing:.25em;
-      color:var(--sub);
-      margin-bottom:28px;
-      text-transform:uppercase;
-    }
-    .approach-lead{
-      font-family:'Syne',sans-serif;
-      font-size:22px;
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:40px;
-      letter-spacing:-0.3px;
-    }
+    .section-title{font-size:10px;letter-spacing:.25em;color:var(--sub);margin-bottom:28px;text-transform:uppercase;}
+
+    /* ─── APPROACH ─── */
+    .approach-lead{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--text);margin-bottom:40px;letter-spacing:-.3px;}
     .approach-steps{display:flex;flex-direction:column;gap:32px;}
-    .approach-step{
-      display:grid;
-      grid-template-columns:28px 1fr;
-      gap:16px;
-      align-items:start;
-    }
-    .step-num{
-      font-family:'Syne',sans-serif;
-      font-size:11px;
-      color:var(--gold);
-      font-weight:700;
-      padding-top:3px;
-      letter-spacing:.1em;
-    }
-    .step-content strong{
-      display:block;
-      font-size:15px;
-      font-weight:500;
-      color:var(--text);
-      margin-bottom:5px;
-    }
+    .approach-step{display:grid;grid-template-columns:28px 1fr;gap:16px;align-items:start;}
+    .step-num{font-family:'Syne',sans-serif;font-size:11px;color:var(--gold);font-weight:700;padding-top:3px;letter-spacing:.1em;}
+    .step-content strong{display:block;font-size:15px;font-weight:500;color:var(--text);margin-bottom:5px;}
     .step-content p{font-size:13px;color:var(--sub2);line-height:1.65;}
     .section-cta{
-      margin-top:36px;
-      font-size:13px;
-      color:var(--gold);
-      text-decoration:none;
-      letter-spacing:.04em;
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      transition:.2s;
-      cursor:pointer;
-      background:none;
-      border:none;
-      padding:0;
-      font-family:'DM Sans',sans-serif;
+      margin-top:36px;font-size:13px;color:var(--gold);text-decoration:none;
+      letter-spacing:.04em;display:inline-flex;align-items:center;gap:6px;
+      transition:.2s;cursor:pointer;background:none;border:none;padding:0;font-family:'DM Sans',sans-serif;
     }
     .section-cta:hover{opacity:.7;}
     .section-cta::after{content:"→";font-size:14px;}
-    .photo-block{
-      position:relative;
-      height:70vh;
-      margin-bottom:16px;
-      overflow:hidden;
-      border-radius:16px;
+
+    /* ─── MÉTRICAS ─── */
+    .metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px;}
+    .metric-card{
+      border:1px solid #161616;border-radius:14px;padding:24px 12px;
+      text-align:center;background:#060606;
+      transition:border-color .3s,transform .3s;
     }
-    .photo-block img{
-      width:100%;
-      height:120%;
-      object-fit:cover;
-      filter:brightness(.35);
-      transform:scale(1.1);
-      transition:1.8s ease;
+    .metric-card:hover{border-color:rgba(201,169,110,.2);transform:translateY(-2px);}
+    .metric-number{
+      font-family:'Syne',sans-serif;font-size:34px;font-weight:800;
+      color:var(--gold);letter-spacing:-1px;margin-bottom:8px;
     }
-    .photo-block.active img{transform:scale(1.0);filter:brightness(.65);}
-    .photo-text{
-      position:absolute;
-      bottom:28px;
-      left:24px;
-      right:24px;
-      opacity:0;
-      transform:translateY(20px);
-      transition:1s ease .3s;
-    }
+    .metric-label{font-size:12px;color:var(--sub);line-height:1.5;}
+    .metrics-note{font-size:11px;color:#333;margin-top:16px;letter-spacing:.02em;font-style:italic;}
+
+    /* ─── FOTOS ─── */
+    .photo-block{position:relative;height:70vh;margin-bottom:16px;overflow:hidden;border-radius:16px;background:#0a0a0a;}
+    .photo-block img{width:100%;height:120%;object-fit:cover;filter:brightness(.35);transform:scale(1.1);transition:1.8s ease;}
+    .photo-block.active img{transform:translate3d(0, var(--parallaxY, 0px), 0) scale(1.0) !important;filter:brightness(.65);}
+    .photo-text{position:absolute;bottom:28px;left:24px;right:24px;opacity:0;transform:translateY(20px);transition:1s ease .3s;}
     .photo-block.active .photo-text{opacity:1;transform:translateY(0);}
-    .photo-label{
-      font-size:10px;
-      letter-spacing:.22em;
-      color:var(--gold);
-      text-transform:uppercase;
-      margin-bottom:8px;
-    }
-    .photo-headline{
-      font-family:'Syne',sans-serif;
-      font-size:20px;
-      font-weight:700;
-      line-height:1.35;
-      color:var(--text);
-    }
+    .photo-label{font-size:10px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;}
+    .photo-headline{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;line-height:1.35;color:var(--text);}
     .photo-sub{font-size:13px;color:rgba(255,255,255,.5);margin-top:6px;line-height:1.5;}
 
-    /* ─── LOGOS — MARQUEE ─── */
+    /* ─── LOGOS MARQUEE ─── */
     .logos-marquee-wrapper{
-      position:relative;
-      overflow:hidden;
-      margin-top:36px;
+      position:relative;overflow:hidden;margin-top:36px;
       -webkit-mask-image:linear-gradient(to right,transparent,black 12%,black 88%,transparent);
       mask-image:linear-gradient(to right,transparent,black 12%,black 88%,transparent);
     }
-    .logos-marquee-track{
-      display:flex;
-      gap:56px;
-      align-items:center;
-      width:max-content;
-      animation:marquee 22s linear infinite;
-    }
-    .logos-marquee-wrapper:hover .logos-marquee-track{
-      animation-play-state:paused;
-    }
-    .logos-marquee-track img{
-      height:26px;
-      width:auto;
-      flex-shrink:0;
-      filter:brightness(0) invert(1);
-      opacity:.4;
-      transition:opacity .3s, filter .3s;
-    }
-    .logos-marquee-track img:hover{
-      opacity:.9;
-      filter:brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(5deg);
-    }
-    @keyframes marquee{
-      0%{transform:translateX(0)}
-      100%{transform:translateX(-50%)}
-    }
-    .logos-caption{
-      margin-top:24px;
-      font-size:12px;
-      color:var(--sub);
-      letter-spacing:.04em;
-      line-height:1.6;
-    }
+    .logos-marquee-track{display:flex;gap:56px;align-items:center;width:max-content;animation:marquee 22s linear infinite;}
+    .logos-marquee-wrapper:hover .logos-marquee-track{animation-play-state:paused;}
+    .logos-marquee-track img{height:26px;width:auto;flex-shrink:0;filter:brightness(0) invert(1);opacity:.4;transition:opacity .3s,filter .3s;}
+    .logos-marquee-track img:hover{opacity:.9;filter:brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(5deg);}
+    @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .logos-caption{margin-top:24px;font-size:12px;color:var(--sub);letter-spacing:.04em;line-height:1.6;}
 
-    /* ─── ACADEMIC — CARDS ─── */
-    .academic-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:12px;
-      margin-top:28px;
-    }
+    /* ─── ACADEMIC CARDS ─── */
+    .academic-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px;}
     .academic-card{
-      border:1px solid #161616;
-      border-radius:14px;
-      padding:28px 20px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:12px;
-      background:#060606;
-      cursor:default;
-      opacity:0;
-      transform:translateY(24px);
-      transition:opacity .6s ease, transform .6s ease, border-color .3s, background .3s, box-shadow .3s;
+      border:1px solid #161616;border-radius:14px;padding:28px 20px;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+      background:#060606;cursor:default;opacity:0;transform:translateY(24px);
+      transition:opacity .6s ease,transform .6s ease,border-color .3s,background .3s,box-shadow .3s;
     }
-    .academic-card.visible{
-      opacity:1;
-      transform:translateY(0);
-    }
-    .academic-card:hover{
-      border-color:rgba(201,169,110,.25);
-      background:rgba(201,169,110,.03);
-      box-shadow:0 0 28px rgba(201,169,110,.06);
-      transform:translateY(-3px);
-    }
-    .academic-card img{
-      height:24px;
-      width:auto;
-      max-width:100px;
-      object-fit:contain;
-      filter:brightness(0) invert(1);
-      opacity:.35;
-      transition:opacity .3s, filter .3s;
-    }
+    .academic-card.visible{opacity:1;transform:translateY(0);}
+    .academic-card:hover{border-color:rgba(201,169,110,.25);background:rgba(201,169,110,.03);box-shadow:0 0 28px rgba(201,169,110,.06);transform:translateY(-3px);}
+    .academic-card img{height:24px;width:auto;max-width:100px;object-fit:contain;filter:brightness(0) invert(1);opacity:.35;transition:opacity .3s;}
     .academic-card:hover img{opacity:.75;}
-    .academic-card-name{
-      font-size:11px;
-      letter-spacing:.1em;
-      color:var(--sub);
-      text-transform:uppercase;
-      text-align:center;
-      line-height:1.4;
-    }
+    .academic-card-name{font-size:11px;letter-spacing:.1em;color:var(--sub);text-transform:uppercase;text-align:center;line-height:1.4;}
 
+    /* ─── DIAGNÓSTICO ─── */
     .diag-container{margin-top:28px;}
     .diag-step{display:none;}
     .diag-step.active{display:block;}
-    .diag-question{
-      font-family:'Syne',sans-serif;
-      font-size:18px;
-      font-weight:600;
-      line-height:1.4;
-      color:var(--text);
-      margin-bottom:20px;
-    }
+    .diag-question{font-family:'Syne',sans-serif;font-size:18px;font-weight:600;line-height:1.4;color:var(--text);margin-bottom:20px;}
     .diag-options{display:flex;flex-direction:column;gap:8px;}
     .diag-option{
-      padding:13px 16px;
-      border:1px solid #202020;
-      border-radius:10px;
-      font-size:14px;
-      color:var(--sub2);
-      background:transparent;
-      cursor:pointer;
-      text-align:left;
-      font-family:'DM Sans',sans-serif;
-      transition:.2s;
+      padding:13px 16px;border:1px solid #202020;border-radius:10px;font-size:14px;
+      color:var(--sub2);background:transparent;cursor:pointer;text-align:left;
+      font-family:'DM Sans',sans-serif;transition:.2s;
     }
     .diag-option:hover{border-color:#3a3a3a;color:var(--text);background:#0d0d0d;}
-    .diag-option.selected{border-color:var(--gold);color:var(--gold);background:rgba(201,169,110,.05);}
+    @keyframes optionPulse{0%{transform:scale(1)}40%{transform:scale(1.025)}100%{transform:scale(1)}}
+    .diag-option.selected{border-color:var(--gold);color:var(--gold);background:rgba(201,169,110,.05);animation:optionPulse .3s ease;}
     .diag-progress{display:flex;gap:6px;margin-bottom:24px;}
     .diag-dot{width:6px;height:6px;border-radius:50%;background:#222;transition:.3s;}
     .diag-dot.done{background:var(--gold);}
     .diag-dot.current{background:#555;}
-    .diag-result{
-      display:none;
-      padding:28px;
-      border:1px solid #222;
-      border-radius:14px;
-      background:#080808;
-    }
+    .diag-result{display:none;padding:28px;border:1px solid #222;border-radius:14px;background:#080808;}
     .diag-result.show{display:block;}
     .diag-result-label{font-size:10px;letter-spacing:.2em;color:var(--gold);margin-bottom:12px;text-transform:uppercase;}
-    .diag-result-title{
-      font-family:'Syne',sans-serif;
-      font-size:20px;
-      font-weight:700;
-      color:var(--text);
-      margin-bottom:10px;
-      line-height:1.3;
-    }
+    .diag-result-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.3;}
     .diag-result-text{font-size:14px;color:var(--sub2);line-height:1.7;margin-bottom:24px;}
-    .diag-reset{background:none;border:none;font-size:12px;color:var(--sub);cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:4px;padding:0;}
+    .diag-lead-capture{margin-top:16px;padding-top:20px;border-top:1px solid #1a1a1a;}
+    .diag-lead-label{font-size:12px;color:var(--sub);letter-spacing:.04em;margin-bottom:10px;display:block;}
+    .diag-lead-row{display:flex;gap:8px;}
+    .diag-lead-input{
+      flex:1;padding:12px 14px;border-radius:10px;border:1px solid #1e1e1e;
+      background:#0a0a0a;color:var(--text);font-family:'DM Sans',sans-serif;
+      font-size:13px;transition:.2s;outline:none;
+    }
+    .diag-lead-input:focus{border-color:#333;}
+    .diag-lead-input[aria-invalid="true"]{border-color:var(--error);}
+    .diag-lead-btn{
+      padding:12px 16px;border-radius:10px;background:var(--gold);color:#0a0800;
+      border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;
+      cursor:pointer;transition:.2s;white-space:nowrap;
+    }
+    .diag-lead-btn:hover{background:#d4b57a;}
+    .diag-reset{background:none;border:none;font-size:12px;color:var(--sub);cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:12px;padding:0;display:block;}
+
+    /* ─── CONTACTO ─── */
     .contact-lead{font-size:16px;color:var(--sub2);margin-bottom:28px;font-style:italic;line-height:1.6;}
     .email-label{font-size:12px;letter-spacing:.06em;color:var(--sub);text-transform:uppercase;margin-bottom:8px;margin-top:16px;display:block;}
-    input{
-      width:100%;
-      padding:14px 16px;
-      border-radius:10px;
-      border:1px solid #1e1e1e;
-      background:#080808;
-      color:var(--text);
-      margin-bottom:8px;
-      font-family:'DM Sans',sans-serif;
-      font-size:14px;
-      transition:.2s;
-    }
+    input{width:100%;padding:14px 16px;border-radius:10px;border:1px solid #1e1e1e;background:#080808;color:var(--text);margin-bottom:8px;font-family:'DM Sans',sans-serif;font-size:14px;transition:.2s;}
     input:focus{outline:none;border-color:#333;}
+    input[aria-invalid="true"]{border-color:var(--error);}
+
+    /* ─── [#13] HONEYPOT (invisible para humanos, bait para bots) ─── */
+    .hp-field{
+      position:absolute !important;left:-9999px !important;
+      width:1px;height:1px;opacity:0;pointer-events:none;
+    }
+
+    /* ─── [#14] FORM STATUS VISIBLE ─── */
+    .form-status{
+      font-size:12px;color:var(--sub);min-height:16px;margin-top:4px;
+      letter-spacing:.02em;transition:color .2s;
+    }
+    .form-status[data-state="error"]{color:var(--error);}
+    .form-status[data-state="success"]{color:#6aaf6a;}
+
+    /* ─── PRE-CIERRE ─── */
+    .pre-closing{
+      margin-top:100px;padding:48px 0 0;
+      border-top:1px solid #0f0f0f;
+      text-align:center;opacity:0;transform:translateY(30px);transition:.8s ease;
+    }
+    .pre-closing.active{opacity:1;transform:translateY(0);}
+    .pre-closing-line{
+      font-family:'Syne',sans-serif;font-size:18px;font-weight:600;
+      color:var(--sub);line-height:1.5;font-style:italic;letter-spacing:-.2px;
+    }
+
+    /* ─── CIERRE ─── */
     .closing{
-      margin-top:160px;
-      padding-top:80px;
-      border-top:1px solid var(--line);
-      opacity:0;
-      transform:translateY(40px);
-      transition:1.2s ease;
-      text-align:center;
+      margin-top:48px;padding-top:56px;border-top:1px solid var(--line);
+      opacity:0;transform:translateY(40px);transition:1.2s ease;text-align:center;
     }
     .closing.active{opacity:1;transform:translateY(0);}
-    .closing-statement{
-      font-family:'Syne',sans-serif;
-      font-size:32px;
-      font-weight:800;
-      line-height:1.2;
-      letter-spacing:-1px;
-      color:var(--text);
-      margin-bottom:16px;
-    }
+    .closing-statement{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;line-height:1.2;letter-spacing:-1px;color:var(--text);margin-bottom:16px;}
     .closing-sub{font-size:13px;color:var(--sub);margin-bottom:56px;font-style:italic;}
     .closing .btn{max-width:320px;margin:0 auto 10px;}
+
+    /* ─── BANNER VISITANTE ─── */
+    .visitor-banner{
+      position:fixed;top:0;left:0;width:100%;
+      background:rgba(201,169,110,.08);border-bottom:1px solid rgba(201,169,110,.12);
+      padding:10px 20px;z-index:200;display:none;
+      font-size:12px;color:var(--gold);letter-spacing:.04em;text-align:center;
+    }
+    .visitor-banner.show{display:block;}
+
+    /* ─── [#9] MODAL <dialog> NATIVO ─── */
     #cvModal{
-      position:fixed;
-      top:0;left:0;
-      width:100%;height:100%;
-      background:#000;
-      display:none;
-      z-index:999;
+      width:100vw;max-width:100vw;height:100vh;max-height:100vh;
+      margin:0;padding:0;border:none;background:#000;color:var(--text);
     }
-    .cv-header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:14px 20px;
-      border-bottom:1px solid var(--line);
-    }
+    #cvModal::backdrop{background:rgba(0,0,0,.9);}
+    .cv-header{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line);}
     .cv-header span{font-size:13px;color:var(--sub2);letter-spacing:.05em;}
     .cv-header button{background:none;border:none;color:var(--sub2);cursor:pointer;font-size:13px;font-family:'DM Sans',sans-serif;}
-    .cv-frame{width:100%;height:calc(100% - 50px);border:none;}
+    .cv-header button:hover{color:var(--text);}
+    .cv-frame{width:100%;height:calc(100% - 50px);border:none;background:#fff;}
+
+
+    /* ─── PROGRESS BAR ─── */
+    #progressBar{
+      position:fixed;top:0;left:0;height:2px;width:0%;
+      background:var(--gold);z-index:250;pointer-events:none;
+      transition:width .12s linear;
+    }
+
+    /* ─── BUTTON POLISH ─── */
+    .btn{
+      position:relative;
+      overflow:hidden;
+      transform:translateZ(0);
+      will-change:transform;
+    }
+    .btn::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at center, rgba(255,255,255,.16), transparent 62%);
+      opacity:0;
+      transition:opacity .28s ease;
+      pointer-events:none;
+    }
+    .btn:hover::after{opacity:1;}
+
+    /* ─── FADE-UP + STAGGER ─── */
+    @keyframes fadeUp{
+      from{opacity:0;transform:translateY(10px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+    .hero > *{
+      opacity:0;
+      transform:translateY(10px);
+      animation:fadeUp .62s ease forwards;
+    }
+    .hero > *:nth-child(1){animation-delay:.04s}
+    .hero > *:nth-child(2){animation-delay:.08s}
+    .hero > *:nth-child(3){animation-delay:.12s}
+    .hero > *:nth-child(4){animation-delay:.16s}
+    .hero > *:nth-child(5){animation-delay:.20s}
+    .hero > *:nth-child(6){animation-delay:.24s}
+    .hero > *:nth-child(7){animation-delay:.28s}
+    .hero > *:nth-child(8){animation-delay:.32s}
+    .hero > *:nth-child(9){animation-delay:.36s}
+    .hero > *:nth-child(10){animation-delay:.40s}
+    .section.active > *,
+    .positioning.active > *,
+    .pre-closing.active > *,
+    .closing.active > *{
+      opacity:0;
+      transform:translateY(10px);
+      animation:fadeUp .62s ease forwards;
+    }
+    .section.active > *:nth-child(1),
+    .positioning.active > *:nth-child(1),
+    .pre-closing.active > *:nth-child(1),
+    .closing.active > *:nth-child(1){animation-delay:.04s}
+    .section.active > *:nth-child(2),
+    .positioning.active > *:nth-child(2),
+    .pre-closing.active > *:nth-child(2),
+    .closing.active > *:nth-child(2){animation-delay:.08s}
+    .section.active > *:nth-child(3),
+    .positioning.active > *:nth-child(3),
+    .pre-closing.active > *:nth-child(3),
+    .closing.active > *:nth-child(3){animation-delay:.12s}
+    .section.active > *:nth-child(4),
+    .positioning.active > *:nth-child(4),
+    .pre-closing.active > *:nth-child(4),
+    .closing.active > *:nth-child(4){animation-delay:.16s}
+    .section.active > *:nth-child(5),
+    .positioning.active > *:nth-child(5),
+    .pre-closing.active > *:nth-child(5),
+    .closing.active > *:nth-child(5){animation-delay:.20s}
+    .section.active > *:nth-child(6),
+    .positioning.active > *:nth-child(6),
+    .pre-closing.active > *:nth-child(6),
+    .closing.active > *:nth-child(6){animation-delay:.24s}
+    .section.active > *:nth-child(7),
+    .positioning.active > *:nth-child(7),
+    .pre-closing.active > *:nth-child(7),
+    .closing.active > *:nth-child(7){animation-delay:.28s}
+    .section.active > *:nth-child(8),
+    .positioning.active > *:nth-child(8),
+    .pre-closing.active > *:nth-child(8),
+    .closing.active > *:nth-child(8){animation-delay:.32s}
+    .section.active > *:nth-child(9),
+    .positioning.active > *:nth-child(9),
+    .pre-closing.active > *:nth-child(9),
+    .closing.active > *:nth-child(9){animation-delay:.36s}
+    .section.active > *:nth-child(10),
+    .positioning.active > *:nth-child(10),
+    .pre-closing.active > *:nth-child(10),
+    .closing.active > *:nth-child(10){animation-delay:.40s}
+
+    /* ─── PHOTO PARALLAX ─── */
+    .photo-block img{
+      will-change:transform;
+      transform:translate3d(0, var(--parallaxY, 0px), 0) scale(1.1);
+    }
+    .photo-block.active img{
+      transform:translate3d(0, var(--parallaxY, 0px), 0) scale(1.0);
+    }
+
+    /* ═══════ [#7] PREFERS-REDUCED-MOTION ═══════ */
+    @media (prefers-reduced-motion: reduce){
+      *,*::before,*::after{
+        animation-duration:0.001ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:0.001ms !important;
+        scroll-behavior:auto !important;
+      }
+      .story-block,.section,.positioning,.closing,.pre-closing,.academic-card{
+        opacity:1 !important;transform:none !important;
+      }
+      .photo-block img{transform:scale(1) !important;filter:brightness(.65) !important;}
+      .photo-text{opacity:1 !important;transform:none !important;}
+      .logos-marquee-track{animation:none !important;}
+      .story-block{color:#d4d4ce !important;}
+    }
+    /* 🔥 NFC ANIMATION */
+body {
+  opacity: 0 !important;
+  transform: scale(0.96) !important;
+  transition: all 1.6s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+body.loaded {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+/* glow dorado */
+.nfc-entry::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, rgba(201,169,110,0.25), transparent 70%);
+  opacity: 0;
+  animation: nfcGlow 1.2s ease forwards;
+  pointer-events: none;
+  z-index: 999;
+}
+
+@keyframes nfcGlow {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+    /* 🔥 NFC ENTRY — GOD MODE */
+.container {
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  filter: blur(6px);
+  transition: 
+    all 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 1.2s ease;
+}
+
+body.loaded .container {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
   </style>
 </head>
 <body>
+
+<!-- Banner visitante recurrente -->
+<div class="visitor-banner" id="visitorBanner"></div>
+
+<div id="progressBar" aria-hidden="true"></div>
 
 <div class="container">
 
   <!-- ─── HERO ─── -->
   <section class="hero">
-    <img src="profile.PNG" class="profile" alt="José Armando">
-    <div class="hero-label">Supply Chain & Operations</div>
+    <img src="profile.PNG" class="profile" alt="José Armando Lara Navarro" width="72" height="72" fetchpriority="high">
+    <div class="hero-name">José Armando<br>Lara Navarro</div>
+    <div class="hero-role">Ing. Industrial y de Sistemas · Supply Chain &amp; Operations</div>
+    <div class="hero-label" id="heroLabel"></div>
     <h1>Opero donde<br>la ineficiencia<br>cuesta millones.</h1>
     <p class="subtitle">
-      Intervengo operaciones complejas en LATAM con enfoque sistémico. Resultados medibles, no promesas.
+      Las operaciones no fallan por falta de esfuerzo.<br>
+      Fallan por diseño. Y el diseño se puede cambiar.
     </p>
-    <a href="https://wa.me/525566773248" class="btn btn-primary" target="_blank">
+    <p class="micro-tension">Si esto ya lo viste en tu operación —</p>
+    <!-- [#3][#5] rel noopener + WhatsApp pre-llenado -->
+    <a href="https://wa.me/525566773248?text=Hola%20Jos%C3%A9%2C%20vengo%20de%20tu%20landing.%20Quiero%20evaluar%20mi%20operaci%C3%B3n."
+       class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-cta="hero_whatsapp">
       Evaluar mi operación →
     </a>
     <p class="microcopy"><span>Evaluación inicial sin costo</span> · Respuesta en menos de 24h</p>
-    <button onclick="openCV()" class="btn btn-secondary" style="margin-top:12px">Ver CV</button>
+    <button onclick="openCV()" class="btn btn-secondary" style="margin-top:12px" data-cta="hero_cv">Ver CV</button>
   </section>
 
   <!-- ─── STORY ─── -->
@@ -546,17 +576,17 @@
       <div class="story-block">Procesos que nadie cuestiona.</div>
       <div class="story-block">Sistemas que crecieron sin diseño.</div>
       <span class="story-pause"></span>
-      <div class="story-break">El problema no es tu gente.<br>Es el sistema.</div>
+      <div class="story-break">El problema<br>no es tu gente.<br>Es el sistema.</div>
     </div>
   </section>
 
   <!-- ─── POSITIONING ─── -->
   <div class="positioning">
     <div class="pos-statement">
-      "Trabajo en operaciones donde la ineficiencia cuesta millones.<br>
-      No en las que buscan optimizar tareas."
+      "Intervengo donde la ineficiencia ya cuesta millones.<br>
+      No donde creen que el problema es la gente."
     </div>
-    <p class="pos-exclusivity">— No trabajo con todas las empresas.</p>
+    <p class="pos-exclusivity">— Trabajo con quien ya sabe que el problema es sistémico.</p>
   </div>
 
   <!-- ─── APPROACH ─── -->
@@ -586,16 +616,38 @@
         </div>
       </div>
     </div>
-    <button class="section-cta" onclick="document.querySelector('.contact-section').scrollIntoView({behavior:'smooth'})">
+    <p class="micro-tension" style="margin-top:32px;">Si ya identificas dónde está la fricción —</p>
+    <button class="section-cta" onclick="document.querySelector('.contact-section').scrollIntoView({behavior:'smooth'})" data-cta="method_hablemos">
       Hablemos
     </button>
+  </section>
+
+  <!-- ─── PRUEBA REAL ─── -->
+  <section class="section">
+    <div class="section-title">RESULTADOS</div>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-number">6+</div>
+        <div class="metric-label">países operados en LATAM</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">3</div>
+        <div class="metric-label">industrias — mismo patrón de fricción</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">100%</div>
+        <div class="metric-label">de proyectos donde la mejora permanece sin mí</div>
+      </div>
+    </div>
+    <p class="metrics-note">* Referencias directas disponibles bajo solicitud.</p>
   </section>
 
   <!-- ─── FOTOS ─── -->
   <section class="section">
     <div class="section-title">FORMATION & EXECUTION</div>
+    <!-- [#4][#10] loading lazy + width/height + decoding async -->
     <div class="photo-block">
-      <img src="images/cadetenavegando.jpg" alt="Formación">
+      <img src="images/cadetenavegando.jpg" alt="Formación" loading="lazy" decoding="async" width="1200" height="800">
       <div class="photo-text">
         <div class="photo-label">Formación</div>
         <div class="photo-headline">Disciplina operativa<br>desde la base.</div>
@@ -603,7 +655,7 @@
       </div>
     </div>
     <div class="photo-block">
-      <img src="images/tecprom.jpg" alt="Exposición">
+      <img src="images/tecprom.jpg" alt="Exposición" loading="lazy" decoding="async" width="1200" height="800">
       <div class="photo-text">
         <div class="photo-label">Exposición</div>
         <div class="photo-headline">Formación técnica<br>de alto nivel.</div>
@@ -611,7 +663,7 @@
       </div>
     </div>
     <div class="photo-block">
-      <img src="images/johndeere.jpg" alt="Ejecución">
+      <img src="images/johndeere.jpg" alt="Ejecución" loading="lazy" decoding="async" width="1200" height="800">
       <div class="photo-text">
         <div class="photo-label">Ejecución</div>
         <div class="photo-headline">Operaciones industriales<br>a escala global.</div>
@@ -619,14 +671,14 @@
       </div>
     </div>
     <div class="photo-block">
-      <img src="images/arcaecuador.JPG" alt="Escala">
+      <img src="images/arcaecuador.JPG" alt="Escala" loading="lazy" decoding="async" width="1200" height="800">
       <div class="photo-text">
         <div class="photo-label">Escala</div>
         <div class="photo-headline">LATAM. Consumo masivo.<br>Alta complejidad.</div>
         <div class="photo-sub">Arca Continental. Planificación de demanda en mercados volátiles.</div>
       </div>
     </div>
-    <button class="section-cta" onclick="document.querySelector('.contact-section').scrollIntoView({behavior:'smooth'})">
+    <button class="section-cta" onclick="document.querySelector('.contact-section').scrollIntoView({behavior:'smooth'})" data-cta="photos_evaluar">
       Evaluar mi operación
     </button>
   </section>
@@ -636,25 +688,21 @@
     <div class="section-title">SELECTED EXPERIENCE</div>
     <div class="logos-marquee-wrapper">
       <div class="logos-marquee-track">
-        <!-- original -->
-        <img src="logos/pepsico.svg" alt="PepsiCo">
-        <img src="logos/arca.svg" alt="Arca Continental">
-        <img src="logos/johndeere.svg" alt="John Deere">
-        <img src="logos/topo.svg" alt="Topo">
-        <img src="logos/colgas.svg" alt="Colgas">
-        <img src="logos/gruposid.svg" alt="Grupo SID">
-        <!-- duplicado para el loop infinito -->
-        <img src="logos/pepsico.svg" alt="PepsiCo" aria-hidden="true">
-        <img src="logos/arca.svg" alt="Arca Continental" aria-hidden="true">
-        <img src="logos/johndeere.svg" alt="John Deere" aria-hidden="true">
-        <img src="logos/topo.svg" alt="Topo" aria-hidden="true">
-        <img src="logos/colgas.svg" alt="Colgas" aria-hidden="true">
-        <img src="logos/gruposid.svg" alt="Grupo SID" aria-hidden="true">
+        <img src="logos/pepsico.svg" alt="PepsiCo" loading="lazy" width="80" height="26">
+        <img src="logos/arca.svg" alt="Arca Continental" loading="lazy" width="80" height="26">
+        <img src="logos/johndeere.svg" alt="John Deere" loading="lazy" width="80" height="26">
+        <img src="logos/topo.svg" alt="Topo" loading="lazy" width="80" height="26">
+        <img src="logos/colgas.svg" alt="Colgas" loading="lazy" width="80" height="26">
+        <img src="logos/gruposid.svg" alt="Grupo SID" loading="lazy" width="80" height="26">
+        <img src="logos/pepsico.svg" alt="" aria-hidden="true" loading="lazy" width="80" height="26">
+        <img src="logos/arca.svg" alt="" aria-hidden="true" loading="lazy" width="80" height="26">
+        <img src="logos/johndeere.svg" alt="" aria-hidden="true" loading="lazy" width="80" height="26">
+        <img src="logos/topo.svg" alt="" aria-hidden="true" loading="lazy" width="80" height="26">
+        <img src="logos/colgas.svg" alt="" aria-hidden="true" loading="lazy" width="80" height="26">
+        <img src="logos/gruposid.svg" alt="" aria-hidden="true" loading="lazy" width="80" height="26">
       </div>
     </div>
-    <p class="logos-caption">
-      Experiencia en LATAM · Consumo masivo · Operaciones industriales
-    </p>
+    <p class="logos-caption">Experiencia en LATAM · Consumo masivo · Operaciones industriales</p>
   </section>
 
   <!-- ─── ACADEMIC ─── -->
@@ -662,25 +710,25 @@
     <div class="section-title">ACADEMIC FORMATION</div>
     <div class="academic-grid">
       <div class="academic-card">
-        <img src="logos/tec.svg" alt="Tec de Monterrey">
+        <img src="logos/tec.svg" alt="Tec de Monterrey" loading="lazy" width="90" height="24">
         <span class="academic-card-name">Tec de Monterrey</span>
       </div>
       <div class="academic-card">
-        <img src="logos/henm.svg" alt="HENM">
+        <img src="logos/henm.svg" alt="HENM" loading="lazy" width="90" height="24">
         <span class="academic-card-name">HENM</span>
       </div>
       <div class="academic-card">
-        <img src="logos/uvm.svg" alt="UVM">
+        <img src="logos/uvm.svg" alt="UVM" loading="lazy" width="90" height="24">
         <span class="academic-card-name">UVM</span>
       </div>
       <div class="academic-card">
-        <img src="logos/stjohns.svg" alt="St. John's">
+        <img src="logos/stjohns.svg" alt="St. John's" loading="lazy" width="90" height="24">
         <span class="academic-card-name">St. John's</span>
       </div>
     </div>
   </section>
 
-  <!-- ─── MINI DIAGNÓSTICO ─── -->
+  <!-- ─── DIAGNÓSTICO ─── -->
   <section class="section">
     <div class="section-title">DIAGNÓSTICO</div>
     <p class="subtitle" style="margin-bottom:28px;">Evalúa tu operación en 30 segundos.</p>
@@ -719,10 +767,21 @@
         <div class="diag-result-label">Tu diagnóstico</div>
         <div class="diag-result-title" id="resultTitle"></div>
         <div class="diag-result-text" id="resultText"></div>
-        <a href="https://wa.me/525566773248" class="btn btn-primary" target="_blank" style="max-width:none;margin-bottom:10px;">
+        <a href="https://wa.me/525566773248?text=Hola%20Jos%C3%A9%2C%20acabo%20de%20hacer%20el%20diagn%C3%B3stico%20y%20quiero%20hablar."
+           class="btn btn-primary" target="_blank" rel="noopener noreferrer"
+           style="max-width:none;margin-bottom:10px;" data-cta="diag_whatsapp">
           Hablar con José Armando →
         </a>
-        <br>
+        <div class="diag-lead-capture">
+          <span class="diag-lead-label">Recibe este diagnóstico en tu correo</span>
+          <div class="diag-lead-row">
+            <input type="email" id="diagEmailInput" class="diag-lead-input" placeholder="tu@empresa.com" autocomplete="email" inputmode="email" aria-describedby="diagEmailStatus">
+            <!-- [#13] honeypot diagnóstico -->
+            <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" id="diagHp">
+            <button class="diag-lead-btn" onclick="sendDiagnosticLead()" data-cta="diag_email">Enviar →</button>
+          </div>
+          <p id="diagEmailStatus" class="form-status" role="status" aria-live="polite"></p>
+        </div>
         <button class="diag-reset" onclick="resetDiag()">← Reiniciar diagnóstico</button>
       </div>
     </div>
@@ -732,12 +791,24 @@
   <section class="section contact-section">
     <div class="section-title">CONTACTO</div>
     <p class="contact-lead">"Si tu operación tiene fricción, hablemos."</p>
-    <a class="btn btn-primary" href="https://wa.me/525566773248" target="_blank">WhatsApp →</a>
-    <a class="btn btn-secondary" href="https://www.linkedin.com/in/josearmandolara" target="_blank">LinkedIn</a>
+    <a class="btn btn-primary"
+       href="https://wa.me/525566773248?text=Hola%20Jos%C3%A9%2C%20vengo%20de%20tu%20landing.%20Quiero%20platicar."
+       target="_blank" rel="noopener noreferrer" data-cta="contact_whatsapp">WhatsApp →</a>
+    <a class="btn btn-secondary" href="https://www.linkedin.com/in/josearmandolara" target="_blank" rel="noopener noreferrer" data-cta="contact_linkedin">LinkedIn</a>
     <span class="email-label">Recibe mi CV directo en tu correo</span>
-    <input id="emailInput" type="email" placeholder="tu@empresa.com">
-    <button id="sendBtn" class="btn btn-secondary" onclick="sendCV()">Enviar CV</button>
+    <input id="emailInput" type="email" placeholder="tu@empresa.com" autocomplete="email" inputmode="email" aria-describedby="cvEmailStatus">
+    <!-- [#13] honeypot contacto -->
+    <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" id="cvHp">
+    <button id="sendBtn" class="btn btn-secondary" onclick="sendCV()" data-cta="contact_email">Enviar CV</button>
+    <p id="cvEmailStatus" class="form-status" role="status" aria-live="polite"></p>
   </section>
+
+  <!-- ─── PRE-CIERRE ─── -->
+  <div class="pre-closing" id="preClosing">
+    <p class="pre-closing-line">
+      "Si llegaste hasta aquí,<br>ya sabes dónde está el problema."
+    </p>
+  </div>
 
   <!-- ─── CIERRE ─── -->
   <section class="closing">
@@ -746,7 +817,8 @@
       <span style="color:var(--gold);">Fallan por diseño.</span>
     </div>
     <p class="closing-sub">Y el diseño se puede cambiar.</p>
-    <a href="https://wa.me/525566773248" class="btn btn-primary" target="_blank">
+    <a href="https://wa.me/525566773248?text=Hola%20Jos%C3%A9%2C%20vengo%20de%20tu%20landing.%20Quiero%20evaluar%20mi%20operaci%C3%B3n."
+       class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-cta="closing_whatsapp">
       Evaluar mi operación →
     </a>
     <p class="microcopy" style="margin-top:16px;"><span>Evaluación inicial sin costo</span> · Respuesta en menos de 24h</p>
@@ -757,24 +829,109 @@
 <!-- ─── STICKY CTA ─── -->
 <div class="sticky-cta" id="stickyCta">
   <div class="sticky-inner">
-    <a href="https://wa.me/525566773248" class="btn btn-primary" target="_blank">Evaluar mi operación</a>
-    <button onclick="openCV()" class="btn btn-secondary">Ver CV</button>
+    <a href="https://wa.me/525566773248?text=Hola%20Jos%C3%A9%2C%20vengo%20de%20tu%20landing.%20Quiero%20evaluar%20mi%20operaci%C3%B3n."
+       class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-cta="sticky_whatsapp">Evaluar mi operación</a>
+    <button onclick="openCV()" class="btn btn-secondary" data-cta="sticky_cv">Ver CV</button>
   </div>
 </div>
 
-<!-- ─── CV MODAL ─── -->
-<div id="cvModal" role="dialog" aria-modal="true" aria-label="CV José Armando">
+<!-- ─── [#9] CV MODAL (dialog nativo) ─── -->
+<dialog id="cvModal" aria-labelledby="cvDialogTitle">
   <div class="cv-header">
-    <span>CV — José Armando</span>
-    <button onclick="closeCV()">Cerrar ✕</button>
+    <span id="cvDialogTitle">CV — José Armando</span>
+    <button onclick="closeCV()" aria-label="Cerrar CV">Cerrar ✕</button>
   </div>
-  <iframe src="cv.pdf" class="cv-frame"></iframe>
-</div>
+  <iframe src="cv.pdf" class="cv-frame" title="Currículum Vitae — José Armando Lara"></iframe>
+</dialog>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<!-- ═══════ [#11] VERCEL ANALYTICS ═══════ -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+
 <script>
   emailjs.init("pUb0_7CFnALYGNLke");
 
+  // ═══ [#12] EVENT TRACKING — delega en document para no tocar los onclick existentes ═══
+  function trackEvent(name, data){
+    try{
+      if(typeof window.va === 'function') window.va('event', { name: name, data: data || {} });
+    }catch(_){}
+  }
+  document.addEventListener('click', function(e){
+    const el = e.target.closest('[data-cta]');
+    if(el) trackEvent('cta_click', { cta: el.dataset.cta });
+  });
+
+  // ─── [#15] PROGRESS BAR + PHOTO PARALLAX + CONTEXTUAL CTA STATE ───
+  const progressBar = document.getElementById('progressBar');
+  const parallaxPhotos = document.querySelectorAll('.photo-block img');
+
+  function updateProgressBar() {
+    if (!progressBar) return;
+    const scrollTop = window.scrollY || document.documentElement.scrollTop || 0;
+    const maxScroll = Math.max(1, document.body.scrollHeight - window.innerHeight);
+    progressBar.style.width = ((scrollTop / maxScroll) * 100).toFixed(3) + '%';
+  }
+
+  function updateParallax() {
+    const vh = window.innerHeight || 1;
+    parallaxPhotos.forEach((img) => {
+      const block = img.closest('.photo-block');
+      if (!block) return;
+      const rect = block.getBoundingClientRect();
+      const centerDistance = (rect.top + rect.height / 2) - (vh / 2);
+      const offset = Math.max(-18, Math.min(18, centerDistance * -0.03));
+      img.style.setProperty('--parallaxY', offset.toFixed(2) + 'px');
+    });
+  }
+
+  (function(){
+    const ref = new URLSearchParams(window.location.search).get('ref');
+    if (ref) document.body.dataset.ref = ref;
+  })();
+
+  // ─── 9.1 DETECCIÓN DE FUENTE ───
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    const ref = params.get('ref');
+    const label = document.getElementById('heroLabel');
+    const sources = {
+      nfc:      'Acabas de conocerme en persona.',
+      linkedin: 'Bienvenido desde LinkedIn.',
+      wa:       'Gracias por llegar hasta aquí.',
+      qr:       'Escaneaste mi QR — bien hecho.',
+      email:    'Gracias por abrir el correo.',
+    };
+    if (ref && sources[ref]) {
+      label.textContent = sources[ref];
+      label.style.display = 'block';
+      document.body.dataset.ref = ref;
+      trackEvent('visit_source', { ref: ref });
+    }
+  })();
+
+  // ─── 9.2 MEMORIA — VISITANTE RECURRENTE ───
+  (function() {
+    const KEY = 'ja_card_v1';
+    const prev = localStorage.getItem(KEY);
+    const isReturning = !!prev && !new URLSearchParams(window.location.search).get('ref');
+
+    if (isReturning) {
+      const banner = document.getElementById('visitorBanner');
+      banner.textContent = 'Bienvenido de vuelta — seguimos donde nos quedamos.';
+      banner.classList.add('show');
+      setTimeout(() => banner.classList.remove('show'), 5000);
+      trackEvent('returning_visitor');
+    }
+
+    localStorage.setItem(KEY, Date.now());
+  })();
+
+  // ─── STORY (se mantiene scroll-driven por necesitar progress continuo) ───
   const blocks = document.querySelectorAll('.story-block');
   const storyBreak = document.querySelector('.story-break');
   function updateStory() {
@@ -787,53 +944,65 @@
       b.classList.toggle('active', i === index);
       b.classList.toggle('past', i < index);
     });
-    if (clampedProgress > 0.75) {
-      storyBreak.classList.add('active');
-    } else {
-      storyBreak.classList.remove('active');
-    }
-  }
-
-  function updateSections() {
-    document.querySelectorAll('.section, .positioning, .closing').forEach(sec => {
-      const rect = sec.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.82) sec.classList.add('active');
-    });
-    document.querySelectorAll('.photo-block').forEach(p => {
-      const r = p.getBoundingClientRect();
-      if (r.top < window.innerHeight * 0.78) p.classList.add('active');
-    });
-    // Staggered reveal para academic cards
-    const academicSection = document.getElementById('academicSection');
-    if (academicSection) {
-      const rect = academicSection.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.85) {
-        document.querySelectorAll('.academic-card').forEach((card, i) => {
-          setTimeout(() => card.classList.add('visible'), i * 100);
-        });
-      }
-    }
+    storyBreak.classList.toggle('active', clampedProgress > 0.75);
   }
 
   function updateBackground() {
-    const scrolled = window.scrollY > 400;
-    document.body.classList.toggle('bg-active', scrolled);
+    document.body.classList.toggle('bg-active', window.scrollY > 400);
   }
 
+  // ═══ [#6] IntersectionObserver para reveals (reemplaza el scroll handler de sections/photos/sticky) ═══
+  const revealIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('active');
+        revealIO.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+  document.querySelectorAll('.section, .positioning, .closing, .pre-closing').forEach(el => revealIO.observe(el));
+
+  const photoIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('active');
+        photoIO.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.22 });
+  document.querySelectorAll('.photo-block').forEach(el => photoIO.observe(el));
+
+  // Academic cards con stagger
+  const academicIO = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        document.querySelectorAll('.academic-card').forEach((c, i) =>
+          setTimeout(() => c.classList.add('visible'), i * 100)
+        );
+        obs.disconnect();
+      }
+    });
+  }, { threshold: 0.15 });
+  const acadSection = document.getElementById('academicSection');
+  if(acadSection) academicIO.observe(acadSection);
+
+  // Sticky CTA: aparece cuando el hero sale del viewport
   const stickyCta = document.getElementById('stickyCta');
-  function updateSticky() {
-    const heroBottom = document.querySelector('.hero').getBoundingClientRect().bottom;
-    stickyCta.classList.toggle('visible', heroBottom < 0);
-  }
+  const heroEl = document.querySelector('.hero');
+  const stickyIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      stickyCta.classList.toggle('visible', !entry.isIntersecting);
+    });
+  }, { threshold: 0, rootMargin: '0px 0px -100% 0px' });
+  stickyIO.observe(heroEl);
 
+  // Scroll listener queda solo para story (progress continuo) + background
   let ticking = false;
   window.addEventListener('scroll', () => {
     if (!ticking) {
       requestAnimationFrame(() => {
-        updateStory();
-        updateSections();
-        updateBackground();
-        updateSticky();
+        updateStory(); updateBackground(); updateProgressBar(); updateParallax();
         ticking = false;
       });
       ticking = true;
@@ -841,20 +1010,28 @@
   }, { passive: true });
 
   updateStory();
-  updateSections();
+  updateProgressBar();
+  updateParallax();
 
+  window.addEventListener('resize', () => {
+    updateProgressBar();
+    updateParallax();
+  }, { passive: true });
+
+  // ─── DIAGNÓSTICO ───
   let answers = {};
+  let diagResult = { title: '', text: '' };
 
   function selectOption(el, step, value) {
     const stepEl = document.getElementById('step' + step);
     stepEl.querySelectorAll('.diag-option').forEach(o => o.classList.remove('selected'));
     el.classList.add('selected');
     answers[step] = value;
+    trackEvent('diag_answer', { step: step, value: value });
     setTimeout(() => {
       if (step < 3) {
         stepEl.classList.remove('active');
-        const next = document.getElementById('step' + (step + 1));
-        next.classList.add('active');
+        document.getElementById('step' + (step + 1)).classList.add('active');
         const dots = document.querySelectorAll('.diag-dot');
         dots.forEach((d, i) => {
           d.classList.remove('done', 'current');
@@ -870,83 +1047,199 @@
   function showResult() {
     document.getElementById('step3').classList.remove('active');
     document.querySelectorAll('.diag-dot').forEach(d => d.classList.add('done'));
-    const result = document.getElementById('diagResult');
-    result.classList.add('show');
+    document.getElementById('diagResult').classList.add('show');
     const friction = answers[1];
     const urgency  = answers[3];
-    let title = '';
-    let text  = '';
-    if (friction === 'inventario') {
-      title = 'Tu inventario está controlando tu operación, no al revés.';
-      text  = 'El desbalance de inventario es síntoma de un sistema de planificación mal calibrado. Generalmente hay tres causas raíz: forecast impreciso, lead times no gestionados y falta de políticas de reorden por segmento. Se resuelve con estructura, no con más stock.';
-    } else if (friction === 'proceso') {
-      title = 'Hay work en tu operación que nadie debería estar haciendo.';
-      text  = 'El trabajo que no agrega valor se acumula en capas. Aprobaciones innecesarias, retrabajo, handoffs sin dueño. Un mapeo de valor honesto revela dónde está el desperdicio real. El objetivo no es ahorrar tiempo: es liberar capacidad para lo que importa.';
-    } else if (friction === 'datos') {
-      title = 'Sin visibilidad confiable, las decisiones son intuición disfrazada.';
-      text  = 'Los datos existen en casi todas las empresas. El problema es que están fragmentados, desactualizados o nadie confía en ellos. La solución no es más tecnología: es estandarizar la definición de los KPIs que importan y hacerlos accesibles en tiempo real.';
-    } else {
-      title = 'El costo operativo alto tiene una causa sistémica, no puntual.';
-      text  = 'Reducir costos operativos de forma sostenible requiere atacar la estructura del gasto, no el presupuesto. Significa entender qué actividades generan valor y cuáles son mantenimiento de ineficiencia. El ahorro real viene de rediseño, no de recortes.';
+    const map = {
+      inventario: {
+        title: 'Tu inventario está controlando tu operación, no al revés.',
+        text:  'El desbalance de inventario es síntoma de un sistema de planificación mal calibrado. Causas raíz: forecast impreciso, lead times no gestionados y políticas de reorden inexistentes por segmento. Se resuelve con estructura, no con más stock.',
+      },
+      proceso: {
+        title: 'Hay trabajo en tu operación que nadie debería estar haciendo.',
+        text:  'El trabajo que no agrega valor se acumula en capas. Aprobaciones innecesarias, retrabajo, handoffs sin dueño. El objetivo no es ahorrar tiempo: es liberar capacidad para lo que importa.',
+      },
+      datos: {
+        title: 'Sin visibilidad confiable, las decisiones son intuición disfrazada.',
+        text:  'Los datos existen en casi todas las empresas. El problema es que están fragmentados, desactualizados o nadie confía en ellos. La solución no es más tecnología: es estandarizar los KPIs que importan.',
+      },
+      costo: {
+        title: 'El costo operativo alto tiene una causa sistémica, no puntual.',
+        text:  'Reducir costos operativos de forma sostenible requiere atacar la estructura del gasto, no el presupuesto. El ahorro real viene de rediseño, no de recortes.',
+      },
+    };
+    const entry = map[friction] || map['costo'];
+    diagResult.title = entry.title;
+    diagResult.text  = entry.text + (urgency === 'critico'
+      ? '\n\nDado que esto está afectando resultados hoy, lo ideal es una conversación directa esta semana.'
+      : '');
+    document.getElementById('resultTitle').textContent = diagResult.title;
+    document.getElementById('resultText').textContent  = diagResult.text;
+    trackEvent('diag_completed', { friction: friction, urgency: urgency });
+  }
+
+  // ═══ [#14] VALIDACIÓN EMAIL VISIBLE (reemplaza alerts) ═══
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function setStatus(statusEl, msg, state){
+    statusEl.textContent = msg || '';
+    if(state) statusEl.dataset.state = state; else delete statusEl.dataset.state;
+  }
+
+  // ─── LEAD DIAGNÓSTICO ───
+  function sendDiagnosticLead() {
+    const input = document.getElementById('diagEmailInput');
+    const email = input.value.trim();
+    const btn   = document.querySelector('.diag-lead-btn');
+    const status = document.getElementById('diagEmailStatus');
+
+    // [#13] honeypot
+    if(document.getElementById('diagHp').value){
+      setStatus(status, 'Enviado ✓', 'success'); return;
     }
-    if (urgency === 'critico') {
-      text += '\n\nDado que esto está afectando resultados hoy, lo ideal es una conversación directa esta semana para evaluar qué tan profundo es el problema.';
+
+    // [#14] validación visible
+    if (!emailRegex.test(email)) {
+      input.setAttribute('aria-invalid','true');
+      setStatus(status, 'Ingresa un correo válido.', 'error');
+      input.focus();
+      return;
     }
-    document.getElementById('resultTitle').textContent = title;
-    document.getElementById('resultText').textContent  = text;
+    input.removeAttribute('aria-invalid');
+    setStatus(status, '');
+
+    btn.textContent = 'Enviando...';
+    btn.style.opacity = '.6';
+    emailjs.send("service_gabf62x", "template_0u8kkfn", {
+      to_email: email,
+      subject:  'Tu diagnóstico operativo — José Armando',
+      message:  diagResult.title + '\n\n' + diagResult.text,
+    }).then(() => {
+      btn.textContent   = 'Enviado ✓';
+      btn.style.opacity = '1';
+      btn.style.background = '#2a5a2a';
+      btn.style.color = '#6aaf6a';
+      setStatus(status, 'Revisa tu bandeja en unos segundos.', 'success');
+      trackEvent('diag_email_sent', { domain: email.split('@')[1] || 'unknown' });
+    }).catch(() => {
+      btn.textContent   = 'Error';
+      btn.style.opacity = '1';
+      setStatus(status, 'No se pudo enviar. Intenta de nuevo.', 'error');
+    });
   }
 
   function resetDiag() {
-    answers = {};
+    answers = {}; diagResult = { title: '', text: '' };
     document.querySelectorAll('.diag-step').forEach(s => s.classList.remove('active'));
     document.getElementById('diagResult').classList.remove('show');
     document.getElementById('step1').classList.add('active');
     document.querySelectorAll('.diag-dot').forEach((d, i) => {
-      d.classList.remove('done', 'current');
+      d.classList.remove('done','current');
       if (i === 0) d.classList.add('current');
     });
     document.querySelectorAll('.diag-option').forEach(o => o.classList.remove('selected'));
+    const btn = document.querySelector('.diag-lead-btn');
+    btn.textContent = 'Enviar →'; btn.style.opacity = '1';
+    btn.style.background = ''; btn.style.color = '';
+    document.getElementById('diagEmailInput').value = '';
+    setStatus(document.getElementById('diagEmailStatus'), '');
   }
 
+  // ─── EMAIL CV ───
   function sendCV() {
-    const email = document.getElementById("emailInput").value;
+    const input = document.getElementById("emailInput");
+    const email = input.value.trim();
     const btn   = document.getElementById("sendBtn");
-    if (!email) { alert("Ingresa tu correo"); return; }
-    btn.innerText     = "Enviando...";
-    btn.style.opacity = ".6";
+    const status = document.getElementById('cvEmailStatus');
+
+    // [#13] honeypot
+    if(document.getElementById('cvHp').value){
+      setStatus(status, 'Enviado 🚀', 'success'); return;
+    }
+
+    // [#14] validación visible (reemplaza alert)
+    if (!emailRegex.test(email)) {
+      input.setAttribute('aria-invalid','true');
+      setStatus(status, 'Ingresa un correo válido.', 'error');
+      input.focus();
+      return;
+    }
+    input.removeAttribute('aria-invalid');
+    setStatus(status, '');
+
+    btn.innerText = "Enviando..."; btn.style.opacity = ".6";
     emailjs.send("service_gabf62x", "template_0u8kkfn", { to_email: email })
       .then(() => {
-        btn.innerText         = "Enviado 🚀";
-        btn.style.borderColor = "#2a6a2a";
-        btn.style.color       = "#6aaf6a";
+        btn.innerText = "Enviado 🚀"; btn.style.borderColor = "#2a6a2a"; btn.style.color = "#6aaf6a";
+        setStatus(status, 'Revisa tu bandeja en unos segundos.', 'success');
+        trackEvent('cv_email_sent', { domain: email.split('@')[1] || 'unknown' });
         setTimeout(() => {
-          btn.innerText         = "Enviar CV";
-          btn.style.opacity     = "1";
-          btn.style.borderColor = "";
-          btn.style.color       = "";
+          btn.innerText = "Enviar CV"; btn.style.opacity = "1";
+          btn.style.borderColor = ""; btn.style.color = "";
         }, 2500);
       })
       .catch(() => {
-        btn.innerText     = "Error — intenta de nuevo";
-        btn.style.opacity = "1";
+        btn.innerText = "Error — intenta de nuevo"; btn.style.opacity = "1";
+        setStatus(status, 'No se pudo enviar. Intenta de nuevo.', 'error');
       });
   }
 
+  // Limpia el error de email al escribir
+  document.getElementById('emailInput').addEventListener('input', function(){
+    this.removeAttribute('aria-invalid');
+    const s = document.getElementById('cvEmailStatus');
+    if(s.dataset.state === 'error') setStatus(s, '');
+  });
+  document.getElementById('diagEmailInput').addEventListener('input', function(){
+    this.removeAttribute('aria-invalid');
+    const s = document.getElementById('diagEmailStatus');
+    if(s.dataset.state === 'error') setStatus(s, '');
+  });
+
+  // ─── [#9] CV MODAL (dialog nativo: ESC, focus-trap, scroll-lock gratis) ───
+  const cvModalEl = document.getElementById('cvModal');
   function openCV() {
-    const modal = document.getElementById('cvModal');
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-    document.addEventListener('keydown', function escHandler(e) {
-      if (e.key === 'Escape') {
-        closeCV();
-        document.removeEventListener('keydown', escHandler);
-      }
-    });
+    if(typeof cvModalEl.showModal === 'function'){
+      cvModalEl.showModal();
+    } else {
+      // Fallback por si el navegador no soporta <dialog>
+      cvModalEl.setAttribute('open','');
+      cvModalEl.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    trackEvent('cv_modal_open');
   }
   function closeCV() {
-    document.getElementById('cvModal').style.display = 'none';
-    document.body.style.overflow = 'auto';
+    if(typeof cvModalEl.close === 'function' && cvModalEl.open){
+      cvModalEl.close();
+    } else {
+      cvModalEl.removeAttribute('open');
+      cvModalEl.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
   }
+  // Cerrar clickeando el backdrop
+  cvModalEl.addEventListener('click', (e) => {
+    if(e.target === cvModalEl) closeCV();
+  });
+</script>
+  <script>
+// 🎯 NFC ENTRY ANIMATION
+const isNFC = new URLSearchParams(window.location.search).get("ref") === "nfc";
+
+if (isNFC) {
+  document.body.classList.add("nfc-entry");
+
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      document.body.classList.add("loaded");
+    }, 1200);
+  });
+
+} else {
+  window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+  });
+}
 </script>
 </body>
 </html>
